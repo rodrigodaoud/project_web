@@ -12,15 +12,20 @@
         <img src="../images/logo.png">
       </div>
 
-      <div class="nav-bar">
-          <% if (user) { %>
+      <% if (user) { %>
+        <div class="nav-bar">
+          <div class="user-photo"><!-- here goes the profile picture --></div>
+          <div class="user-name">
             <h2><%= user.username %></h2>
+          </div>
+          <div class="logout-btn">
             <form action="/auth/logout" method="post">
               <button>sign out</button>
-          </form>
-          <% } %>
-      </div>
-
+            </form>
+          </div>
+        </div>
+        <% } %>
+      
     </nav>
     <%- body -%>
   </body>
