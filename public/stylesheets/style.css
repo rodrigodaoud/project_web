@@ -1,8 +1,43 @@
+div, nav{
+  border: 1px solid red;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
 a {
   color: #00B7FF;
+}
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* ---- typography ---- */
+
+.welcome-text{
+  text-align: center;
+}
+
+
+/* ---- layout ---- */
+
+.nav-container{
+  display: flex;
+  height: 120px;
+  justify-content: space-around;
+}
+
+
+
+/* ---- components ---- */
+
+.nav-logo img{
+  width: 120px;
+  height: 120px;
 }
