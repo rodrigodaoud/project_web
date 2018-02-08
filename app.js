@@ -1,11 +1,13 @@
-var express          = require('express');
-var path             = require('path');
-var favicon          = require('serve-favicon');
-var logger           = require('morgan');
-var cookieParser     = require('cookie-parser');
-var bodyParser       = require('body-parser');
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const expressLayouts = require('express-ejs-layouts');
-const mongoose       = require('mongoose'); 
+const mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var auth = require('./routes/auth');
@@ -26,12 +28,31 @@ app.set('view engine', 'ejs');
 app.set('layout', 'layouts/layout');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// SESSION
+app.use(session({
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+  secret: 'some-string',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
+
+app.use(function (req, res, next) {
+  app.locals.user = req.session.currentUser;
+  next();
+});
 
 app.use('/', index);
 app.use('/auth', auth);
