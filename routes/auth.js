@@ -96,4 +96,5 @@ router.post('/logout', (req, res, next) => {
   req.session.currentUser = null;
   res.redirect('/auth/login');
 });
+
 module.exports = router;

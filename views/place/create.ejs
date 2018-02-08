@@ -1,0 +1,18 @@
+
+<form id="form" action="/places" method="POST">
+    
+    <label for="name">name</label>
+    <input type="text" name="name">
+
+    <label for="type">type</label>
+    <input type="radio" name="type">
+
+    <label for="address">address</label>
+    <input type="text" name ='address'>
+
+    <% if (typeof(errorMessage) != "undefined") { %>
+        <div class="error-message"><%= errorMessage %></div>
+      <% } %>
+
+    <button>SUBMIT</button>
+</form>

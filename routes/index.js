@@ -12,4 +12,13 @@ router.get('/', (req, res, next) => {
     res.redirect('/auth/login');
   }
 });
+
+router.get('/places', (req, res, next) => {
+  if (req.session.currentUser) {
+    let userInfo = { info: req.session.currentUser};
+    res.render('place/create', userInfo);
+  } else {
+    res.redirect('/auth/login');
+  }
+});
 module.exports = router;
