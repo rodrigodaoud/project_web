@@ -9,7 +9,7 @@
     <nav class="nav-container">
 
       <div class="nav-logo">
-        <img src="../images/logo.png">
+        <h2>Spot Finder</h2>
       </div>
 
       <% if (user) { %>
@@ -24,8 +24,33 @@
             </form>
           </div>
         </div>
-        <% } %>
-      
+      <% } %>
+
+      <% if(!user) { %>
+        <div class="login-container">
+
+            <div class="login-form">
+              <form action="/auth/login" method="POST">
+                    <label for="username">Username</label>
+                    <input type="text" name="username">
+
+                    <label for="password">Password</label>
+                    <input type="password" name="password">
+
+                  <% if (typeof message != "undefined") { %>
+                    <div class="error-message"><%= message %></div>
+                  <% } %>
+                  
+                    <input id="login-btn" type="submit" value="Log In">
+
+                  <div class="signup-login">
+                    <p>Don't have an account? <a href="/auth/signup">Signup</a></p>
+                  </div>
+              </form>
+            </div>
+          
+          </div>
+      <% } %>
     </nav>
     <%- body -%>
   </body>
