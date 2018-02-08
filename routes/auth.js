@@ -7,7 +7,12 @@ const bcryptSalt = 10;
 
 // GET AND POST LOGIN PAGE
 router.get('/login', function (req, res, next) {
-  res.render('auth/login');
+  if (!req.session.currentUser) {
+    let userInfo = {info: null};
+    res.render('auth/login', userInfo);
+  } else {
+    res.redirect('/');
+  }
 });
 
 router.post('/login', (req, res, next) => {
@@ -42,7 +47,8 @@ router.post('/login', (req, res, next) => {
 // GET AND POST SIGNUP PAGE
 router.get('/signup', (req, res, next) => {
   if (!req.session.currentUser) {
-    res.render('auth/signup');
+    let userInfo = {info: null};
+    res.render('auth/signup', userInfo);
   } else {
     res.redirect('/');
   }
@@ -61,30 +67,33 @@ router.post('/signup', (req, res, next) => {
     return;
   }
 
-  User.findOne({ 'username': username },
-    'username',
-    (err, user) => {
-      if (user !== null) {
-        res.render('auth/signup', {
-          errorMessage: 'The username already exists'
-        });
-        return;
-      }
-
-      var salt = bcrypt.genSaltSync(bcryptSalt);
-      var hashPass = bcrypt.hashSync(password, salt);
-
-      var newUser = User({
-        username,
-        password: hashPass,
-        email,
-        name
+  User.findOne({ 'username': username }, 'username', (err, user) => {
+    if (user !== null) {
+      res.render('auth/signup', {
+        errorMessage: 'The username already exists'
       });
+      return;
+    }
 
-      newUser.save((err) => {
-        res.redirect('/');
-      });
+    var salt = bcrypt.genSaltSync(bcryptSalt);
+    var hashPass = bcrypt.hashSync(password, salt);
+
+    var newUser = User({
+      username,
+      password: hashPass,
+      email,
+      name
     });
+
+    newUser.save((err) => {
+      res.redirect('/');
+    });
+  });
 });
 
+// POST LOGOUT
+router.post('/logout', (req, res, next) => {
+  req.session.currentUser = null;
+  res.redirect('/auth/login');
+});
 module.exports = router;

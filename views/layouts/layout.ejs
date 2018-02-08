@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Ironhack Bureau Investigation</title>
+    <title>Spot Finder</title>
     <link rel="stylesheet" href="../stylesheets/style.css">
   </head>
   <body>
@@ -13,10 +13,14 @@
       </div>
 
       <div class="nav-bar">
-        <ul>
-          <li><a href="/auth/login">Login</a></li>
-          <li><a href="/auth/signup">Sign up</a></li>
-        </ul>
+          <% if (!info) { %>
+            <ul>
+              <div class="">
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/signup">Sign up</a></li>
+              </div>
+            </ul>
+            <% } %>
       </div>
 
     </nav>

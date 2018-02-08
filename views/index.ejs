@@ -1,5 +1,9 @@
 
 
-<div class="welcome-text">
-<h1>Welcome <%= info.username %></h1>
+<div class="welcome-text"></div>
+    <h1>you are logged in as @<%= info.username %></h1>
 </div>
+
+<form action="/auth/logout" method="post">
+    <button>sign out</button>
+</form>
