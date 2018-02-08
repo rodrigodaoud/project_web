@@ -8,8 +8,7 @@ const bcryptSalt = 10;
 // GET AND POST LOGIN PAGE
 router.get('/login', function (req, res, next) {
   if (!req.session.currentUser) {
-    let userInfo = {info: null};
-    res.render('auth/login', userInfo);
+    res.render('auth/login');
   } else {
     res.redirect('/');
   }
@@ -47,8 +46,7 @@ router.post('/login', (req, res, next) => {
 // GET AND POST SIGNUP PAGE
 router.get('/signup', (req, res, next) => {
   if (!req.session.currentUser) {
-    let userInfo = {info: null};
-    res.render('auth/signup', userInfo);
+    res.render('auth/signup');
   } else {
     res.redirect('/');
   }

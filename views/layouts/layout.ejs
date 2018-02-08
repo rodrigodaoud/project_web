@@ -13,17 +13,11 @@
       </div>
 
       <div class="nav-bar">
-          <% if (!info) { %>
-            <ul>
-              <div class="">
-                <li><a href="/auth/login">Login</a></li>
-                <li><a href="/auth/signup">Sign up</a></li>
-              </div>
-            </ul>
-          <% } %>
-
-          <% if (info) { %>
-            <h2><%= info.username %></h2>
+          <% if (user) { %>
+            <h2><%= user.username %></h2>
+            <form action="/auth/logout" method="post">
+              <button>sign out</button>
+          </form>
           <% } %>
       </div>
 
