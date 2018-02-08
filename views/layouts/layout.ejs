@@ -20,7 +20,11 @@
                 <li><a href="/auth/signup">Sign up</a></li>
               </div>
             </ul>
-            <% } %>
+          <% } %>
+
+          <% if (info) { %>
+            <h2><%= info.username %></h2>
+          <% } %>
       </div>
 
     </nav>
