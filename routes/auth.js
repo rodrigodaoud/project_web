@@ -98,8 +98,12 @@ router.post('/signup', (req, res, next) => {
 
 // POST LOGOUT
 router.post('/logout', (req, res, next) => {
-  req.session.currentUser = null;
-  res.redirect('/auth/login');
+  if (req.session.currentUser) {
+    req.session.currentUser = null;
+    res.redirect('/auth/login');
+  } else {
+    res.redirect('/auth/login');
+  }
 });
 
 module.exports = router;
