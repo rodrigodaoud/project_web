@@ -104,9 +104,13 @@ html {
   padding: 10px;
   height: 50px;
   text-align: center;
+  display: none;
 }
 
 .filters {
   padding: 10px;
   text-align: center;
+}
+.show{
+  display: block;
 }

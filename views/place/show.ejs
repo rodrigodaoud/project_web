@@ -1,24 +1,29 @@
-<div>
-    <p class="filters">filter by: 
 
-        <input type="radio" id="skate"
-               name="type" value="skate">
-        <label for="skate">skate</label>
-        <input type="radio" id="snowboard"
-               name="type" value="snowboard">
-        <label for="snowboard">snowboard</label>
-        <input type="radio" id="surf"
-               name="type" value="surf">
-        <label for="surf">surf</label>
-    </p>
+<div class="filter-bar">
+<ul>
+  <li>
+    <button class="btn active" onclick="filterSelection('all')">Show All</button>
+  </li>
+
+  <li>
+    <button class="btn" onclick="filterSelection('skate')">Skate</button>
+  </li>
+
+  <li>
+    <button class="btn" onclick="filterSelection('snowboard')">Snowboard</button>
+  </li>
+
+  <li>
+    <button class="btn" onclick="filterSelection('surf')">Surf</button>
+  </li>
+</ul>
 </div>
 
-<h1>hola</h1>
+  <% places.forEach((place) => { %>
+    <div class="place <%= place.type %>">
+      <%= place.name %> - <%= place.type %>
+    </div>
+  <%  }) %>
 
-
-        <% places.forEach((place) => { %>
-          <div class="place">
-            <%= place.name %> - <%= place.type %>
-          </div>
-        <%  }) %>
+  <script type="text/javascript" src="/javascripts/filters.js"></script>
       
