@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer({ dest: 'public/uploads/' });
 
 const User = require('../models/user');
 const Place = require('../models/place');
@@ -35,10 +37,14 @@ router.get('/places', (req, res, next) => {
   }
 });
 
-router.post('/places', (req, res, next) => {
+router.post('/places', upload.single('file'), (req, res, next) => {
   const name = req.body.name;
   const type = req.body.type;
   const address = req.body.address;
+  const displayPicture = {
+    picPath: `/uploads/${req.file.filename}`,
+    picName: req.file.picName
+  };
 
   if (name === '' || type === '' || address === '') {
     res.render('place/create', {
@@ -63,12 +69,13 @@ router.post('/places', (req, res, next) => {
       const newPlace = Place({
         name,
         type,
-        address
+        address,
+        displayPicture
       });
 
       newPlace.save((err) => {
         if (err) {
-          next(err);
+          return next(err);
         }
         res.redirect('/places');
       });
