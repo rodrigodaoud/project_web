@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const placeSchema = new Schema({
- name: String,
- address: String,
- type: String,
+  name: String,
+  address: String,
+  type: String
 }, {
- timestamps: {
-   createdAt: 'created_at',
-   updatedAt: 'updated_at'
- }
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
+  }
 });
 
-const User = mongoose.model('User', userSchema);
+const Place = mongoose.model('Place', placeSchema);
 
-module.exports = User;
+module.exports = Place;

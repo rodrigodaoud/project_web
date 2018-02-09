@@ -1,11 +1,20 @@
 
-<form id="form" action="/places" method="POST">
+<form id="form" action="/places/show" method="POST">
     
     <label for="name">name</label>
     <input type="text" name="name">
 
-    <label for="type">type</label>
-    <input type="radio" name="type">
+    <div>
+            <input type="radio" id="skate"
+                   name="type" value="skate">
+            <label for="skate">skate</label>
+            <input type="radio" id="snowboard"
+                   name="type" value="snowboard">
+            <label for="snowboard">snowboard</label>
+            <input type="radio" id="surf"
+                   name="type" value="surf">
+            <label for="surf">surf</label>
+    </div>
 
     <label for="address">address</label>
     <input type="text" name ='address'>
