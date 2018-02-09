@@ -21,7 +21,7 @@ router.get('/places/create', (req, res, next) => {
   }
 });
 
-router.get('/places/show', (req, res, next) => {
+router.get('/places', (req, res, next) => {
   // const filter = req.body.type;
   if (req.session.currentUser) {
     Place.find({}, (err, places) => {
@@ -35,7 +35,7 @@ router.get('/places/show', (req, res, next) => {
   }
 });
 
-router.post('/places/show', (req, res, next) => {
+router.post('/places', (req, res, next) => {
   // const productId = req.query.id;
   let newPlace = Place({
     name: req.body.name,
@@ -46,7 +46,7 @@ router.post('/places/show', (req, res, next) => {
     if (err) {
       next(err);
     }
-    res.redirect('/places/show');
+    res.redirect('/places');
   });
 });
 
