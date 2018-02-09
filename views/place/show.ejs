@@ -23,9 +23,11 @@
 
 <% places.forEach((place) => { %>
   <div class="place <%= place.type %>">
-    <p>Address: <%= place.address %></p>
-    <p>Name: <%= place.name %></p>
-    <p>Type: <%= place.type %></p>
+    <p>
+      Address: <%= place.address %><br>
+      Name:    <%= place.name %><br>
+      Type:    <%= place.type %>
+    </p>
   </div>
   <%  }) %>
   

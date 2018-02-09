@@ -49,7 +49,7 @@ router.post('/places', (req, res, next) => {
 
   Place.findOne({ 'name': name },
     'name',
-    (err, user) => {
+    (err, name) => {
       if (err) {
         return next(err);
       }
@@ -65,6 +65,7 @@ router.post('/places', (req, res, next) => {
         type,
         address
       });
+
       newPlace.save((err) => {
         if (err) {
           next(err);
