@@ -1,4 +1,6 @@
 
+<div class="container">
+
 <div class="filter-bar">
 <ul>
   <li>
@@ -19,11 +21,14 @@
 </ul>
 </div>
 
-  <% places.forEach((place) => { %>
-    <div class="place <%= place.type %>">
-      <%= place.name %> - <%= place.type %>
-    </div>
+<% places.forEach((place) => { %>
+  <div class="place <%= place.type %>">
+    <p>Address: <%= place.address %></p>
+    <p>Name: <%= place.name %></p>
+    <p>Type: <%= place.type %></p>
+  </div>
   <%  }) %>
-
+  
+</div>
+  
   <script type="text/javascript" src="/javascripts/filters.js"></script>
-      
