@@ -9,7 +9,7 @@ const bcryptSalt = 10;
 // GET AND POST LOGIN PAGE
 router.get('/index', function (req, res, next) {
   if (req.session.currentUser) {
-    res.redirect('/');
+    res.redirect('/places');
   } else {
     res.render('index');
   }
@@ -35,7 +35,7 @@ router.post('/index', (req, res, next) => {
     if (bcrypt.compareSync(password, user.password)) {
       // Save the login in the session!
       req.session.currentUser = user;
-      res.redirect('/');
+      res.redirect('/places');
     } else {
       res.render('index', {
         errorMessage: 'incorrect password'
