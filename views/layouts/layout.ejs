@@ -9,7 +9,9 @@
     <nav class="nav-container">
 
       <div class="nav-logo">
-        <h2>Spot Finder</h2>
+        <a href="/places">
+          <h2>Spot Finder</h2>
+        </a>  
       </div>
 
       <% if (user) { %>
@@ -25,9 +27,6 @@
           </div>
         </div>
 
-        <div>
-          <a href="/places/create">create a place</a>
-        </div>
       <% } %>
 
       <% if(!user) { %>
@@ -56,6 +55,13 @@
           </div>
       <% } %>
     </nav>
+
+    <% if(user) { %>
+      <div>
+        <a href="/places/create">create a place</a>
+      </div>
+    <% } %>
+
     <%- body -%>
   </body>
 </html>
