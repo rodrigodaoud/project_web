@@ -7,8 +7,7 @@ const Place = require('../models/place');
 /* GET home page. */
 router.get('/', (req, res, next) => {
   if (req.session.currentUser) {
-    let userInfo = { info: req.session.currentUser};
-    res.render('index', userInfo);
+    res.render('index');
   } else {
     res.redirect('/auth/login');
   }
@@ -23,10 +22,13 @@ router.get('/places/create', (req, res, next) => {
 });
 
 router.get('/places/show', (req, res, next) => {
+  // const filter = req.body.type;
   if (req.session.currentUser) {
     Place.find({}, (err, places) => {
-      if (err) { return next(err); }
-      res.render('place/show', { places: places });
+      if (err) {
+        return next(err);
+      }
+      res.render('place/show', {places: places});
     });
   } else {
     res.redirect('/auth/login');
