@@ -91,7 +91,7 @@ router.get('/places/:id/delete', (req, res, next) => {
     active: false };
   Place.findByIdAndUpdate(
     placeId,
-updatedPlace    (err, places) => {
+updatedPlace ,(err, places) => {
       if (err) {
         return next(err);
       }

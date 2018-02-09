@@ -30,20 +30,28 @@ html {
   font-size: 34px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+.place-info h3{
+  margin-right: 10px;
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.place-info p{
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
 
 /* ---- layout ---- */
 .container{
-  margin: 0 60px;
+  margin: 0 120px;
 }
 
 .nav-container{
   display: flex;
   height: 120px;
   justify-content: space-between;
-  margin-bottom: 50px;
   padding: 0px 50px 0px 50px;
-  background-color: rgb(53, 74, 163);
+  background-color: #9FB1BC;
 }
 
 /* -------     components    ------- */
@@ -76,7 +84,7 @@ html {
   text-decoration: none;
 }
 
-/* -- login form -- */
+/* -- Login Form -- */
 .login-container{
   display: flex;
   justify-content: center;
@@ -105,21 +113,23 @@ html {
   border-style: none;
 }
 
-/* -------  places   -------- */
-.place {
-  padding: 10px;
-  height: 50px;
-  text-align: center;
-  display: none;
+/* -- Filter Bar -- */
+.filter-bar{
+  margin-bottom: 20px;
+  background-color: #6E8898;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 .filter-bar ul{
   text-align: center;
+  margin: 0;
 }
 .filter-bar li{
   display: inline-block;
 }
 .filter-bar button{
   text-align: center;
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 30px;
   border: none;
@@ -133,6 +143,37 @@ html {
 .filters {
   padding: 10px;
   text-align: center;
+}
+
+/* -------  Places   -------- */
+.place{
+  text-align: center;
+  display: none;
+}
+.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.place-ctn{
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid red;
+}
+.place-img{
+  width: 240px;
+  height: 240px;
+}
+.place-img img{
+  width: 100%;
+  height: 100%;
+}
+.place-info{
+  width: 500px;
+  height: 100%;
 }
 .show{
   display: block;
