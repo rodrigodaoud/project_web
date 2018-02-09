@@ -5,6 +5,7 @@ const placeSchema = new Schema({
   name: String,
   address: String,
   type: String,
+  active: {type: Boolean, default: true},
   displayPicture: {
     picPath: {
       type: String,
