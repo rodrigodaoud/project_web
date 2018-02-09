@@ -7,27 +7,27 @@ const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 
 // GET AND POST LOGIN PAGE
-router.get('/login', function (req, res, next) {
+router.get('/index', function (req, res, next) {
   if (req.session.currentUser) {
     res.redirect('/');
   } else {
-    res.render('auth/login');
+    res.render('index');
   }
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/index', (req, res, next) => {
   const username = req.body.username;
   let password = req.body.password;
 
   if (username === '' || password === '') {
-    res.render('auth/login', {
+    res.render('index', {
       errorMessage: 'enter your username and password to login'
     });
     return;
   }
   User.findOne({ 'username': username }, (err, user) => {
     if (err || !user) {
-      res.render('auth/login', {
+      res.render('index', {
         errorMessage: 'the username does not exist'
       });
       return;
@@ -37,7 +37,7 @@ router.post('/login', (req, res, next) => {
       req.session.currentUser = user;
       res.redirect('/');
     } else {
-      res.render('auth/login', {
+      res.render('index', {
         errorMessage: 'incorrect password'
       });
     }
@@ -100,9 +100,9 @@ router.post('/signup', (req, res, next) => {
 router.post('/logout', (req, res, next) => {
   if (req.session.currentUser) {
     req.session.currentUser = null;
-    res.redirect('/auth/login');
+    res.redirect('/index');
   } else {
-    res.redirect('/auth/login');
+    res.redirect('/index');
   }
 });
 

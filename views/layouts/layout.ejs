@@ -22,7 +22,7 @@
             <a href="/places/create">create a place</a>
           </div>
           <div class="logout-btn">
-            <form action="/auth/logout" method="post">
+            <form action="/logout" method="post">
               <button>sign out</button>
             </form>
           </div>
@@ -33,15 +33,15 @@
         <div class="login-container">
 
             <div class="login-form">
-              <form action="/auth/login" method="POST">
+              <form action="/index" method="POST">
                     <label for="username">Username</label>
                     <input type="text" name="username">
 
                     <label for="password">Password</label>
                     <input type="password" name="password">
 
-                  <% if (typeof message != "undefined") { %>
-                    <div class="error-message"><%= message %></div>
+                  <% if (typeof errorMessage != "undefined") { %>
+                    <div class="error-message"><%= errorMessage %></div>
                   <% } %>
                   
                     <input id="login-btn" type="submit" value="Log In">

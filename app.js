@@ -52,7 +52,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', index);
-app.use('/auth', auth);
+app.use('/', auth);
 
 // -- 404 and error handler
 

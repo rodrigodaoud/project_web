@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
   if (req.session.currentUser) {
     res.render('index');
   } else {
-    res.redirect('/auth/login');
+    res.redirect('/index');
   }
 });
 
@@ -17,7 +17,7 @@ router.get('/places/create', (req, res, next) => {
   if (req.session.currentUser) {
     res.render('place/create');
   } else {
-    res.redirect('/auth/login');
+    res.redirect('/');
   }
 });
 
@@ -31,7 +31,7 @@ router.get('/places/show', (req, res, next) => {
       res.render('place/show', {places: places});
     });
   } else {
-    res.redirect('/auth/login');
+    res.redirect('/');
   }
 });
 
