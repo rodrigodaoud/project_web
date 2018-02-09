@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 const User = require('../models/user');
 
@@ -77,10 +77,10 @@ router.post('/signup', (req, res, next) => {
       return;
     }
 
-    var salt = bcrypt.genSaltSync(bcryptSalt);
-    var hashPass = bcrypt.hashSync(password, salt);
+    const salt = bcrypt.genSaltSync(bcryptSalt);
+    const hashPass = bcrypt.hashSync(password, salt);
 
-    var newUser = User({
+    const newUser = User({
       username,
       password: hashPass,
       email,

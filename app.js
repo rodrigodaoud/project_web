@@ -1,18 +1,18 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 
-var index = require('./routes/index');
-var auth = require('./routes/auth');
+const index = require('./routes/index');
+const auth = require('./routes/auth');
 
-var app = express();
+const app = express();
 
 // Mongoose connection
 mongoose.Promise = Promise;
