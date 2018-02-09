@@ -21,7 +21,7 @@ router.get('/places/create', (req, res, next) => {
   }
 });
 
-router.get('/places/show', (req, res, next) => {
+router.get('/places', (req, res, next) => {
   // const filter = req.body.type;
   if (req.session.currentUser) {
     Place.find({}, (err, places) => {
@@ -35,19 +35,43 @@ router.get('/places/show', (req, res, next) => {
   }
 });
 
-router.post('/places/show', (req, res, next) => {
-  // const productId = req.query.id;
-  let newPlace = Place({
-    name: req.body.name,
-    type: req.body.type,
-    address: req.body.address
-  });
-  newPlace.save((err) => {
-    if (err) {
-      next(err);
-    }
-    res.redirect('/places/show');
-  });
+router.post('/places', (req, res, next) => {
+  const name = req.body.name;
+  const type = req.body.type;
+  const address = req.body.address;
+
+  if (name === '' || type === '' || address === '') {
+    res.render('place/create', {
+      errorMessage: 'all fields are mandatory to create a new place'
+    });
+    return;
+  }
+
+  Place.findOne({ 'name': name },
+    'name',
+    (err, user) => {
+      if (err) {
+        return next(err);
+      }
+      if (name !== null) {
+        res.render('place/create', {
+          errorMessage: 'The place already exists'
+        });
+        return;
+      }
+
+      const newPlace = Place({
+        name,
+        type,
+        address
+      });
+      newPlace.save((err) => {
+        if (err) {
+          next(err);
+        }
+        res.redirect('/places');
+      });
+    });
 });
 
 module.exports = router;
