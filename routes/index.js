@@ -82,14 +82,17 @@ router.post('/places', upload.single('file'), (req, res, next) => {
     });
 });
 
-router.get('/places/:id/delete', (req, res, next) => {
+router.post('/places/:id/delete', (req, res, next) => {
   const placeId = req.params.id;
-  const updateStatusActive = {
+  const archivedPlace = {
+    name: req.params.name,
+    address: req.params.address,
+    type: req.params.type,
+    displayPicture: req.params.displayPicture,
     active: false };
   Place.findByIdAndUpdate(
     placeId,
-    updateStatusActive,
-    (err, places) => {
+    archivedPlace, (err, places) => {
       if (err) {
         return next(err);
       }
