@@ -26,7 +26,7 @@ router.get('/places/create', (req, res, next) => {
 router.get('/places', (req, res, next) => {
   // const filter = req.body.type;
   if (req.session.currentUser) {
-    Place.find({}, (err, places) => {
+    Place.find({'active': true}, (err, places) => {
       if (err) {
         return next(err);
       }
@@ -55,7 +55,7 @@ router.post('/places', upload.single('file'), (req, res, next) => {
 
   Place.findOne({ 'name': name },
     'name',
-    (err, name0) => {
+    (err, name) => {
       if (err) {
         return next(err);
       }
@@ -82,14 +82,11 @@ router.post('/places', upload.single('file'), (req, res, next) => {
     });
 });
 
-router.post('/places/:id/delete', (req, res, next) => {
+router.post('/places/:id/delete/', (req, res, next) => {
   const placeId = req.params.id;
   const archivedPlace = {
-    name: req.params.name,
-    address: req.params.address,
-    type: req.params.type,
-    displayPicture: req.params.displayPicture,
-    active: false };
+    active: false
+  };
   Place.findByIdAndUpdate(
     placeId,
     archivedPlace, (err, places) => {

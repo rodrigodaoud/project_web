@@ -27,7 +27,11 @@
       Address: <%= place.address %><br>
       Name:    <%= place.name %><br>
       Type:    <%= place.type %><br>
-      <form action="/places/<%= place.id %>/delete" method='post'><button>DELETE</button></form>
+
+      <form action="/places/<%= place.id %>/delete" method='post'>
+
+        <input type="submit" value="DELETE">
+      </form>
 
     </p>
     <img src="<%= place.displayPicture.picPath %>" alt="">
