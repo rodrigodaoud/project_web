@@ -21,10 +21,15 @@
             <h2><%= user.username %></h2>
           </div>
           <div class="logout-btn">
+            
+            <div class="create-btn">
+              <button><a href="/places/create">Create</a></button>
+            </div>
             <form action="/logout" method="post">
-              <button>sign out</button>
+              <button>Logout</button>
             </form>
           </div>
+          
         </div>
 
       <% } %>
@@ -55,12 +60,6 @@
           </div>
       <% } %>
     </nav>
-
-    <% if(user) { %>
-      <div>
-        <a href="/places/create">create a place</a>
-      </div>
-    <% } %>
 
     <%- body -%>
   </body>
