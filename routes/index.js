@@ -84,14 +84,12 @@ router.post('/places', upload.single('file'), (req, res, next) => {
 
 router.get('/places/:id/delete', (req, res, next) => {
   const placeId = req.params.id;
-  let updatedPlace = {
-    active: false
-  };
   const updateStatusActive = {
     active: false };
   Place.findByIdAndUpdate(
     placeId,
-updatedPlace    (err, places) => {
+    updateStatusActive,
+    (err, places) => {
       if (err) {
         return next(err);
       }
