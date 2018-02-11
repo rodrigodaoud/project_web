@@ -53,34 +53,48 @@ router.post('/places', upload.single('file'), (req, res, next) => {
     return;
   }
 
-  Place.findOne({ 'name': name },
-    'name',
-    (err, name) => {
-      if (err) {
-        return next(err);
-      }
-      if (name !== null) {
-        res.render('place/create', {
-          errorMessage: 'The place already exists'
-        });
-        return;
-      }
+  // Place.findOne({ 'name': name },
+  //   'name',
+  //   (err, name) => {
+  //     if (err) {
+  //       return next(err);
+  //     }
+  //     if (name !== null) {
+  //       res.render('place/create', {
+  //         errorMessage: 'The place already exists'
+  //       });
+  //       return;
+  //     }
 
-      const newPlace = Place({
-        name,
-        type,
-        address,
-        displayPicture
-      });
+  const newPlace = Place({
+    name,
+    type,
+    address,
+    displayPicture
+  });
 
-      newPlace.save((err) => {
-        if (err) {
-          return next(err);
-        }
-        res.redirect('/places');
-      });
-    });
+  newPlace.save((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/places');
+  });
+  // });
 });
+
+// router.get('/places/:id', (req, res, next) => {
+//   const placeId = req.params.id;
+//   if (req.session.currentUser) {
+//     Place.find({'active': true}, (err, places) => {
+//       if (err) {
+//         return next(err);
+//       }
+//       res.render('place/show', {places: places});
+//     });
+//   } else {
+//     res.redirect('/');
+//   }
+// })
 
 router.post('/places/:id/delete/', (req, res, next) => {
   const placeId = req.params.id;
