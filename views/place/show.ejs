@@ -22,13 +22,13 @@
 </div>
 
 <% places.forEach((place) => { %>
-  <div class="place <%= place.type %>">
+  <div class="place <%= places.type %>">
     <p>
       Address: <%= place.address %><br>
       Name:    <%= place.name %><br>
       Type:    <%= place.type %><br>
 
-      <a href="/places/more">View more</a>
+      <a href="/places/<%= place.id %>">View more</a>
 
       <form action="/places/<%= place.id %>/delete" method='post'>
 

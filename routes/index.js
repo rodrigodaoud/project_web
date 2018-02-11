@@ -84,17 +84,18 @@ router.post('/places', upload.single('file'), (req, res, next) => {
 
 // router.get('/places/:id', (req, res, next) => {
 //   const placeId = req.params.id;
+
 //   if (req.session.currentUser) {
-//     Place.find({'active': true}, (err, places) => {
+//     Place.find({placeId}, (err, places) => {
 //       if (err) {
 //         return next(err);
 //       }
-//       res.render('place/show', {places: places});
+//       res.render('place/more', {places: places});
 //     });
 //   } else {
 //     res.redirect('/');
 //   }
-// })
+// });
 
 router.post('/places/:id/delete/', (req, res, next) => {
   const placeId = req.params.id;
