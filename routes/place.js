@@ -1,4 +1,4 @@
-const express = require('express');
+  const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({ dest: 'public/uploads/' });
@@ -27,6 +27,35 @@ router.get('/places', (req, res, next) => {
     res.redirect('/');
   }
 });
+
+router.get('/places/more', (req, res, next) => {
+  const placeId = req.params.id;
+  if (req.session.currentUser) {
+    Place.find({placeId}, (err, places) => {
+      if (err) {
+        return next(err);
+      }
+      res.render('place/more', {places: places});
+    });
+  } else {
+    res.redirect('/');
+  }
+});
+
+// router.get('/places/:id', (req, res, next) => {
+//   const placeId = req.params.id;
+
+//   if (req.session.currentUser) {
+//     Place.find({placeId}, (err, places) => {
+//       if (err) {
+//         return next(err);
+//       }
+//       res.render('place/more', {places: places});
+//     });
+//   } else {
+//     res.redirect('/');
+//   }
+// });
 
 router.post('/places', upload.single('file'), (req, res, next) => {
   const createdBy = req.session.currentUser._id;
@@ -92,20 +121,5 @@ router.post('/places/:id/delete/', (req, res, next) => {
       res.redirect('/places');
     });
 });
-
-// router.get('/places/:id', (req, res, next) => {
-//   const placeId = req.params.id;
-
-//   if (req.session.currentUser) {
-//     Place.find({placeId}, (err, places) => {
-//       if (err) {
-//         return next(err);
-//       }
-//       res.render('place/more', {places: places});
-//     });
-//   } else {
-//     res.redirect('/');
-//   }
-// });
 
 module.exports = router;
