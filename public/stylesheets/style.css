@@ -103,6 +103,11 @@ body {
   margin-bottom: 100px;
 }
 
+.user-photo img {
+  height: 40px;
+  width: 40px;
+}
+
 
 /* -- Welcome Page -- */
 .img-welcome img{
