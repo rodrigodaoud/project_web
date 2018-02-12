@@ -16,53 +16,78 @@
 
       <% if (user) { %>
         <div class="nav-bar">
+
           <div class="user-photo">    
             <img src="<%= user.displayPicture.picPath %>" alt="" >
           </div>
+
           <div class="user-name">
             <h2><%= user.username %></h2>
           </div>
+
           <div class="logout-btn">
             
-            <div class="create-btn">
-              <button><a href="/places/create">Create</a></button>
-            </div>
-            <form action="/logout" method="post">
-              <button>Logout</button>
-            </form>
+          <div class="create-btn">
+            <button><a href="/places/create">Create</a></button>
+          </div>
+
+          <form action="/logout" method="post">
+            <button>Logout</button>
+          </form>
+
           </div>
           
         </div>
-
       <% } %>
 
       <% if(!user) { %>
         <div class="login-container">
 
-            <div class="login-form">
-              <form action="/index" method="POST">
-                    <label for="username">Username</label>
-                    <input type="text" name="username">
+          <div class="login-form">
+            <form action="/index" method="POST">
+              <label for="username">Username</label>
+              <input type="text" name="username">
 
-                    <label for="password">Password</label>
-                    <input type="password" name="password">
+              <label for="password">Password</label>
+              <input type="password" name="password">
 
-                  <% if (typeof errorMessage != "undefined") { %>
-                    <div class="error-message"><%= errorMessage %></div>
-                  <% } %>
+          <% if (typeof errorMessage != "undefined") { %>
+          <div class="error-message"><%= errorMessage %></div>
+          <% } %>
                   
-                    <input id="login-btn" type="submit" value="Log In">
+          <input id="login-btn" type="submit" value="Log In">
 
-                  <div class="signup-login">
-                    <p>Don't have an account? <a href="/signup">Signup</a></p>
-                  </div>
-              </form>
-            </div>
-          
+          <div class="signup-login">
+            <p>Don't have an account? <a href="/signup">Signup</a></p>
           </div>
+
+            </form>
+          </div>
+        </div>
       <% } %>
     </nav>
 
     <%- body -%>
+
+    <% if(!user) { %>
+      <div class="container">
+
+        <div class="img-welcome">
+          <img src="../images/snowboard.png">
+        </div>
+
+        <div class="text-welcome">
+          <h1> Welcome </h1>
+          <p>In tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. 
+            het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud. 
+            Richard McClintock, een professor latijn aan de Hampden-Sydney College in Virginia, 
+            heeft één van de meer obscure latijnse woorden, consectetur, uit een Lorem Ipsum passage opgezocht, 
+            en heeft tijdens het zoeken naar het woord in de klassieke literatuur de onverdachte bron ontdekt. 
+            Lorem Ipsum komt uit de secties 1.10.32 en 1.10.33 van "de Finibus Bonorum et Malorum" 
+            (De uitersten van goed en kwaad) door Cicero, geschreven in 45 v.Chr.</p>
+        </div>
+      </div>
+    <% } %>
+
   </body>
 </html>
