@@ -29,48 +29,51 @@ router.get('/places', (req, res, next) => {
 });
 
 router.post('/places', upload.single('file'), (req, res, next) => {
-  const name = req.body.name;
+  const newName = req.body.name;
   const type = req.body.type;
   const address = req.body.address;
-  const displayPicture = {
-    picPath: `/uploads/${req.file.filename}`,
-    picName: req.file.picName
-  };
+  let displayPicture;
 
-  if (name === '' || type === '' || address === '') {
+  if (req.file) {
+    displayPicture = {
+      picPath: `/uploads/${req.file.filename}`,
+      picName: req.file.picName
+    };
+  }
+  if (newName === '' || type === '' || address === '') {
     res.render('place/create', {
       errorMessage: 'all fields are mandatory to create a new place'
     });
     return;
   }
 
-  // Place.findOne({ 'name': name },
-  //   'name',
-  //   (err, name) => {
-  //     if (err) {
-  //       return next(err);
-  //     }
-  //     if (name !== null) {
-  //       res.render('place/create', {
-  //         errorMessage: 'The place already exists'
-  //       });
-  //       return;
-  //     }
+  Place.findOne({ 'name': newName },
+    'name',
+    (err, name) => {
+      if (err) {
+        return next(err);
+      }
+      if (name !== null) {
+        res.render('place/create', {
+          errorMessage: 'The place already exists'
+        });
+        return;
+      }
 
-  const newPlace = Place({
-    name,
-    type,
-    address,
-    displayPicture
-  });
+      const newPlace = new Place({
+        name: newName,
+        type,
+        address,
+        displayPicture
+      });
 
-  newPlace.save((err) => {
-    if (err) {
-      return next(err);
-    }
-    res.redirect('/places');
-  });
-  // });
+      newPlace.save((err) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect('/places');
+      });
+    });
 });
 
 router.post('/places/:id/delete/', (req, res, next) => {
