@@ -53,8 +53,8 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', index);
-app.use('/', auth);
-app.use('/', place);
+app.use('/auth', auth);
+app.use('/places', place);
 
 // -- 404 and error handler
 

@@ -17,7 +17,7 @@ const bcryptSalt = 10;
 //   }
 // });
 
-router.post('/', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   const username = req.body.username;
   let password = req.body.password;
 

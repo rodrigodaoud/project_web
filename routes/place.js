@@ -5,7 +5,7 @@ const upload = multer({ dest: 'public/uploads/' });
 
 const Place = require('../models/place');
 
-router.get('/places', (req, res, next) => {
+router.get('/', (req, res, next) => {
   // const filter = req.body.type;
   if (req.session.currentUser) {
     Place.find({'active': true}, (err, places) => {
@@ -19,7 +19,7 @@ router.get('/places', (req, res, next) => {
   }
 });
 
-router.get('/places/create', (req, res, next) => {
+router.get('/create', (req, res, next) => {
   if (req.session.currentUser) {
     res.render('place/create');
   } else {
@@ -42,7 +42,7 @@ router.get('/places/create', (req, res, next) => {
 //   }
 // });
 
-router.post('/places', upload.single('file'), (req, res, next) => {
+router.post('/', upload.single('file'), (req, res, next) => {
   const createdBy = req.session.currentUser._id;
   const newName = req.body.name;
   const type = req.body.type;
@@ -92,7 +92,7 @@ router.post('/places', upload.single('file'), (req, res, next) => {
     });
 });
 
-router.post('/places/:id/delete/', (req, res, next) => {
+router.post('/:id/delete/', (req, res, next) => {
   const placeId = req.params.id;
   const archivedPlace = {
     active: false
@@ -107,7 +107,7 @@ router.post('/places/:id/delete/', (req, res, next) => {
     });
 });
 
-router.get('/places/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   if (req.session.currentUser) {
     return res.redirect('/');
   }
