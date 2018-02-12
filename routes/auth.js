@@ -58,6 +58,14 @@ router.post('/signup', (req, res, next) => {
   const password = req.body.password;
   const email = req.body.email;
   const name = req.body.name;
+  let displayPicture;
+
+  if (req.file) {
+    displayPicture = {
+      picPath: `/uploads/${req.file.filename}`,
+      picName: req.file.picName
+    };
+  }
 
   if (username === '' || password === '') {
     res.render('auth/signup', {
@@ -84,7 +92,8 @@ router.post('/signup', (req, res, next) => {
       username,
       password: hashPass,
       email,
-      name
+      name,
+      displayPicture
     });
 
     newUser.save((err) => {
