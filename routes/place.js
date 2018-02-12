@@ -29,6 +29,7 @@ router.get('/places', (req, res, next) => {
 });
 
 router.post('/places', upload.single('file'), (req, res, next) => {
+  const createdBy = req.session.currentUser._id;
   const newName = req.body.name;
   const type = req.body.type;
   const address = req.body.address;
@@ -61,6 +62,7 @@ router.post('/places', upload.single('file'), (req, res, next) => {
       }
 
       const newPlace = new Place({
+        createdBy,
         name: newName,
         type,
         address,
