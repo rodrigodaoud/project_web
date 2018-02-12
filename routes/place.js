@@ -30,21 +30,6 @@ router.get('/create', (req, res, next) => {
   }
 });
 
-// router.get('/places/:id', (req, res, next) => {
-//   const placeId = req.params.id;
-
-//   if (req.session.currentUser) {
-//     Place.find({placeId}, (err, places) => {
-//       if (err) {
-//         return next(err);
-//       }
-//       res.render('place/more', {places: places});
-//     });
-//   } else {
-//     res.redirect('/');
-//   }
-// });
-
 router.post('/', upload.single('file'), (req, res, next) => {
   const createdBy = req.session.currentUser._id;
   const newName = req.body.name;
@@ -65,7 +50,7 @@ router.post('/', upload.single('file'), (req, res, next) => {
     return;
   }
 
-  Place.findOne({ 'name': newName },
+  Place.findOne({ 'name': newName, 'active': true },
     'name',
     (err, name) => {
       if (err) {
@@ -95,22 +80,30 @@ router.post('/', upload.single('file'), (req, res, next) => {
     });
 });
 
-router.post('/:id/delete', (req, res, next) => {
+router.post('/:id/delete/', (req, res, next) => {
   if (!req.session.currentUser) {
     res.redirect('/');
   }
   const placeId = req.params.id;
-  const archivedPlace = {
-    active: false
-  };
-  Place.findByIdAndUpdate(
-    placeId,
-    archivedPlace, (err, places) => {
-      if (err) {
-        return next(err);
-      }
-      res.redirect('/places');
-    });
+  Place.findById(placeId, (err, place) => {
+    if (err) {
+      return next(err);
+    }
+    if (!place) {
+      return res.redirect('/');
+    }
+    if (place.createdBy.equals(req.session.currentUser._id)) {
+      place.active = false;
+      place.save((err, result) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect('/');
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
 });
 
 router.get('/:id', (req, res, next) => {
