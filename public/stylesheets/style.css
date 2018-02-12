@@ -11,27 +11,76 @@ html {
   box-sizing: inherit;
 }
 body {
-  margin: 0;
+  margin: 200px 0;
 }
 
 /* ---- Typography ---- */
-
-
+.nav-logo h2{
+  font-size: 60px;
+}
+.nav-logo a{
+  text-decoration: none;
+  color: #2C303F;
+  font-family: Courier New, Courier, monospace;
+}
 /* ---- Layout ---- */
 .container{
-  margin: 0 120px;
+  margin: 0 20px;
 }
 .nav-container{
-  
+  width: 100%;
 }
 
 /* -------     Components    ------- */
 
 
 /* -- Nav Bar -- */
-
+.nav-border{
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  top: 0;
+  border-bottom: 1px solid rgb(231, 226, 226);
+}
+.nav-logo{
+  margin: 0 20px;
+}
 
 /* -- Login Form -- */
+.login-container{
+  text-align: center;
+}
+.user-login{
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.user-login input{
+  font-size: 40px;
+  width: 100%;
+}
+.pass-login{
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.pass-login input{
+  font-size: 40px;
+  width: 100%;
+}
+#login-btn{
+  width: 20%;
+  font-size: 40px;
+  margin-bottom: 100px;
+  border: 1px solid #566993
+}
+
+
+/* -- Welcome Page -- */
+.img-welcome img{
+  width: 100%;
+}
+
 
 
 /* -- Filter Bar -- */
