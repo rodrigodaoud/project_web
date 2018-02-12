@@ -71,7 +71,7 @@ router.post('/signup', upload.single('file'), (req, res, next) => {
 
   if (username === '' || password === '') {
     res.render('auth/signup', {
-      errorMessage: 'Indicate a username and a password to sign up'
+      signupErrorMessage: 'Indicate a username and a password to sign up'
     });
     return;
   }
@@ -82,7 +82,7 @@ router.post('/signup', upload.single('file'), (req, res, next) => {
     }
     if (user !== null) {
       res.render('auth/signup', {
-        errorMessage: 'The username already exists'
+        signupErrorMessage: 'The username already exists'
       });
       return;
     }
