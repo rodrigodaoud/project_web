@@ -29,10 +29,11 @@
       Type:    <%= place.type %><br>
 
       <a href="/places/<%= place.id %>">View more</a>
-
+    <% if (user._id == place.createdBy) { %>
       <form action="/places/<%= place.id %>/delete" method='post'>
 
         <input type="submit" value="DELETE">
+    <% } %>
       </form>
 
     </p>
