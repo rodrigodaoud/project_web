@@ -18,6 +18,9 @@ const bcryptSalt = 10;
 // });
 
 router.post('/login', (req, res, next) => {
+  if (req.session.currentUser) {
+    res.redirect('/places');
+  }
   const username = req.body.username;
   let password = req.body.password;
 
