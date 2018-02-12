@@ -9,15 +9,15 @@ const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 
 // GET AND POST LOGIN PAGE
-router.get('/index', function (req, res, next) {
-  if (req.session.currentUser) {
-    res.redirect('/places');
-  } else {
-    res.render('index');
-  }
-});
+// router.get('/index', function (req, res, next) {
+//   if (req.session.currentUser) {
+//     res.redirect('/places');
+//   } else {
+//     res.render('index');
+//   }
+// });
 
-router.post('/index', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const username = req.body.username;
   let password = req.body.password;
 
@@ -104,7 +104,7 @@ router.post('/signup', upload.single('file'), (req, res, next) => {
       }
       req.session.currentUser = newUser;
 
-      res.redirect('/index');
+      res.redirect('/places');
     });
   });
 });
@@ -113,10 +113,8 @@ router.post('/signup', upload.single('file'), (req, res, next) => {
 router.post('/logout', (req, res, next) => {
   if (req.session.currentUser) {
     req.session.currentUser = null;
-    res.redirect('/index');
-  } else {
-    res.redirect('/index');
   }
+  res.redirect('/');
 });
 
 module.exports = router;
