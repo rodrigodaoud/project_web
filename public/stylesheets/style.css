@@ -1,6 +1,6 @@
-div, nav{
+/* div, nav{
   border: 1px solid red;
-}
+} */
 
 /* ---- Reset ---- */
 
@@ -34,11 +34,10 @@ body {
 }
 /* ---- Layout ---- */
 .container{
-  margin: 0 20px;
+  margin: 0 40px;
 }
 .nav-container{
   display: flex;
-  justify-content: center; 
   width: 100%;
 }
 
@@ -54,8 +53,7 @@ body {
   border-bottom: 1px solid rgb(231, 226, 226);
 }
 .nav-logo{
-  margin: 0 20px;
-  height: 100%;
+  margin: 0 40px;
 }
 
 /* -- Login Form -- */
@@ -86,9 +84,8 @@ body {
 }
 #login-btn{
   width: 100%;
-  padding: 15px;
+  padding: 30px;
   font-size: 40px;
-  color: #566993;
   margin-bottom: 100px;
   border: 1px solid #566993;
   border-radius: 5px;
