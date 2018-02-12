@@ -102,6 +102,8 @@ router.post('/signup', upload.single('file'), (req, res, next) => {
       if (err) {
         return next(err);
       }
+      req.session.currentUser = newUser;
+
       res.redirect('/index');
     });
   });
