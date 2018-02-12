@@ -16,7 +16,9 @@
 
       <% if (user) { %>
         <div class="nav-bar">
-          <div class="user-photo"><!-- here goes the profile picture --></div>
+          <div class="user-photo" style="background-image: <%= user.displayPicture.picPath %>">    
+            <img src="<%= user.displayPicture.picPath %>" alt="" >
+          </div>
           <div class="user-name">
             <h2><%= user.username %></h2>
           </div>
