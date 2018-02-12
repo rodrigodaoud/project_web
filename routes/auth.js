@@ -22,10 +22,10 @@ router.post('/index', (req, res, next) => {
   let password = req.body.password;
 
   if (username === '' || password === '') {
-    res.render('index', {
+    const data = {
       errorMessage: 'enter your username and password to login'
-    });
-    return;
+    };
+    return res.render('index', data);
   }
   User.findOne({ 'username': username }, (err, user) => {
     if (err || !user) {
