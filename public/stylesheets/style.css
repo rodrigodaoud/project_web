@@ -1,15 +1,8 @@
-/* div, nav{
+div, nav{
   border: 1px solid red;
-} */
-body {
-  margin: 0;
 }
 
-a {
-  color: #00B7FF;
-}
-
-/* ---- reset ---- */
+/* ---- Reset ---- */
 
 html {
   box-sizing: border-box;
@@ -17,187 +10,34 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
-/* ---- typography ---- */
-
-.welcome-text{
-  text-align: center;
-}
-.nav-logo h2{
-  width: 100%;
-  height: 100%;
-  color: black;
-  font-size: 34px;
-  font-weight: lighter;
-  font-family: Courier New, Courier, monospace;
-}
-.place-info h3{
-  margin-right: 10px;
-  font-size: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.place-info p{
-  font-size: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+body {
+  margin: 0;
 }
 
+/* ---- Typography ---- */
 
-/* ---- layout ---- */
+
+/* ---- Layout ---- */
 .container{
   margin: 0 120px;
 }
-
 .nav-container{
-  display: flex;
-  height: 100px;
-  justify-content: space-between;
-  padding: 0px 50px 0px 50px;
-  background-color: white;
-  border-bottom: 1px solid grey;
-  margin-bottom: 20px;
+  
 }
 
-/* -------     components    ------- */
+/* -------     Components    ------- */
 
-/* -- nav bar -- */
-.nav-bar{
-  display: flex;
-  padding: 20px;
-}
-.user-photo{
-  border: 1px solid black;
-  background-color: grey;
-  width: 50px;
-  height: 50px;
-  border-radius: 40px;
-  margin-top: 5px;
-  margin-right: 5px;
-  overflow: hidden;
-}
-.user-photo img{
-  width: 100%;
-  height: 100%;
-}
-.user-name{
-  margin-right: 20px;;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 12px;
-  margin-top: 5px;
-}
-.logout-btn{
-  margin-top: 15px;
-}
-.logout-btn button{
-  background-color: red;
-  border: none;
-  color: white;
-  border-radius: 2px;
-}
-.logout-btn button:hover{
-  cursor: pointer;
-}
-.create-btn button{
-  background-color: blue;
-  color: white;
-}
-button a{
-  color: white;
-  text-decoration: none;
-}
-.nav-logo{
-  padding: 10px;
-}
-.nav-logo a{
-  text-decoration: none;
-}
+
+/* -- Nav Bar -- */
+
+
 /* -- Login Form -- */
-.login-container{
-  display: flex;
-  justify-content: center;
-}
 
-.login-form input{
-  display: inline;
-  margin-top: 40px;
-  margin-right: 10px;
-}
-.login-form label{
-  margin-right: 10px;
-  color: black;
-  font-family: Courier New, Courier, monospace;
-}
-.signup-login{
-  text-align: left;
-  color: black;
-  font-size: 12px;
-  font-family: Courier New, Courier, monospace;
-}
-#login-btn{
-  color: white;
-  background-color: blue;
-  border-style: none;
-}
 
 /* -- Filter Bar -- */
-.filter-bar{
-  margin-bottom: 20px;
-}
-.filter-bar ul{
-  text-align: center;
-  margin: 0;
-}
-.filter-bar li{
-  display: inline-block;
-}
-.filter-bar button{
-  text-align: center;
-  color: black;
-  font-family: Courier New, Courier, monospace;
-  font-size: 20px;
-  border: none;
-  background-color: transparent;
-  width: 120px;
-  height: 30px;
-}
-.filter-bar button:hover{
-  cursor: pointer;
-  color: blue;
-}
-.filters {
-  padding: 10px;
-  text-align: center;
-}
 
-/* -------  Places   -------- */
-.place{
-  text-align: center;
-  display: none;
-}
-.info{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.place-ctn{
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 20px;
-  border-bottom: 2px solid red;
-}
-.place-img{
-  width: 240px;
-  height: 240px;
-}
-.place-img img{
-  width: 100%;
-  height: 100%;
-}
-.place-info{
-  width: 500px;
-  height: 100%;
-}
-.show{
-  display: block;
-}
+
+/* --  Places   -- */
+
+
+/* -- Media Query -- */
