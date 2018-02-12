@@ -12,7 +12,10 @@ router.get('/', (req, res, next) => {
       if (err) {
         return next(err);
       }
-      res.render('place/show', {places: places});
+      let data = {
+        places: places
+      };
+      res.render('place/show', data);
     });
   } else {
     res.redirect('/');
@@ -93,6 +96,9 @@ router.post('/', upload.single('file'), (req, res, next) => {
 });
 
 router.post('/:id/delete', (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  }
   const placeId = req.params.id;
   const archivedPlace = {
     active: false
@@ -116,7 +122,10 @@ router.get('/:id', (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.render('place/more', { places: places });
+    let data = {
+      places: places
+    };
+    res.render('place/more', data);
   });
 });
 
