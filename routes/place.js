@@ -88,4 +88,19 @@ router.post('/places/:id/delete/', (req, res, next) => {
     });
 });
 
+// router.get('/places/:id', (req, res, next) => {
+//   const placeId = req.params.id;
+
+//   if (req.session.currentUser) {
+//     Place.find({placeId}, (err, places) => {
+//       if (err) {
+//         return next(err);
+//       }
+//       res.render('place/more', {places: places});
+//     });
+//   } else {
+//     res.redirect('/');
+//   }
+// });
+
 module.exports = router;
