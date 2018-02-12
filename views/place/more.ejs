@@ -1,19 +1,17 @@
 
-<% places.forEach((place) => { %>
-    <div class="more-places <%= place.type %>">
+    <div class="more-places <%= places.type %>">
       <p>
-        Address: <%= place.address %><br>
-        Name:    <%= place.name %><br>
-        Type:    <%= place.type %><br>
+        Address: <%= places.address %><br>
+        Name:    <%= places.name %><br>
+        Type:    <%= places.type %><br>
   
-        <% if (user._id == place.createdBy) { %>
-        <form action="/places/<%= place.id %>/delete" method='post'>
+        <% if (user._id == places.createdBy) { %>
+        <form action="/places/<%= places.id %>/delete" method='post'>
           <input type="submit" value="DELETE">
         <% } %>
         </form>
   
       </p>
-      <img src="<%= place.displayPicture.picPath %>" alt="">
+      <img src="<%= places.displayPicture.picPath %>" alt="">
   
     </div>
-    <%  }) %>

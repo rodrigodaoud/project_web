@@ -28,7 +28,7 @@
       Name:    <%= place.name %><br>
       Type:    <%= place.type %><br>
 
-      <a href="places/more/">View more</a>
+      <a href="/places/<%= place._id %>">View more</a>
 
       <% if (user._id == place.createdBy) { %>
       <form action="/places/<%= place.id %>/delete" method='post'>
