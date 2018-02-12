@@ -59,6 +59,10 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', upload.single('file'), (req, res, next) => {
+  if (req.session.currentUser) {
+    res.redirect('/places');
+  }
+
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;

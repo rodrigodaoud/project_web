@@ -92,7 +92,7 @@ router.post('/', upload.single('file'), (req, res, next) => {
     });
 });
 
-router.post('/:id/delete/', (req, res, next) => {
+router.post('/:id/delete', (req, res, next) => {
   const placeId = req.params.id;
   const archivedPlace = {
     active: false
@@ -108,7 +108,7 @@ router.post('/:id/delete/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-  if (req.session.currentUser) {
+  if (!req.session.currentUser) {
     return res.redirect('/');
   }
   const placeId = req.params.id;
