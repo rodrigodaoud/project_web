@@ -1,34 +1,14 @@
 
-<div class="filter-bar">
-<ul>
-  <li>
-    <button class="btn-filter active" onclick="filterSelection('all')">Show All</button>
-  </li>
-
-  <li>
-    <button class="btn-filter" onclick="filterSelection('skate')">Skate</button>
-  </li>
-
-  <li>
-    <button class="btn-filter" onclick="filterSelection('snowboard')">Snowboard</button>
-  </li>
-
-  <li>
-    <button class="btn-filter no-border" onclick="filterSelection('surf')">Surf</button>
-  </li>
-</ul>
-</div>
-
 <div class="container">
   <% places.forEach((place) => { %>
     <div class="place <%= place.type %>">
       <div class="place-content">
         <div class="place-info">
           <p>
-            <span>Address:</span> <%= place.address %><br>
-            <span>Name:</span>   <%= place.name %><br>
-            <span>Type:</span>    <%= place.type %><br>
-            <span>Created by:</span> <%= place.createdBy.username %>
+            <span><%= place.address %></span><br>
+            <%= place.name %><br>
+            <%= place.type %><br>
+            <span>Created by:</span> <%= place.createdBy.username %><br>
             <div class="place-view">
               <button><a href="/places/<%= place.id %>">View more</a></button>
             </div>

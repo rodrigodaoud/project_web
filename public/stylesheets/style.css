@@ -1,6 +1,6 @@
-/* div, nav{
+div, nav{
   border: 1px solid red;
-} */
+}
 
 /* ---- Reset ---- */
 
@@ -11,7 +11,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  margin: 200px 0;
+  margin: 280px 0;
 }
 
 /* ---- Typography ---- */
@@ -34,7 +34,7 @@ body {
 }
 /* ---- Layout ---- */
 .container{
-  margin: 0 40px;
+  margin: 0 20px;
 }
 .nav-container{
   display: flex;
@@ -62,11 +62,11 @@ body {
   border-bottom: 1px solid rgb(231, 226, 226);
 }
 .nav-logo{
-  margin: 0 40px;
+  margin: 0 20px;
 }
 .nav-bar{
   padding: 20px;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 /* -- Login Form -- */
@@ -238,13 +238,16 @@ body {
 }
 
 /* -- Filter Bar -- */
+.filter-bar{
+  background-color: #3d3d3d;
+  height: 100px;
+}
 .filter-bar ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   padding: 10px;
-  background-color: #3d3d3d;
   margin-bottom: 60px;
 }
 .filter-bar button{
@@ -266,13 +269,13 @@ body {
 }
 .place-content{
   display: flex;
+  justify-content: flex-end;
   flex-flow: row-reverse;
-  justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid black;
 }
 .place-info{
   font-size: 2.5em;
+  margin-left: 40px;
   text-align: left;
 }
 .place-info p{
@@ -284,10 +287,11 @@ body {
 }
 .place-view{
   text-align: center;
+  float: right;
 }
 .place-view button{
   font-size: 1em;
-  background-color: transparent;
+  background-color: green;
 }
 .place-view a{
   text-decoration: none;
@@ -300,6 +304,8 @@ body {
 }
 .show{
   display: block;
+}
+.border-btm-place{
 }
 
 
