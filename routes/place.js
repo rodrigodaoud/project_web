@@ -80,26 +80,6 @@ router.post('/', upload.single('file'), (req, res, next) => {
     });
 });
 
-router.get('/:id/addPhoto', (req, res, next) => {
-  if (!req.session.currentUser) {
-    res.redirect('/');
-  } else {
-    const placeId = req.params.id;
-    Place.findById(placeId, (err, place) => {
-      if (err) {
-        return next(err);
-      }
-      if (!place) {
-        res.redirect('/');
-      }
-      const data = {
-        place: place
-      };
-      res.render('place/addPhoto', data);
-    });
-  }
-});
-
 router.post('/:id', upload.single('file'), (req, res, next) => {
   if (!req.session.currentUser) {
     res.redirect('/');
@@ -127,6 +107,14 @@ router.post('/:id', upload.single('file'), (req, res, next) => {
   });
 });
 
+// router.post('/:additionalPicture/delete', (req, res, next) => {
+//   if (!req.session.currentUser) {
+//     res.redirect('/');
+//   }
+//   const picToBeDeleted = req.params.additionalPicture;
+
+// });
+
 router.post('/:id/delete/', (req, res, next) => {
   if (!req.session.currentUser) {
     res.redirect('/');
@@ -151,6 +139,25 @@ router.post('/:id/delete/', (req, res, next) => {
       res.redirect('/');
     }
   });
+});
+router.get('/:id/addPhoto', (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  } else {
+    const placeId = req.params.id;
+    Place.findById(placeId, (err, place) => {
+      if (err) {
+        return next(err);
+      }
+      if (!place) {
+        res.redirect('/');
+      }
+      const data = {
+        place: place
+      };
+      res.render('place/addPhoto', data);
+    });
+  }
 });
 
 router.get('/:id', (req, res, next) => {
