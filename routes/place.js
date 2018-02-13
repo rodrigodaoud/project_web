@@ -127,6 +127,14 @@ router.post('/:id', upload.single('file'), (req, res, next) => {
   });
 });
 
+// router.post('/:additionalPicture/delete', (req, res, next) => {
+//   if (!req.session.currentUser) {
+//     res.redirect('/');
+//   }
+//   const picToBeDeleted = req.params.additionalPicture;
+
+// });
+
 router.post('/:id/delete/', (req, res, next) => {
   if (!req.session.currentUser) {
     res.redirect('/');
