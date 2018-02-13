@@ -1,6 +1,6 @@
-div, nav{
+/* div, nav{
   border: 1px solid red;
-}
+} */
 
 /* ---- Reset ---- */
 
@@ -157,6 +157,10 @@ body {
 .sign-photo{
   margin-bottom: 40px;
 }
+.sign-photo input[type=file]{
+  width: 100%;
+  font-size: 2em;
+}
 #sign-btn{
   width: 100%;
   padding: 30px;
@@ -171,18 +175,39 @@ body {
   width: 100%;
 }
 
-
-
-/* -- Filter Bar -- */
-.filter-bar ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
+/* -- User Menu -- */
+.user-name{
+  border-bottom: 1px solid white;
+  margin-bottom: 20px;
 }
-
-
-/* -- User -- */
-
+.user-name span{
+  font-family: Courier New, Courier, monospace;
+}
+.user-name p{
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+.create-btn{
+  border-bottom: 1px white solid;
+  margin-bottom: 20px;
+}
+.create-btn button{
+  border: none;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+.logout-btn button{
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+.create-btn a{
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+}
 .user-photo{
   border: 2px solid black;
   background-color: grey;
@@ -199,8 +224,8 @@ body {
 }
 .user-menu{
   background: #3d3d3d;
-  width: 150px;
-  padding: 10px;
+  width: 50%;
+  padding: 20px;
   padding-top: 30px;
   color: #fff;
   font-family: arial;
@@ -208,29 +233,73 @@ body {
   display: none;
   position: absolute;
   top: 100px;
-  right: 40px;
+  right: 70px;
   border-radius: 3px;
 }
+
+/* -- Filter Bar -- */
+.filter-bar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 10px;
+  background-color: #3d3d3d;
+  margin-bottom: 60px;
+}
+.filter-bar button{
+  font-size: 2em;
+  padding: 10px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
 
 /* --  Places   -- */
 .place {
   padding: 10px;
-  height: 50px;
   text-align: center;
   display: none;
 }
-
-.filters {
-  padding: 10px;
+.place-content{
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.place-info{
+  font-size: 2.5em;
+  text-align: left;
+}
+.place-info p{
+  font-family: Courier New, Courier, monospace;
+}
+.place-info span{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
+}
+.place-view{
   text-align: center;
+}
+.place-view button{
+  font-size: 1em;
+  background-color: transparent;
+}
+.place-view a{
+  text-decoration: none;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.place-image img{
+  width: 320px;
+  height: 320px;
 }
 .show{
   display: block;
-}
-
-.place-buttons {
-  display: flex;
-  justify-content: space-around;
 }
 
 
