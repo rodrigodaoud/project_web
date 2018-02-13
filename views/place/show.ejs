@@ -21,29 +21,29 @@
 </ul>
 </div>
 
-<% places.forEach((place) => { %>
-  <div class="place <%= place.type %>">
-    <p>
-      Address: <%= place.address %><br>
-      Name:    <%= place.name %><br>
-      Type:    <%= place.type %><br>
+  <% places.forEach((place) => { %>
+    <div class="place <%= place.type %>">
+      <p>
+        Address: <%= place.address %><br>
+        Name:    <%= place.name %><br>
+        Type:    <%= place.type %><br>
 
-  <div class="place-buttons">
+    <div class="place-buttons">
 
-      <a href="/places/<%= place.id %>">View more</a>
+        <a href="/places/<%= place.id %>">View more</a>
 
-      <% if (user._id == place.createdBy) { %>
-      <form action="/places/<%= place.id %>/delete" method='post'>
-        <input type="submit" value="DELETE">
-      <% } %>
-      </form>
-  </div>
+        <% if (user._id == place.createdBy) { %>
+        <form action="/places/<%= place.id %>/delete" method='post'>
+          <input type="submit" value="DELETE">
+        <% } %>
+        </form>
+    </div>
 
-    </p>
-    <img src="<%= place.displayPicture.picPath %>" alt="">
+      </p>
+      <img src="<%= place.displayPicture.picPath %>" alt="">
 
-  </div>
-  <%  }) %>
+    </div>
+    <%  }) %>
   
 </div>
   

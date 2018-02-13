@@ -1,6 +1,6 @@
-/* div, nav{
+div, nav{
   border: 1px solid red;
-} */
+}
 
 /* ---- Reset ---- */
 
@@ -61,6 +61,12 @@ body {
 }
 .nav-logo{
   margin: 0 40px;
+}
+.nav-bar{
+  display: flex;
+  align-items: center;
+  
+  padding: 20px;
 }
 
 /* -- Login Form -- */
@@ -175,17 +181,37 @@ body {
 }
 
 
-/* --  Places   -- */
-.place{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  font-size: 35px;
+/* -- User -- */
+
+.user-photo{
+  border: 2px solid black;
+  background-color: grey;
+  width: 50px;
+  height: 50px;
+  border-radius: 40px;
+  margin-top: 5px;
+  margin-right: 5px;
+  overflow: hidden;
+}
+.user-photo img{
+  width: 100%;
+  height: 100%;
 }
 
-.place img {
-  height: 30%;
-  width: 88%;
+/* --  Places   -- */
+.place {
+  padding: 10px;
+  height: 50px;
+  text-align: center;
+  display: none;
+}
+
+.filters {
+  padding: 10px;
+  text-align: center;
+}
+.show{
+  display: block;
 }
 
 .place-buttons {
