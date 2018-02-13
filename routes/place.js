@@ -40,7 +40,7 @@ router.post('/', upload.single('file'), (req, res, next) => {
   if (req.file) {
     displayPicture = {
       picPath: `/uploads/${req.file.filename}`,
-      picName: req.file.picName
+      picName: req.body.picName
     };
   }
   if (newName === '' || type === '' || address === '') {
@@ -78,6 +78,53 @@ router.post('/', upload.single('file'), (req, res, next) => {
         res.redirect('/places');
       });
     });
+});
+
+router.get('/:id/addPhoto', (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  } else {
+    const placeId = req.params.id;
+    Place.findById(placeId, (err, place) => {
+      if (err) {
+        return next(err);
+      }
+      if (!place) {
+        res.redirect('/');
+      }
+      const data = {
+        place: place
+      };
+      res.render('place/addPhoto', data);
+    });
+  }
+});
+
+router.post('/:id', upload.single('file'), (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  }
+
+  const placeId = req.params.id;
+  Place.findById(placeId, (err, place) => {
+    if (err) {
+      return next(err);
+    }
+    if (!place) {
+      res.redirect('/');
+    }
+    const additionalPicture = {
+      picPath: `/uploads/${req.file.filename}`,
+      picName: req.body.picName
+    };
+    place.additionalPicture.push(additionalPicture);
+    place.save((err, result) => {
+      if (err) {
+        return next(err);
+      }
+      res.redirect('/places/' + placeId);
+    });
+  });
 });
 
 router.post('/:id/delete/', (req, res, next) => {
