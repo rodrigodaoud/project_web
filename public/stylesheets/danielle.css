@@ -1,4 +1,6 @@
+
 .detail-image {
+
     width: 100%;
 }
 
@@ -38,6 +40,7 @@
     width: 16.66%;
 }
 
+<<<<<<< HEAD
 .demo {
     opacity: 0.6;
 }
@@ -68,3 +71,10 @@
     height: auto;
     width: auto;
 } */
+=======
+.uploaded-picture img {
+    height: 100%;
+    width: 100%;
+}
+>>>>>>> 21e97fd722fbecc41c6ed991f3e748824ccec943
+>>>>>>> edaf3a3567d6f58f39f427198b53b7877fbca065
