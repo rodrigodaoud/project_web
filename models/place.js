@@ -19,7 +19,11 @@ const placeSchema = new Schema({
       type: String,
       default: 'Placeholder Image'
     }
-  }
+  },
+  additionalPicture: [{
+    picPath: String,
+    picName: String
+  }]
 }, {
   timestamps: {
     createdAt: 'created_at',

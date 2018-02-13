@@ -12,6 +12,12 @@
         </form>
   
       </p>
+
       <img src="<%= places.displayPicture.picPath %>" alt="">
+
+      <% places.additionalPicture.forEach((picture) => { %>
+        <img src="<%= picture.picPath %>" alt=""> 
+      <% }) %>
+      <a href="/places/<%= places.id %>/addPhoto">add a photo</a>
   
     </div>
