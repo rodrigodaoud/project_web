@@ -1,6 +1,4 @@
 
-<div class="container">
-
 <div class="filter-bar">
 <ul>
   <li>
@@ -16,34 +14,40 @@
   </li>
 
   <li>
-    <button class="btn-filter" onclick="filterSelection('surf')">Surf</button>
+    <button class="btn-filter no-border" onclick="filterSelection('surf')">Surf</button>
   </li>
 </ul>
 </div>
 
+<div class="container">
   <% places.forEach((place) => { %>
     <div class="place <%= place.type %>">
-      <p>
-        Address: <%= place.address %><br>
-        Name:    <%= place.name %><br>
-        Type:    <%= place.type %><br>
-        Created by: <%= place.createdBy.username %>
+      <div class="place-content">
+        <div class="place-info">
+          <p>
+            <span>Address:</span> <%= place.address %><br>
+            <span>Name:</span>   <%= place.name %><br>
+            <span>Type:</span>    <%= place.type %><br>
+            <span>Created by:</span> <%= place.createdBy.username %>
+            <div class="place-view">
+              <button><a href="/places/<%= place.id %>">View more</a></button>
+            </div>
+          </p>
+        </div>
 
-    <div class="place-buttons">
+      <div class="place-btn">
+          <% if (user._id == place.createdBy) { %>
+          <form action="/places/<%= place.id %>/delete" method='post'>
+            <input type="submit" value="DELETE">
+          <% } %>
+          </form>
+      </div>
 
-        <a href="/places/<%= place.id %>">View more</a>
-
-        <% if (user._id == place.createdBy) { %>
-        <form action="/places/<%= place.id %>/delete" method='post'>
-          <input type="submit" value="DELETE">
-        <% } %>
-        </form>
-    </div>
-
-      </p>
-      <img src="<%= place.displayPicture.picPath %>" alt="">
-
-    </div>
+        <div class="place-image">
+          <img src="<%= place.displayPicture.picPath %>" alt="">
+        </div>
+      </div>
+  </div>
     <%  }) %>
   
 </div>
