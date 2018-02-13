@@ -1,9 +1,9 @@
 
-    <div class="more-places <%= places.type %>">
-      <img class="place-image" src="<%= places.displayPicture.picPath %>" alt="">
-      <div class="place-info">
-        <h3 class="place-name"><%= places.name %></h3>
-        <p class="place-address">
+    <!-- <div class="more-places <%= places.type %>"> -->
+      <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
+      <div class="detail-info">
+        <h3 class="detail-name"><%= places.name %></h3>
+        <p class="detail-address">
           Address: <%= places.address %><br>
           Type:    <%= places.type %><br>
       </div>   
@@ -15,15 +15,25 @@
   
       </p>
 
-      <div class= "picture-container">
+      <div class= "picture-gallery">
         <% places.additionalPicture.forEach((picture) => { %>
-          <div class="uploaded-picture">
+          <div class="mySlides">
             <img src="<%= picture.picPath %>" alt=""> 
           </div>
         <% }) %>
       </div>
-      <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
 
+      <div class="row">
+          <% places.additionalPicture.forEach((picture) => { %>
+          <div class="column">
+            <img class="demo cursor" src="<%= picture.picPath %>" style="width:100%" onclick="currentSlide(2)" alt="">
+          </div>
+          <% }) %>
+      </div>
+
+
+
+      <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
         <h2>Upload your photo</h2>
         <input type="file" name="file">
     
@@ -31,4 +41,4 @@
     
     </form>
       
-    </div>
+    <!-- </div> -->
