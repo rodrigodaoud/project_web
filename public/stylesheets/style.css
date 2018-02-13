@@ -11,13 +11,13 @@ html {
   box-sizing: inherit;
 }
 body {
-  margin: 320px 0 0 0;
+  margin: 160px 0 0 0;
   background-color: #EEF0F2;
 }
 
 /* ---- Typography ---- */
 .nav-logo h2{
-  font-size: 3em;
+  font-size: 1.2em;
   color: white;
 }
 .nav-logo a{
@@ -26,18 +26,18 @@ body {
   font-family: Courier New, Courier, monospace;
 }
 .text-welcome h1{
-  font-size: 5em;
+  font-size: 2em;
   color: #353B3C;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
 }
 .text-welcome p{
-  font-size: 2em;
+  font-size: 1.2em;
   font-family: Courier New, Courier, monospace;
 }
 /* ---- Layout ---- */
 .container{
-  margin: 0 20px;
+  margin: 0 10px;
 }
 .nav-container{
   display: flex;
@@ -54,10 +54,10 @@ body {
 
 /* -------     Components    ------- */
 .text-welcome{
-  margin-bottom: 120px;
+  margin-bottom: 40px;
 }
 .main-welcome{
-  margin-top: -100px;
+  margin-top: -50px;
 }
 
 /* -- Nav Bar -- */
@@ -73,24 +73,23 @@ body {
 }
 .nav-bar{
   padding: 20px;
-  margin-right: 20px;
 }
 
 /* -- User Menu -- */
 .user-name{
   border-bottom: 1px solid white;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .user-name span{
   font-family: Courier New, Courier, monospace;
 }
 .user-name p{
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 1em;
+  margin-bottom: 10px;
 }
 .create-btn{
   border-bottom: 1px white solid;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .create-btn button{
   border: none;
@@ -101,19 +100,18 @@ body {
   border: none;
   background-color: transparent;
   color: white;
-  font-size: 1em;
-  margin-bottom: 20px;
+  font-size: 0.5em;
 }
 .create-btn a{
   color: white;
   text-decoration: none;
-  font-size: 2em;
+  font-size: 1em;
 }
 .user-photo{
   border: 2px solid white;
   background-color: grey;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 5px;
   margin-top: 5px;
   margin-right: 5px;
@@ -133,8 +131,8 @@ body {
   font-size: 1.5rem;
   display: none;
   position: absolute;
-  top: 100px;
-  right: 70px;
+  top: 90 px;
+  right: 25px;
   border-radius: 3px;
 }
 
@@ -145,41 +143,41 @@ body {
   text-align: center;
 }
 .user-login{
-  font-size: 3em;
+  font-size: 1.2em;
   font-family: Courier New, Courier, monospace;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 }
 .user-login input{
   font-size: 1em;
-  padding: 20px;
+  padding: 5px;
   font-family: Courier New, Courier, monospace;
   width: 100%;
 }
 .pass-login{
-  font-size: 3em;
+  font-size: 1.2em;
   font-family: Courier New, Courier, monospace;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 }
 .pass-login input{
   font-size: 1em;
-  padding: 20px;
+  padding: 5px;
   width: 100%;
 }
 #login-btn{
   width: 100%;
-  padding: 30px;
-  font-size: 2.5em;
+  padding: 10px;
+  font-size: 1em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   border: 1px solid #566993;
   background-color: #28a745;
   border-radius: 5px;
 }
 .signup-login{
-  font-size: 40px;
+  font-size: 1em;
   font-family: Courier New, Courier, monospace;
 }
 .signup-login a{
@@ -187,7 +185,7 @@ body {
   color:blue;
 }
 .error-message{
-  font-size: 3em;
+  font-size: 1em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-bottom: 40px;
   color: red;
@@ -196,22 +194,22 @@ body {
 /* -- Sign Up Form -- */
 .signup-ctn input{
   width: 100%;
-  padding: 20px;
+  padding: 5px;
   font-size: 1em;
   font-family: Courier New, Courier, monospace;
 }
 .sign-text{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 3em;
+  font-size: 1.5em;
   color: #353B3C;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 .sign-input{
   text-align: center;
-  font-size: 3em;
+  font-size: 1.2em;
   font-family: Courier New, Courier, monospace;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 .sign-photo{
   text-align: center;
@@ -219,28 +217,24 @@ body {
 .sign-photo input{
   text-align: center;
 }
-.photo-input{
-  width: 100%;
-  font-size: 1.5em;
-}
 .sign-photo label{
-  font-size: 3em;
+  font-size: 1.2em;
   font-family: Courier New, Courier, monospace;
 }
 .sign-photo{
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 .sign-photo input[type=file]{
   width: 100%;
-  font-size: 2em;
+  font-size: 1em;
 }
 #sign-btn{
   width: 100%;
-  padding: 30px;
-  font-size: 2.5em;
+  padding: 10px;
+  font-size: 1em;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   background-color: #28a745;
   border: 1px solid #566993;
   border-radius: 5px;
@@ -256,18 +250,18 @@ body {
 /* -- Filter Bar -- */
 .filter-bar{
   background-color: #353B3C;
-  height: 100px;
 }
 .filter-bar ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  padding: 15px;
+  padding: 10px;
   margin-top: 0;
+  margin-bottom: 0;
 }
 .filter-bar button{
-  font-size: 2em;
+  font-size: 0.8em;
   padding: 10px;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -282,7 +276,7 @@ body {
   padding: 10px;
   text-align: center;
   display: none;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-bottom: 1px solid #A2999E;
 }
 .place-content{
@@ -292,29 +286,26 @@ body {
   flex-flow: row-reverse;
 }
 .place-info{
-  font-size: 2em;
-  margin-left: 40px;
+  font-size: 0.7em;
+  margin-left: 10px;
   text-align: left;
-  line-height: 120%;
+  line-height: 200%;
 }
 .place-info p{
   margin-top: 0;
-  margin-bottom: 100px;
   font-family: Courier New, Courier, monospace;
 }
 .place-info span{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bolder;
+  font-size: 1em;
 }
 .place-view{
-  text-align: center;
-}
-.place-view button{
-  font-size: 1em;
+  font-size: 0.8em;
   background-color: #28a745;
   float: left;
-  margin-bottom: 20px;
-  padding: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 .place-view a{
   text-decoration: none;
@@ -322,8 +313,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .place-image img{
-  width: 320px;
-  height: 320px;
+  width: 120px;
+  height: 120px;
 }
 .show{
   display: block;
@@ -331,8 +322,13 @@ body {
 
 
 /* -- Media Query -- */
-@media only screen and (max-width : 640px){
-  .login-container{
-    display: none;
+@media only screen and (min-width : 640px){
+  .main-welcome{
+    display: flex;
   }
+  .text-welcome{
+    width: 70%;
+    ]
+  }
+
 }
