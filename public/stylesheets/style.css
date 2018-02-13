@@ -1,6 +1,6 @@
-div, nav{
+/* div, nav{
   border: 1px solid red;
-}
+} */
 
 /* ---- Reset ---- */
 
@@ -11,12 +11,14 @@ html {
   box-sizing: inherit;
 }
 body {
-  margin: 280px 0;
+  margin: 320px 0 0 0;
+  background-color: #EEF0F2;
 }
 
 /* ---- Typography ---- */
 .nav-logo h2{
   font-size: 3em;
+  color: white;
 }
 .nav-logo a{
   text-decoration: none;
@@ -25,6 +27,7 @@ body {
 }
 .text-welcome h1{
   font-size: 5em;
+  color: #353B3C;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
 }
@@ -41,6 +44,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  background-color: #222725;
 }
 .signup-ctn{
   display: flex;
@@ -51,6 +55,9 @@ body {
 /* -------     Components    ------- */
 .text-welcome{
   margin-bottom: 120px;
+}
+.main-welcome{
+  margin-top: -100px;
 }
 
 /* -- Nav Bar -- */
@@ -67,112 +74,6 @@ body {
 .nav-bar{
   padding: 20px;
   margin-right: 20px;
-}
-
-/* -- Login Form -- */
-.login-container{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.user-login{
-  font-size: 3em;
-  font-family: Courier New, Courier, monospace;
-  text-align: center;
-  margin-bottom: 100px;
-}
-.user-login input{
-  font-size: 1em;
-  padding: 20px;
-  font-family: Courier New, Courier, monospace;
-  width: 100%;
-}
-.pass-login{
-  font-size: 3em;
-  font-family: Courier New, Courier, monospace;
-  text-align: center;
-  margin-bottom: 100px;
-}
-.pass-login input{
-  font-size: 1em;
-  padding: 20px;
-  width: 100%;
-}
-#login-btn{
-  width: 100%;
-  padding: 30px;
-  font-size: 2em;
-  margin-bottom: 100px;
-  border: 1px solid #566993;
-  border-radius: 5px;
-}
-.signup-login{
-  font-size: 40px;
-  font-family: Courier New, Courier, monospace;
-}
-.signup-login a{
-  text-decoration: none;
-  color:blue;
-}
-.error-message{
-  font-size: 3em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin-bottom: 40px;
-  color: red;
-}
-
-/* -- Sign Up Form -- */
-.signup-ctn input{
-  width: 100%;
-  padding: 20px;
-  font-size: 1em;
-  font-family: Courier New, Courier, monospace;
-}
-.sign-text{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 3em;
-  text-align: center;
-  margin-bottom: 100px;
-}
-.sign-input{
-  text-align: center;
-  font-size: 3em;
-  font-family: Courier New, Courier, monospace;
-  margin-bottom: 60px;
-}
-.sign-photo{
-  text-align: center;
-}
-.sign-photo input{
-  text-align: center;
-}
-.photo-input{
-  width: 100%;
-  font-size: 1.5em;
-}
-.sign-photo label{
-  font-size: 3em;
-  font-family: Courier New, Courier, monospace;
-}
-.sign-photo{
-  margin-bottom: 40px;
-}
-.sign-photo input[type=file]{
-  width: 100%;
-  font-size: 2em;
-}
-#sign-btn{
-  width: 100%;
-  padding: 30px;
-  font-size: 2em;
-  margin-bottom: 100px;
-  border: 1px solid #566993;
-  border-radius: 5px;
-}
-
-/* -- Welcome Page -- */
-.img-welcome img{
-  width: 100%;
 }
 
 /* -- User Menu -- */
@@ -209,7 +110,7 @@ body {
   font-size: 2em;
 }
 .user-photo{
-  border: 2px solid black;
+  border: 2px solid white;
   background-color: grey;
   width: 50px;
   height: 50px;
@@ -237,9 +138,124 @@ body {
   border-radius: 3px;
 }
 
+/* -- Login Form -- */
+.login-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.user-login{
+  font-size: 3em;
+  font-family: Courier New, Courier, monospace;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.user-login input{
+  font-size: 1em;
+  padding: 20px;
+  font-family: Courier New, Courier, monospace;
+  width: 100%;
+}
+.pass-login{
+  font-size: 3em;
+  font-family: Courier New, Courier, monospace;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.pass-login input{
+  font-size: 1em;
+  padding: 20px;
+  width: 100%;
+}
+#login-btn{
+  width: 100%;
+  padding: 30px;
+  font-size: 2.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  margin-bottom: 100px;
+  border: 1px solid #566993;
+  background-color: #28a745;
+  border-radius: 5px;
+}
+.signup-login{
+  font-size: 40px;
+  font-family: Courier New, Courier, monospace;
+}
+.signup-login a{
+  text-decoration: none;
+  color:blue;
+}
+.error-message{
+  font-size: 3em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 40px;
+  color: red;
+}
+
+/* -- Sign Up Form -- */
+.signup-ctn input{
+  width: 100%;
+  padding: 20px;
+  font-size: 1em;
+  font-family: Courier New, Courier, monospace;
+}
+.sign-text{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 3em;
+  color: #353B3C;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.sign-input{
+  text-align: center;
+  font-size: 3em;
+  font-family: Courier New, Courier, monospace;
+  margin-bottom: 60px;
+}
+.sign-photo{
+  text-align: center;
+}
+.sign-photo input{
+  text-align: center;
+}
+.photo-input{
+  width: 100%;
+  font-size: 1.5em;
+}
+.sign-photo label{
+  font-size: 3em;
+  font-family: Courier New, Courier, monospace;
+}
+.sign-photo{
+  margin-bottom: 40px;
+}
+.sign-photo input[type=file]{
+  width: 100%;
+  font-size: 2em;
+}
+#sign-btn{
+  width: 100%;
+  padding: 30px;
+  font-size: 2.5em;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 100px;
+  background-color: #28a745;
+  border: 1px solid #566993;
+  border-radius: 5px;
+}
+
+/* -- Welcome Page -- */
+.img-welcome img{
+  width: 100%;
+}
+
+
+
 /* -- Filter Bar -- */
 .filter-bar{
-  background-color: #3d3d3d;
+  background-color: #353B3C;
   height: 100px;
 }
 .filter-bar ul {
@@ -247,8 +263,8 @@ body {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  padding: 10px;
-  margin-bottom: 60px;
+  padding: 15px;
+  margin-top: 0;
 }
 .filter-bar button{
   font-size: 2em;
@@ -266,19 +282,24 @@ body {
   padding: 10px;
   text-align: center;
   display: none;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #A2999E;
 }
 .place-content{
   display: flex;
+  align-items: flex-start;
   justify-content: flex-end;
   flex-flow: row-reverse;
-  align-items: center;
 }
 .place-info{
-  font-size: 2.5em;
+  font-size: 2em;
   margin-left: 40px;
   text-align: left;
+  line-height: 120%;
 }
 .place-info p{
+  margin-top: 0;
+  margin-bottom: 100px;
   font-family: Courier New, Courier, monospace;
 }
 .place-info span{
@@ -287,15 +308,17 @@ body {
 }
 .place-view{
   text-align: center;
-  float: right;
 }
 .place-view button{
   font-size: 1em;
-  background-color: green;
+  background-color: #28a745;
+  float: left;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 .place-view a{
   text-decoration: none;
-  color: black;
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .place-image img{
@@ -304,8 +327,6 @@ body {
 }
 .show{
   display: block;
-}
-.border-btm-place{
 }
 
 

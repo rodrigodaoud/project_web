@@ -8,7 +8,7 @@
             <span><%= place.address %></span><br>
             <%= place.name %><br>
             <%= place.type %><br>
-            <span>Created by:</span> <%= place.createdBy.username %><br>
+            Created by: @<%= place.createdBy.username %><br>
             <div class="place-view">
               <button><a href="/places/<%= place.id %>">View more</a></button>
             </div>
