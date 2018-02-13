@@ -8,7 +8,7 @@ const Place = require('../models/place');
 router.get('/', (req, res, next) => {
   // const filter = req.body.type;
   if (req.session.currentUser) {
-    Place.find({'active': true}, (err, places) => {
+    Place.find({'active': true}).populate('createdBy').exec((err, places) => {
       if (err) {
         return next(err);
       }
