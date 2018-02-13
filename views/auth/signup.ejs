@@ -1,25 +1,45 @@
-<form id="form" action="/signup" method="POST" enctype="multipart/form-data">
-   
-    <label for="username">Username</label>
-    <input type="text" name="username">
- 
-    <label for="password">Password</label>
-    <input type="password" name="password">
- 
-    <label for="email">email</label>
-    <input type="email" name ='email'>
- 
-    <label for="name">name</label>
-    <input type="text" name="name">
- 
-    <h2>Upload your photo</h2>
-    <input type="text" name="picName">
-    <input type="file" name="file">
-    
- 
-    <% if (typeof(signupErrorMessage) != "undefined") { %>
-        <div class="error-message"><%= signupErrorMessage %></div>
+
+<div class="container">
+
+  <div class="sign-text">
+    <h2>Sign Up</h2>
+  </div>
+
+  <div class="signup-ctn">
+    <form id="form" action="/signup" method="POST" enctype="multipart/form-data">
+      
+      <div class="sign-input">
+        <label for="username">Username</label>
+        <input type="text" name="username">
+      </div>
+      
+      <div class="sign-input">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+      </div>
+  
+      <div class="sign-input">
+        <label for="email">Email</label>
+        <input type="email" name ='email'>
+      </div>
+      
+      <div class="sign-input">
+        <label for="name">Name</label>
+        <input type="text" name="name">
+      </div>
+
+      <div class="sign-photo">
+        <label for="file">Profile Picture</label>
+            <input type="file" name="file">
+      </div>
+  
+      <% if (typeof(signupErrorMessage) != "undefined") { %>
+          <div class="error-message"><%= signupErrorMessage %></div>
       <% } %>
- 
-    <button>SUBMIT</button>
- </form>
+    
+      
+        <input id="sign-btn" type="submit" value="Sign Up">
+
+    </form>
+  </div>
+</div> 
