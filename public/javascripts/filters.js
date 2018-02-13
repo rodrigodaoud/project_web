@@ -1,5 +1,10 @@
 'use strict';
 
+$(".user-photo").click(function(){
+  $(this).toggleClass("active");
+  $(".user-menu").slideToggle("slow");
+});
+
 filterSelection('all');
 
 function filterSelection (c) {

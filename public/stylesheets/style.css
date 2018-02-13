@@ -38,6 +38,8 @@ body {
 }
 .nav-container{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 .signup-ctn{
@@ -63,10 +65,8 @@ body {
   margin: 0 40px;
 }
 .nav-bar{
-  display: flex;
-  align-items: center;
-  
   padding: 20px;
+  margin-right: 20px;
 }
 
 /* -- Login Form -- */
@@ -188,7 +188,7 @@ body {
   background-color: grey;
   width: 50px;
   height: 50px;
-  border-radius: 40px;
+  border-radius: 5px;
   margin-top: 5px;
   margin-right: 5px;
   overflow: hidden;
@@ -196,6 +196,19 @@ body {
 .user-photo img{
   width: 100%;
   height: 100%;
+}
+.user-menu{
+  background: #3d3d3d;
+  width: 150px;
+  padding: 10px;
+  padding-top: 30px;
+  color: #fff;
+  font-family: arial;
+  font-size: 1.5rem;
+  display: none;
+  position: absolute;
+  top: 100px;
+  border-radius: 3px;
 }
 
 /* --  Places   -- */

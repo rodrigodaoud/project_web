@@ -23,21 +23,26 @@
             <img src="<%= user.displayPicture.picPath %>" alt="" >
           </div>
 
-          <div class="user-name">
-            <h2><%= user.username %></h2>
-          </div>
+          <div class="user-menu">
 
-          <div class="logout-btn">
-            
-          <div class="create-btn">
-            <button><a href="/places/create">Create</a></button>
-          </div>
+            <div class="user-name">
+              <h2><%= user.username %></h2>
+            </div>
 
-          <form action="/auth/logout" method="post">
-            <button>Logout</button>
-          </form>
+            <div class="create-btn">
+              <button><a href="/places/create">Create</a></button>
+            </div>
+
+            <div class="logout-btn">
+              <form action="/auth/logout" method="post">
+                <button>Logout</button>
+              </form>
+            </div>
 
           </div>
+          
+
+          
           
         </div>
       <% } %>
@@ -48,4 +53,8 @@
     <%- body -%>
 
   </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascripts/filters.js"></script>
+
 </html>
