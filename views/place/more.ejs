@@ -1,5 +1,7 @@
 
     <div class="more-places <%= places.type %>">
+        <img class="place-image" src="<%= places.displayPicture.picPath %>" alt="">
+
       <p>
         Address: <%= places.address %><br>
         Name:    <%= places.name %><br>
@@ -13,7 +15,6 @@
   
       </p>
 
-      <img src="<%= places.displayPicture.picPath %>" alt="">
 
       <% places.additionalPicture.forEach((picture) => { %>
         <img src="<%= picture.picPath %>" alt=""> 
@@ -22,6 +23,14 @@
             <input type="submit" value="DELETE">
           <% } %>
       <% }) %>
-      <a href="/places/<%= places.id %>/addPhoto">add a photo</a>
-  
+
+      <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
+
+        <h2>Upload your photo</h2>
+        <input type="file" name="file">
+    
+        <button>SUBMIT</button>
+    
+    </form>
+      
     </div>
