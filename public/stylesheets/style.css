@@ -391,7 +391,27 @@ body {
     top: 90px;
     left: 0;
     z-index: -10;
-  } */
+  } 
+
+/* /Places page */
+
+.place-image img{
+  height: 180px;
+  width: 180px;
+  margin: 8px 20px;
+}
+
+.place-info {
+  font-size: 20px;
+}
+.show-all-places {
+  margin: 50px;
+}
+
+.user-photo {
+  width: 40px;
+  height: 40px;
+}
 }
 
 /* div, nav{
