@@ -190,6 +190,9 @@ body {
   margin-bottom: 40px;
   color: red;
 }
+.text-welcome img{
+  display: none;
+}
 
 /* -- Sign Up Form -- */
 .signup-ctn input{
@@ -323,12 +326,25 @@ body {
 
 /* -- Media Query -- */
 @media only screen and (min-width : 640px){
+
+/* -- Login Page -- */
   .main-welcome{
     display: flex;
+    align-items: center;
   }
-  .text-welcome{
-    width: 70%;
-    ]
+  .container{
+    margin: 0 20px;
   }
+  .text-welcome img{
+    display: inline-block;
+  }
+  #map{
+    width: 100%;
+  }
+  .login-container{
+    flex-flow: column;
+    width: 100%;
+  }
+  
 
 }

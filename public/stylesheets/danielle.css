@@ -1,36 +1,82 @@
 
+.detail-image {
+    width: 100%;
+}
 
-.place-address {
+.detail-address {
     font-size: 40px;
     font-family: Courier New, Courier, monospace;
 
 }
 
-.place-name {
+.detail-name {
     font-size: 40px;
     font-family: Courier New, Courier, monospace;
     font-weight: bold;
 }
 
-.place-info {
+.detail-info {
     margin: 1em;
 }
 
 .picture-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-.uploaded-picture {
-    height: 33%;
-    width: 33%;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-right: 5px;
+    width: 95%;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
+    border: 2px solid #003C72;
+
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; */
 }
 
+.mySlides{
+
+}
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+<<<<<<< HEAD
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* .uploaded-picture {
+    height: 30%;
+    max-height: 10em;
+    width: 30%;
+    border: 2px solid black;
+    /* border-radius: 5px; */
+    /* margin-top: 5px;
+    margin-right: 5px; */
+    /* overflow: hidden;
+} */ 
+
+/* .uploaded-picture img {
+    height: auto;
+    width: auto;
+} */
+=======
 .uploaded-picture img {
     height: 100%;
     width: 100%;
 }
+<<<<<<< HEAD
+=======
+>>>>>>> 21e97fd722fbecc41c6ed991f3e748824ccec943
+>>>>>>> edaf3a3567d6f58f39f427198b53b7877fbca065
+>>>>>>> bc84173a52c4af79a7783087e4298c72714e7485
