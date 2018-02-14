@@ -13,7 +13,8 @@ router.get('/', (req, res, next) => {
         return next(err);
       }
       let data = {
-        places: places
+        places: places,
+        showPlaces: true
       };
       res.render('place/show', data);
     });
@@ -24,7 +25,10 @@ router.get('/', (req, res, next) => {
 
 router.get('/create', (req, res, next) => {
   if (req.session.currentUser) {
-    res.render('place/create');
+    const data = {
+      showPlaces: false
+    };
+    res.render('place/create', data);
   } else {
     res.redirect('/');
   }
@@ -169,7 +173,8 @@ router.get('/:id', (req, res, next) => {
       return next(err);
     }
     let data = {
-      places: places
+      places: places,
+      showPlaces: false
     };
     res.render('place/more', data);
   });
