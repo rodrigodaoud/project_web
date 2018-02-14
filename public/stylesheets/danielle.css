@@ -1,22 +1,65 @@
+.img-skate {
+    height: 3em;
+    width: 3em;
+    background-image: url('/images/skateboard-img.png');
+    background-repeat: no-repeat;
+
+}
+
+.img-surf {
+    height: 1em;
+    width: 1em;
+    background-image: url('/images/surf-img.png');
+    background-repeat: no-repeat;
+
+}
 
 .detail-image {
     width: 100%;
+    margin-top: -30px;
 }
 
+.photo-upload-header {
+    font-family: Courier New, Courier, monospace;
+
+}
+
+.more-places button {
+    font-family: Courier New, Courier, monospace;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+.more-places input {
+    font-family: Courier New, Courier, monospace;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+
 .detail-address {
-    font-size: 40px;
+    font-size: 20px;
     font-family: Courier New, Courier, monospace;
 
 }
 
 .detail-name {
+    padding: 4px;
     font-size: 40px;
     font-family: Courier New, Courier, monospace;
     font-weight: bold;
+    margin: 0;
 }
 
 .detail-info {
-    margin: 1em;
+    display: flex;
+    justify-content: space-between;
+    margin: ;
+}
+
+.detail-info-container {
+    margin: .5em;
+
 }
 
 .picture-container {
@@ -39,7 +82,6 @@
     width: 16.66%;
 }
 
-<<<<<<< HEAD
 .demo {
     opacity: 0.6;
 }
@@ -55,7 +97,7 @@
     clear: both;
 }
 
-/* .uploaded-picture {
+ .uploaded-picture {
     height: 30%;
     max-height: 10em;
     width: 30%;
@@ -64,19 +106,14 @@
     /* margin-top: 5px;
     margin-right: 5px; */
     /* overflow: hidden;
-} */ 
+} 
 
 /* .uploaded-picture img {
     height: auto;
     width: auto;
 } */
-=======
-.uploaded-picture img {
+/* .uploaded-picture img {
     height: 100%;
     width: 100%;
-}
 <<<<<<< HEAD
-=======
->>>>>>> 21e97fd722fbecc41c6ed991f3e748824ccec943
->>>>>>> edaf3a3567d6f58f39f427198b53b7877fbca065
->>>>>>> bc84173a52c4af79a7783087e4298c72714e7485
+} */
