@@ -53,7 +53,10 @@ router.get('/signup', (req, res, next) => {
   if (req.session.currentUser) {
     res.redirect('/');
   } else {
-    res.render('auth/signup');
+    const data = {
+      showPlaces: false
+    };
+    res.render('auth/signup', data);
   }
 });
 

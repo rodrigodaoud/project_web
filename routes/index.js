@@ -6,7 +6,10 @@ router.get('/', (req, res, next) => {
   if (req.session.currentUser) {
     res.redirect('/places');
   } else {
-    res.render('index');
+    const data = {
+      showPlaces: false
+    };
+    res.render('index', data);
   }
 });
 
