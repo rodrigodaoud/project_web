@@ -85,38 +85,34 @@ router.post('/', upload.single('file'), (req, res, next) => {
 });
 
 router.post('/:id', upload.single('file'), (req, res, next) => {
+  const placeId = req.params.id;
+
   if (!req.session.currentUser) {
     res.redirect('/');
-  }
-
-  const placeId = req.params.id;
-  Place.findById(placeId, (err, place) => {
-    if (err) {
-      return next(err);
-    }
-    if (!place) {
-      res.redirect('/');
-    }
-    const additionalPicture = {
-      picPath: `/uploads/${req.file.filename}`
-    };
-    place.additionalPicture.push(additionalPicture);
-    place.save((err, result) => {
+  } else if (!req.file) {
+    res.redirect('/places/' + placeId);
+  } else {
+    Place.findById(placeId, (err, place) => {
       if (err) {
         return next(err);
       }
-      res.redirect('/places/' + placeId);
+      if (!place) {
+        res.redirect('/');
+      }
+      const additionalPicture = {
+        picPath: `/uploads/${req.file.filename}`
+      };
+
+      place.additionalPicture.push(additionalPicture);
+      place.save((err, result) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect('/places/' + placeId);
+      });
     });
-  });
+  }
 });
-
-// router.post('/:additionalPicture/delete', (req, res, next) => {
-//   if (!req.session.currentUser) {
-//     res.redirect('/');
-//   }
-//   const picToBeDeleted = req.params.additionalPicture;
-
-// });
 
 router.post('/:id/delete/', (req, res, next) => {
   if (!req.session.currentUser) {
