@@ -39,13 +39,10 @@
                 <button>Logout</button>
               </form>
             </div>
-
           </div>
-
-          
         </div>
-        
       </div>
+
           <div class="filter-bar">
             <ul>
               <li>
@@ -62,6 +59,35 @@
               </li>
             </ul>
           </div>
+      <% } %>
+
+      <% if (!user) {%>
+        <div class="login-container-nav">
+            <div class="login-form-nav">
+                <form action="/auth/login" method="POST">
+
+                <div class="user-login-nav">
+                    <label for="username">Username</label>
+                    <input type="text" name="username">
+                </div>
+
+                <div class="pass-login-nav">
+                    <label for="password">Password</label>
+                    <input type="password" name="password">
+                </div>
+
+                <% if (typeof errorMessage != "undefined") { %>
+                <div class="error-message"><%= errorMessage %></div>
+                <% } %>
+                
+                <input id="login-btn-nav" type="submit" value="Log In">
+
+                <div class="signup-login-nav">
+                <p>Don't have an account? <a href="/auth/signup">Signup</a></p>
+                </div>
+                </form>
+            </div>
+        </div>
       <% } %>
     </nav>
 

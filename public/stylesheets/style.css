@@ -1,11 +1,11 @@
-/* div, nav{
-  border: 1px solid red;
-} */
+
 
 /* ---- Reset ---- */
 
 html {
   box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -13,6 +13,7 @@ html {
 body {
   margin: 160px 0 0 0;
   background-color: #EEF0F2;
+  height: 100%;
 }
 
 /* ---- Typography ---- */
@@ -325,26 +326,67 @@ body {
 
 
 /* -- Media Query -- */
+@media only screen and (max-width : 640px){
+  .login-container-nav{
+    display: none;
+  }
+  .mySlides{
+    display: none;
+  }
+
+}
 @media only screen and (min-width : 640px){
 
 /* -- Login Page -- */
   .main-welcome{
     display: flex;
+    justify-content: center;
     align-items: center;
   }
   .container{
     margin: 0 20px;
   }
-  .text-welcome img{
-    display: inline-block;
+  .text-welcome{
+    text-align: center;
   }
-  #map{
-    width: 100%;
+  .text-welcome h1{
+    font-size: 5em;
+    color: white;
   }
   .login-container{
-    flex-flow: column;
-    width: 100%;
+    display: none;
   }
-  
-
+  .login-container-nav form{
+    display: flex;
+    margin-right: 20px;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+  }
+  .login-container-nav div, #login-btn-nav{
+    margin-left: 20px;
+  }
+  #login-btn-nav{
+    padding: 3px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    border: 1px solid #566993;
+    background-color: #28a745;
+    border-radius: 3px;
+  }
+  .signup-login-nav a{
+    color: rgb(0, 195, 255);
+  }
+  .mySlides{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+  }
 }
+
+/* div, nav{
+  border: 1px solid red;
+} */
