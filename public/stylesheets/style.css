@@ -4,8 +4,6 @@
 
 html {
   box-sizing: border-box;
-  height: 100%;
-  overflow: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -18,22 +16,24 @@ body {
 /* ---- Typography ---- */
 .nav-logo h2{
   font-size: 1.2em;
+  font-family: 'Cabin', sans-serif;
   color: white;
 }
 .nav-logo a{
   text-decoration: none;
   color: #2C303F;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
 }
 .text-welcome h1{
   font-size: 2em;
   color: #353B3C;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  font-weight: bolder;
 }
 .text-welcome p{
   font-size: 1.2em;
-  font-family: Courier New, Courier, monospace;
+  font-family: Raleway;
+  font-weight: lighter;
 }
 /* ---- Layout ---- */
 .container{
@@ -81,7 +81,7 @@ body {
   margin-bottom: 10px;
 }
 .user-name span{
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
 }
 .user-name p{
   font-size: 1em;
@@ -144,19 +144,19 @@ body {
 }
 .user-login{
   font-size: 1.2em;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
   text-align: center;
   margin-bottom: 30px;
 }
 .user-login input{
   font-size: 1em;
   padding: 5px;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
   width: 100%;
 }
 .pass-login{
   font-size: 1.2em;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -169,7 +169,7 @@ body {
   width: 100%;
   padding: 10px;
   font-size: 1em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Cabin', sans-serif;
   color: white;
   margin-bottom: 30px;
   border: 1px solid #566993;
@@ -242,13 +242,6 @@ body {
   border: 1px solid #566993;
   border-radius: 5px;
 }
-
-/* -- Welcome Page -- */
-.img-welcome img{
-  width: 100%;
-}
-
-
 
 /* -- Filter Bar -- */
 .filter-bar{
@@ -329,28 +322,39 @@ body {
   .login-container-nav{
     display: none;
   }
-  .mySlides{
+  .slideshow{
     display: none;
   }
 
 }
 @media only screen and (min-width : 640px){
 
-/* -- Login Page -- */
-  .main-welcome{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* -- Nav Bar -- */
+  .nav-container{
+    height: 90px;
   }
+  .nav-border{
+    border: none;
+  }
+  .nav-logo h2{
+    font-size: 2em;
+  }
+
+  /* -- Login Page -- */
   .container{
     margin: 0 20px;
   }
   .text-welcome{
-    text-align: center;
+    display: none;
   }
-  .text-welcome h1{
-    font-size: 5em;
+  .slides h2{
+    font-size: 10em;
+    font-family: 'Dosis', sans-serif;
     color: white;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 50%);
   }
   .login-container{
     display: none;
@@ -361,6 +365,7 @@ body {
     flex-direction: row;
     align-items: center;
     color: white;
+    font-family: 'Cabin', sans-serif;
   }
   .login-container-nav div, #login-btn-nav{
     margin-left: 20px;
@@ -373,17 +378,20 @@ body {
     background-color: #28a745;
     border-radius: 3px;
   }
+  .error-message{
+    margin-top: 40px;
+  }
   .signup-login-nav a{
     color: rgb(0, 195, 255);
   }
-  .mySlides{
+  /* .mySlides{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
-    top: 0;
+    top: 90px;
     left: 0;
     z-index: -10;
-  }
+  } */
 }
 
 /* div, nav{

@@ -94,8 +94,7 @@ router.post('/:id', upload.single('file'), (req, res, next) => {
       res.redirect('/');
     }
     const additionalPicture = {
-      picPath: `/uploads/${req.file.filename}`,
-      picName: req.body.picName
+      picPath: `/uploads/${req.file.filename}`
     };
     place.additionalPicture.push(additionalPicture);
     place.save((err, result) => {
