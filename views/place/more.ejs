@@ -1,43 +1,48 @@
 
-    <div class="more-places <%= places.type %>">
-      <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
 
-      <div class="row">
+<div class="container">
+  <div class="more-places slider slider-for slick-initialized slick-slider <%= places.type %>">
+    <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
+
+
+    <div class="row">
+      <div class="column">
+          <img src="<%= places.displayPicture.picPath %>" alt=""> 
+      </div>
+      <% places.additionalPicture.forEach((picture) => { %>
         <div class="column">
-            <img src="<%= places.displayPicture.picPath %>" alt=""> 
+          <img src="<%= picture.picPath %>" alt=""> 
         </div>
-        <% places.additionalPicture.forEach((picture) => { %>
-          <div class="column">
-            <img src="<%= picture.picPath %>" alt=""> 
-          </div>
-        <% }) %>
+      <% }) %>
+    </div>
+
+    <div class="detail-info-container">
+      <div class="detail-info">
+        <h3 class="detail-name"><%= places.name %></h3>
+        <div class ="img-<%= places.type %>">
+        </div>
       </div>
 
-      <div class="detail-info-container">
-        <div class="detail-info">
-          <h3 class="detail-name"><%= places.name %></h3>
-          <div class ="img-<%= places.type %>">
-          </div>
-        </div>
-
-        <p class="detail-address">
-            Address: <%= places.address %><br>
-        </p>
-      </div> 
+      <p class="detail-address">
+          Address: <%= places.address %><br>
+      </p>
+    </div> 
 
         
-        <% if (user._id == places.createdBy) { %>
-        <form action="/places/<%= places.id %>/delete" method='post'>
-          <input type="submit" value="DELETE">
-        <% } %>
-        </form>
+      <% if (user._id == places.createdBy) { %>
+      <form action="/places/<%= places.id %>/delete" method='post'>
+        <input type="submit" value="DELETE">
+      <% } %>
+      </form>
 
-      <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
-        <h2 class="photo-upload-header">Upload your photo</h2>
-        <input id="photo-upload-input" type="file" name="file">
-    
-        <button>Submit</button>
+    <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
+      <h2 class="photo-upload-header">Upload your photo</h2>
+      <input id="photo-upload-input" type="file" name="file">
+  
+      <button>Submit</button>
     
     </form>
       
-    </div>
+  </div>
+
+</div>
