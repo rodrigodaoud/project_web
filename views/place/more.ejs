@@ -29,13 +29,7 @@
         <% }) %>
       </div>
 
-      <!-- <div class="row">
-          <% places.additionalPicture.forEach((picture) => { %>
-          <div class="column">
-            <img class="demo cursor" src="<%= picture.picPath %>" style="width:100%" onclick="currentSlide(2)" alt="">
-          </div>
-          <% }) %>
-      </div>  -->
+    
 
 
       <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
