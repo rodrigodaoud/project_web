@@ -14,6 +14,7 @@ body {
   margin: 160px 0 0 0;
   background-color: #EEF0F2;
   height: 100%;
+  overflow: auto;
 }
 
 /* ---- Typography ---- */
