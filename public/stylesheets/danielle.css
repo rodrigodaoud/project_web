@@ -1,11 +1,10 @@
 
 .detail-image {
-
     width: 100%;
 }
 
 .detail-address {
-    font-size: 40px;
+    font-size: 20px;
     font-family: Courier New, Courier, monospace;
 
 }
@@ -14,10 +13,11 @@
     font-size: 40px;
     font-family: Courier New, Courier, monospace;
     font-weight: bold;
+    margin: 0;
 }
 
 .detail-info {
-    margin: 1em;
+    margin: .5em;
 }
 
 .picture-container {
@@ -40,7 +40,6 @@
     width: 16.66%;
 }
 
-<<<<<<< HEAD
 .demo {
     opacity: 0.6;
 }
@@ -56,7 +55,7 @@
     clear: both;
 }
 
-/* .uploaded-picture {
+ .uploaded-picture {
     height: 30%;
     max-height: 10em;
     width: 30%;
@@ -65,16 +64,13 @@
     /* margin-top: 5px;
     margin-right: 5px; */
     /* overflow: hidden;
-} */ 
+} 
 
 /* .uploaded-picture img {
     height: auto;
     width: auto;
 } */
-=======
-.uploaded-picture img {
+/* .uploaded-picture img {
     height: 100%;
     width: 100%;
-}
->>>>>>> 21e97fd722fbecc41c6ed991f3e748824ccec943
->>>>>>> edaf3a3567d6f58f39f427198b53b7877fbca065
+} */
