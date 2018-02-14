@@ -1,0 +1,391 @@
+
+
+/* ---- Reset ---- */
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 160px 0 0 0;
+  background-color: #EEF0F2;
+}
+
+/* ---- Typography ---- */
+.nav-logo h2{
+  font-size: 1.2em;
+  color: white;
+}
+.nav-logo a{
+  text-decoration: none;
+  color: #2C303F;
+  font-family: Courier New, Courier, monospace;
+}
+.text-welcome h1{
+  font-size: 2em;
+  color: #353B3C;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+.text-welcome p{
+  font-size: 1.2em;
+  font-family: Courier New, Courier, monospace;
+}
+/* ---- Layout ---- */
+.container{
+  margin: 0 10px;
+}
+.nav-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #222725;
+}
+.signup-ctn{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* -------     Components    ------- */
+.text-welcome{
+  margin-bottom: 40px;
+}
+.main-welcome{
+  margin-top: -50px;
+}
+
+/* -- Nav Bar -- */
+.nav-border{
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  top: 0;
+  border-bottom: 1px solid rgb(231, 226, 226);
+}
+.nav-logo{
+  margin: 0 20px;
+}
+.nav-bar{
+  padding: 20px;
+}
+
+/* -- User Menu -- */
+.user-name{
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
+}
+.user-name span{
+  font-family: Courier New, Courier, monospace;
+}
+.user-name p{
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+.create-btn{
+  border-bottom: 1px white solid;
+  margin-bottom: 10px;
+}
+.create-btn button{
+  border: none;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+.logout-btn button{
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 0.5em;
+}
+.create-btn a{
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+}
+.user-photo{
+  border: 2px solid white;
+  background-color: grey;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  overflow: hidden;
+}
+.user-photo img{
+  width: 100%;
+  height: 100%;
+}
+.user-menu{
+  background: #3d3d3d;
+  width: 50%;
+  padding: 20px;
+  padding-top: 30px;
+  color: #fff;
+  font-family: arial;
+  font-size: 1.5rem;
+  display: none;
+  position: absolute;
+  top: 90 px;
+  right: 25px;
+  border-radius: 3px;
+}
+
+/* -- Login Form -- */
+.login-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.user-login{
+  font-size: 1.2em;
+  font-family: Courier New, Courier, monospace;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.user-login input{
+  font-size: 1em;
+  padding: 5px;
+  font-family: Courier New, Courier, monospace;
+  width: 100%;
+}
+.pass-login{
+  font-size: 1.2em;
+  font-family: Courier New, Courier, monospace;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.pass-login input{
+  font-size: 1em;
+  padding: 5px;
+  width: 100%;
+}
+#login-btn{
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  margin-bottom: 30px;
+  border: 1px solid #566993;
+  background-color: #28a745;
+  border-radius: 5px;
+}
+.signup-login{
+  font-size: 1em;
+  font-family: Courier New, Courier, monospace;
+}
+.signup-login a{
+  text-decoration: none;
+  color:blue;
+}
+.error-message{
+  font-size: 1em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 40px;
+  color: red;
+}
+.text-welcome img{
+  display: none;
+}
+
+/* -- Sign Up Form -- */
+.signup-ctn input{
+  width: 100%;
+  padding: 5px;
+  font-size: 1em;
+  font-family: Courier New, Courier, monospace;
+}
+.sign-text{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.5em;
+  color: #353B3C;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.sign-input{
+  text-align: center;
+  font-size: 1.2em;
+  font-family: Courier New, Courier, monospace;
+  margin-bottom: 20px;
+}
+.sign-photo{
+  text-align: center;
+}
+.sign-photo input{
+  text-align: center;
+}
+.sign-photo label{
+  font-size: 1.2em;
+  font-family: Courier New, Courier, monospace;
+}
+.sign-photo{
+  margin-bottom: 10px;
+}
+.sign-photo input[type=file]{
+  width: 100%;
+  font-size: 1em;
+}
+#sign-btn{
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 40px;
+  background-color: #28a745;
+  border: 1px solid #566993;
+  border-radius: 5px;
+}
+
+/* -- Welcome Page -- */
+.img-welcome img{
+  width: 100%;
+}
+
+
+
+/* -- Filter Bar -- */
+.filter-bar{
+  background-color: #353B3C;
+}
+.filter-bar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.filter-bar button{
+  font-size: 0.8em;
+  padding: 10px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+
+/* --  Places   -- */
+.place {
+  padding: 10px;
+  text-align: center;
+  display: none;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #A2999E;
+}
+.place-content{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-flow: row-reverse;
+}
+.place-info{
+  font-size: 0.7em;
+  margin-left: 10px;
+  text-align: left;
+  line-height: 200%;
+}
+.place-info p{
+  margin-top: 0;
+  font-family: Courier New, Courier, monospace;
+}
+.place-info span{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
+  font-size: 1em;
+}
+.place-view{
+  font-size: 0.8em;
+  background-color: #28a745;
+  float: left;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.place-view a{
+  text-decoration: none;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.place-image img{
+  width: 120px;
+  height: 120px;
+}
+.show{
+  display: block;
+}
+
+
+/* -- Media Query -- */
+@media only screen and (max-width : 640px){
+  .login-container-nav{
+    display: none;
+  }
+  .mySlides{
+    display: none;
+  }
+
+}
+@media only screen and (min-width : 640px){
+
+/* -- Login Page -- */
+  .main-welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container{
+    margin: 0 20px;
+  }
+  .text-welcome{
+    text-align: center;
+  }
+  .text-welcome h1{
+    font-size: 5em;
+    color: white;
+  }
+  .login-container{
+    display: none;
+  }
+  .login-container-nav form{
+    display: flex;
+    margin-right: 20px;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+  }
+  .login-container-nav div, #login-btn-nav{
+    margin-left: 20px;
+  }
+  #login-btn-nav{
+    padding: 3px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    border: 1px solid #566993;
+    background-color: #28a745;
+    border-radius: 3px;
+  }
+  .signup-login-nav a{
+    color: rgb(0, 195, 255);
+  }
+  .mySlides{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+  }
+}
+
+/* div, nav{
+  border: 1px solid red;
+} */

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Spot Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/danielle.css">
+  </head>
+  <body>
+
+    <nav class="nav-border">
+      <div class="nav-container">
+
+        <div class="nav-logo">
+          <a href="/places">
+            <h2>Spot Finder</h2>
+          </a>  
+        </div>
+
+      <% if (user) { %>
+        <div class="nav-bar">
+
+          <div class="user-photo">    
+            <img src="<%= user.displayPicture.picPath %>" alt="" >
+          </div>
+
+          <div class="user-menu">
+
+            <div class="user-name">
+              <p>Signed in as <span><%= user.username %></span></p>
+            </div>
+            <div class="create-btn">
+              <button><a href="/places/create">Create</a></button>
+            </div>
+
+            <div class="logout-btn">
+              <form action="/auth/logout" method="post">
+                <button>Logout</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <div class="filter-bar">
+            <ul>
+              <li>
+                <button class="btn-filter active" onclick="filterSelection('all')">Show All</button>
+              </li>
+              <li>
+                <button class="btn-filter" onclick="filterSelection('skate')">Skate</button>
+              </li>
+              <li>
+                <button class="btn-filter" onclick="filterSelection('snowboard')">Snowboard</button>
+              </li>
+              <li>
+                <button class="btn-filter no-border" onclick="filterSelection('surf')">Surf</button>
+              </li>
+            </ul>
+          </div>
+      <% } %>
+
+      <% if (!user) {%>
+        <div class="login-container-nav">
+            <div class="login-form-nav">
+                <form action="/auth/login" method="POST">
+
+                <div class="user-login-nav">
+                    <label for="username">Username</label>
+                    <input type="text" name="username">
+                </div>
+
+                <div class="pass-login-nav">
+                    <label for="password">Password</label>
+                    <input type="password" name="password">
+                </div>
+
+                <% if (typeof errorMessage != "undefined") { %>
+                <div class="error-message"><%= errorMessage %></div>
+                <% } %>
+                
+                <input id="login-btn-nav" type="submit" value="Log In">
+
+                <div class="signup-login-nav">
+                <p>Don't have an account? <a href="/auth/signup">Signup</a></p>
+                </div>
+                </form>
+            </div>
+        </div>
+      <% } %>
+    </nav>
+
+    <%- body -%>
+
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascripts/filters.js"></script>
+
+</html>

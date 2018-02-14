@@ -1,0 +1,119 @@
+.img-skate {
+    height: 3em;
+    width: 3em;
+    background-image: url('/images/skateboard-img.png');
+    background-repeat: no-repeat;
+
+}
+
+.img-surf {
+    height: 1em;
+    width: 1em;
+    background-image: url('/images/surf-img.png');
+    background-repeat: no-repeat;
+
+}
+
+.detail-image {
+    width: 100%;
+    margin-top: -30px;
+}
+
+.photo-upload-header {
+    font-family: Courier New, Courier, monospace;
+
+}
+
+.more-places button {
+    font-family: Courier New, Courier, monospace;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+.more-places input {
+    font-family: Courier New, Courier, monospace;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+
+.detail-address {
+    font-size: 20px;
+    font-family: Courier New, Courier, monospace;
+
+}
+
+.detail-name {
+    padding: 4px;
+    font-size: 40px;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    margin: 0;
+}
+
+.detail-info {
+    display: flex;
+    justify-content: space-between;
+    margin: ;
+}
+
+.detail-info-container {
+    margin: .5em;
+
+}
+
+.picture-container {
+    width: 95%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    border: 2px solid #003C72;
+
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; */
+}
+
+.mySlides{
+
+}
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ .uploaded-picture {
+    height: 30%;
+    max-height: 10em;
+    width: 30%;
+    border: 2px solid black;
+    /* border-radius: 5px; */
+    /* margin-top: 5px;
+    margin-right: 5px; */
+    /* overflow: hidden;
+} 
+
+/* .uploaded-picture img {
+    height: auto;
+    width: auto;
+} */
+/* .uploaded-picture img {
+    height: 100%;
+    width: 100%;
+<<<<<<< HEAD
+} */
