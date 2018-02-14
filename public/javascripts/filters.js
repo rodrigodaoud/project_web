@@ -38,14 +38,14 @@ $('.user-photo').click(function () {
 //Slideshow Index Page
 $(".slideshow > .slides:gt(0)").hide();
 
-// setInterval(function() { 
-//   $('.slideshow > .slides:first')
-//     .fadeOut(1000)
-//     .next()
-//     .fadeIn(1000)
-//     .end()
-//     .appendTo('.slideshow');
-// }, 6000);
+setInterval(function() { 
+  $('.slideshow > .slides:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('.slideshow');
+}, 6000);
 
 // Filter Places
 filterSelection('all');
