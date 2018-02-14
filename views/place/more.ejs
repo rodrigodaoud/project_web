@@ -1,36 +1,36 @@
 
 <div class="container">
-  <div class="more-places <%= places.type %>">
 
-    <div class="slider-for">
+<div class="column small-11 small-centered slider-ctn">
+  <div class="slider slider-single">
+    <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
+  <% places.additionalPicture.forEach((picture) => { %>
+    <div class="item">
+      <img src="<%= picture.picPath %>" alt="" draggable="false"> 
+    </div>
+  <% }) %> 
+  </div>   
+
+  <div class="slider slider-nav">
       <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
     <% places.additionalPicture.forEach((picture) => { %>
       <div class="item">
         <img src="<%= picture.picPath %>" alt="" draggable="false"> 
       </div>
-    <% }) %> 
-    </div>   
+    <% }) %>
+  </div>
+</div>
 
-    <div class="slider-nav">
-        <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
-      <% places.additionalPicture.forEach((picture) => { %>
-        <div class="item">
-          <img src="<%= picture.picPath %>" alt="" draggable="false"> 
-        </div>
-      <% }) %>
-    </div>
-
-    <div class="detail-info-container">
-      <div class="detail-info">
-        <h3 class="detail-name"><%= places.name %></h3>
-        <div class ="img-<%= places.type %>">
-        </div>
-      </div>
+    <div class="detail-info">
+      <h3 class="detail-name"><%= places.name %></h3>
+      
+      <div class ="img-<%= places.type %>"></div>
 
       <p class="detail-address">
           Address: <%= places.address %><br>
       </p>
-    </div> 
+    </div>
+
 
         
         <% if (user._id == places.createdBy) { %>
