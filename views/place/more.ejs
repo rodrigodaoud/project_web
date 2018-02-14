@@ -1,17 +1,21 @@
 
-
 <div class="container">
-  <div class="more-places slider slider-for slick-initialized slick-slider <%= places.type %>">
-    <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
+  <div class="more-places <%= places.type %>">
 
-
-    <div class="row">
-      <div class="column">
-          <img src="<%= places.displayPicture.picPath %>" alt=""> 
+    <div class="slider-for">
+      <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
+    <% places.additionalPicture.forEach((picture) => { %>
+      <div class="item">
+        <img src="<%= picture.picPath %>" alt="" draggable="false"> 
       </div>
+    <% }) %> 
+    </div>   
+
+    <div class="slider-nav">
+        <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
       <% places.additionalPicture.forEach((picture) => { %>
-        <div class="column">
-          <img src="<%= picture.picPath %>" alt=""> 
+        <div class="item">
+          <img src="<%= picture.picPath %>" alt="" draggable="false"> 
         </div>
       <% }) %>
     </div>
@@ -29,17 +33,19 @@
     </div> 
 
         
-      <% if (user._id == places.createdBy) { %>
-      <form action="/places/<%= places.id %>/delete" method='post'>
-        <input type="submit" value="DELETE">
-      <% } %>
-      </form>
+        <% if (user._id == places.createdBy) { %>
+        <form action="/places/<%= places.id %>/delete" method='post'>
+          <input type="submit" value="DELETE">
+        <% } %>
+        </form>
 
-    <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
-      <h2 class="photo-upload-header">Upload your photo</h2>
-      <input id="photo-upload-input" type="file" name="file">
-  
-      <button>Submit</button>
+        <div id="map"></div>
+
+      <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
+        <h2 class="photo-upload-header">Upload your photo</h2>
+        <input id="photo-upload-input" type="file" name="file">
+    
+        <button>Submit</button>
     
     </form>
       
