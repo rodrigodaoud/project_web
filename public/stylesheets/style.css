@@ -8,7 +8,7 @@ html {
 }
 body {
   margin: 140px 0 0 0;
-  background-color: #EEF0F2;
+  background-color: #353B3C;
 }
 
 /* ---- Typography ---- */
@@ -250,6 +250,9 @@ body {
 .background-filter{
   background-color: #353B3C;
 }
+.filter-bar{
+  background-color: #353B3C;
+}
 .filter-bar ul {
   list-style: none;
   display: flex;
@@ -278,12 +281,15 @@ body {
   padding: 5px;
   text-align: center;
   display: none;
-  margin-bottom: 5px;
-  border-bottom: 1px solid #A2999E;
+  margin-top: -20px;
+  margin-bottom: 25px;
+  background-color: #222725;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 3px;
 }
 .place-content{
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   flex-flow: row-reverse;
 }
@@ -292,6 +298,7 @@ body {
   margin-left: 10px;
   text-align: left;
   line-height: 150%;
+  color: white;
 }
 .place-info p{
   margin-top: 0;
@@ -306,7 +313,9 @@ body {
   margin-top: 5px;
 }
 .place-view{
-  font-size: 0.8em;
+  font-size: 1em;
+  border: none;
+  border-radius: 2px;
   background-color: #28a745;
   float: left;
   padding: 5px;
@@ -318,8 +327,9 @@ body {
 }
 .place-image img{
   border-radius: 3px;
-  width: 100px;
-  height: 100px;
+  box-shadow: 1px 1px 3px black;
+  width: 120px;
+  height: 120px;
 }
 .show{
   display: block;
@@ -557,6 +567,9 @@ margin-top: -10px;
   .nav-border{
     border: none;
   }
+  .nav-bar{
+    margin-right: 40px;
+  }
   .nav-logo h2{
     font-size: 2em;
   }
@@ -564,8 +577,26 @@ margin-top: -10px;
     width: 40px;
     height: 40px;
   }
+  .filter-bar{
+    position: fixed;
+    width: 240px;
+    background-color: #222725;
+  }
+  .filter-bar ul{
+    display: block;
+    height: 100vh;
+    text-align: left;
+  }
+  li button:hover{
+    background-color: rgb(28, 71, 29);
+    color: white;
+  }
   .filter-bar button{
     font-size: 1.5em;
+    color: white;
+  }
+  .filter-bar button:focus{
+    background-color: #4CAF50;
   }
 
   /* -- SIGN UP PAGE -- */
@@ -631,7 +662,6 @@ margin-top: -10px;
   } 
 
 /*-- PLACES PAGE --*/
-
   .place-image img{
     height: 200px;
     width: 200px;
@@ -647,7 +677,8 @@ margin-top: -10px;
     font-size: 1em;
   }
   .show-all-places{
-    margin-top: 180px;
+    margin-left: 200px;
+    padding: 0 40px;
   }
   .img-surf,
   .img-skate,
@@ -662,6 +693,11 @@ margin-top: -10px;
 
 
 
-div, nav{
-  border: 1px solid red;
+#map {
+  height: 200px;
+  width: 200px;
 }
+
+/* div, nav{
+  border: 1px solid red;
+} */

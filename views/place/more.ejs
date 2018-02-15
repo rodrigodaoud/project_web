@@ -16,30 +16,46 @@
       <div class="item">
         <img src="<%= picture.picPath %>" alt="" draggable="false"> 
       </div>
-      <% }) %>
-    </div>
-  </div>
-    
-  <div class="detail-info">
-    <h3 class="detail-name"><%= places.name %></h3>
-    <div class ="img-<%= places.type %>"></div>
-    <p class="detail-address">Address: <%= places.address %></p>
-  </div>
-
-  <div id="map"></div>
-    
-  <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
-    <h2 class="photo-upload-header">Upload your photo</h2>
-    <input id="photo-upload-input" type="file" name="file">
-    <button>Submit</button>
-  </form>
-
-
-  <% if (user._id == places.createdBy) { %>
-  <form action="/places/<%= places.id %>/delete" method='post'>
-    <input type="submit" value="DELETE">
-  </form>
-  <% } %>
-      
+    <% }) %>
   </div>
 </div>
+
+    <div class="detail-info">
+      <h3 class="detail-name"><%= places.name %></h3>
+      
+      <div class ="img-<%= places.type %>"></div>
+
+      <p class="detail-address">
+          Address: <%= places.address %><br>
+      </p>
+      <p><%= places.description %></p>
+    </div>
+
+
+        
+        <% if (user._id == places.createdBy) { %>
+        <form action="/places/<%= places.id %>/delete" method='post'>
+          <input type="submit" value="DELETE">
+        <% } %>
+        </form>
+
+
+      <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
+        <h2 class="photo-upload-header">Upload your photo</h2>
+        <input id="photo-upload-input" type="file" name="file">
+    
+        <button>Submit</button>
+    </form>
+      
+  </div>
+  <div class="map-stuff">
+    <!-- <input type="text" id="inputTextAddress" style="width:200px" title="address to geocode">
+    <input type="button" onclick="codeAddress()" id="inputButtonGeocode" style="width:150px" title="Click to Geocode" value="Click to Geocode"> -->
+    <div id="map"></div>
+  </div>
+  </div>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF_NBAF_E7cJKqkXqxQmVt6Cskv-W7o_0&callback=initMap"
+  ></script>
+  <script type="text/javascript"> var myPlaces = <%- JSON.stringify(places) %>; </script>
+  <script type="text/javascript" src="/javascripts/maps.js"></script>

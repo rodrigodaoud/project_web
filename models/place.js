@@ -6,9 +6,20 @@ const placeSchema = new Schema({
   name: String,
   address: String,
   type: String,
+  description: {
+    type: String,
+    default: 'Know about this spot? Add a description.'
+  },
   active: {
     type: Boolean,
     default: true
+  },
+  location: {
+    type: {
+      type: String,
+      default: 'Point'
+    },
+    coordinates: [Number]
   },
   displayPicture: {
     picPath: {
