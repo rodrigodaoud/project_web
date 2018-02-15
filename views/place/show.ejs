@@ -1,31 +1,31 @@
 
 <div class="container show-all-places">
-  <% places.forEach((place) => { %>
-    <div class="place <%= place.type %>">
-      <div class="place-content">
-        <div class="place-info">
-          <p>
-            <span><%= place.name %></span><br>
-            <%= place.address %><br>
-            <div class ="img-<%= place.type %>"></div>
-            Created by: @<%= place.createdBy.username %><br>
-              <button class="place-view"><a href="/places/<%= place.id %>">View more</a></button>
-          </p>
-        </div>
+
+    <% places.forEach((place) => { %>
+      <div class="place <%= place.type %>">
+        <div class="place-content">
+          <div class="place-info">
+            <p>
+              <span><%= place.name %></span><br>
+              <%= place.address %><br>
+              <div class ="img-<%= place.type %>"></div>
+              Created by: @<%= place.createdBy.username %><br>
+                <button class="place-view"><a href="/places/<%= place.id %>">View more</a></button>
+            </p>
+          </div>
 
       <div class="place-btn">
           <% if (user._id == place.createdBy) { %>
           <form action="/places/<%= place.id %>/delete" method='post'>
             <input type="submit" value="DELETE">
-          <% } %>
           </form>
+          <% } %>
       </div>
 
-        <div class="place-image">
-          <img src="<%= place.displayPicture.picPath %>" alt="">
-        </div>
+      <div class="place-image">
+        <img src="<%= place.displayPicture.picPath %>" alt="">
       </div>
+    </div>
   </div>
-    <%  }) %>
-  
+  <%  }) %>
 </div>

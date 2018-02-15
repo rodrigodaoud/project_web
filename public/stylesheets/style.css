@@ -1,5 +1,3 @@
-
-
 /* ---- Reset ---- */
 
 html {
@@ -257,7 +255,7 @@ body {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  padding: 10px;
+  padding: 0px 10px;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -265,10 +263,13 @@ body {
   font-size: 1em;
   padding: 10px;
   color: white;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background-color: transparent;
   outline: none;
   border: none;
+}
+.filter-bar button:focus{
+  background-color: #222725;
 }
 
 
@@ -354,33 +355,39 @@ margin-top: -10px;
 margin-top: -10px;
 }
 
+/* -- VIEW MORE PAGE -- */
+.detail-info h3{
+  font-family: 'Cabin', sans-serif;
+}
+
 /* -- THUMBNAIL SLIDER -- */
 .slider-ctn{
   margin-top: -40px;
 }
 .slider-single{
-width: 375px;
+  width: 375px;
   height: 250px;
   margin: 0;
   overflow: hidden;
   z-index: -1;
 }
 .item img{
-width: 100%;
-min-height: 100%;
+  width: 100%;
+  min-height: 100%;
 }
 .slider-nav{
-width: 100%;
+  width: 100%;
   height: 85px;
-}
+} 
 .slick-slider{
-  width: 90%;
+  width: 100%;
 }
 .slick-initialized{
   margin: auto;
+  margin-bottom: 10px;
 }
 .slider-nav .slick-track{
-height: 85px;
+  height: 85px;
 }
 
 /* CREATE PAGE */
@@ -443,7 +450,92 @@ height: 85px;
 }
 
 /* -- Media Query -- */
-@media only screen and (min-width : 769px){
+@media only screen and (min-width : 640px){
+
+  .nav-container{
+    border: none;
+  }
+  /* -- LOGIN PAGE -- */
+  .text-welcome{
+    margin-bottom: 120px;
+  }
+  .text-welcome h1{
+    font-size: 5em;
+  }
+  .user-login{
+    font-size: 2em;
+  }
+  .pass-login{
+    font-size: 2em;
+    margin-bottom: 50px;
+  }
+  #login-btn{
+    font-size: 2em;
+  }
+  .signup-login{
+    font-size: 2em;
+  }
+  .filter-bar button{
+    font-size: 1.5em;
+  }
+
+  /*-- PLACES PAGE --*/
+
+  .place-image img{
+    height: 200px;
+    width: 200px;
+    margin: 8px;
+  }
+  .place-info {
+    font-size: 1.2em;
+    font-family: 'Cabin', sans-serif;
+    line-height: 210%;
+  }
+  .place-info button{
+    font-family: 'Cabin', sans-serif;
+    font-size: 1em;
+  }
+  .show-all-places{
+    margin-top: 160px;
+  }
+  .img-surf,
+  .img-skate,
+  .img-snowboard {
+    width: 40px;
+    height: 40px;
+  }
+  .create-ctn{
+    margin-top: 40px;
+  }
+
+/* -- THUMBNAIL SLIDER -- */
+  .slider-ctn{
+    margin-top: -20px;
+  }
+  .slider-single{
+    height: 375px;
+    margin: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .item img{
+    width: 100%;
+    min-height: 100%;
+  }
+  .slider-nav{
+    width: 100%;
+    height: 100%;
+  }
+  .slick-slider{
+    width: 95%;
+  }
+  .slick-initialized{
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .slider-nav .slick-track{
+    height: 120px;
+  }
 
 }
 
@@ -570,6 +662,6 @@ height: 85px;
 
 
 
-/* div, nav{
+div, nav{
   border: 1px solid red;
-} */
+}

@@ -62,7 +62,7 @@ $('.slider-single').slick({
   infinite: false,
  useTransform: true,
   speed: 400,
-  cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+  cssEase:' cubic-bezier(0.77, 0, 0.18, 1)',
 });
 
 $('.slider-nav')
@@ -95,6 +95,9 @@ $('.slider-nav')
    }
     }]
   });
+
+  $('.slick-next').hide();
+  $('.slick-prev').hide();
 
 $('.slider-single').on('afterChange', function(event, slick, currentSlide) {
   $('.slider-nav').slick('slickGoTo', currentSlide);

@@ -1,54 +1,45 @@
-
 <div class="container">
 
-<div class="column small-11 small-centered slider-ctn">
-  <div class="slider slider-single">
-    <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
-  <% places.additionalPicture.forEach((picture) => { %>
-    <div class="item">
-      <img src="<%= picture.picPath %>" alt="" draggable="false"> 
-    </div>
-  <% }) %> 
-  </div>   
-
-  <div class="slider slider-nav">
+  <div class="column small-11 small-centered slider-ctn">
+    <div class="slider slider-single">
       <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
-    <% places.additionalPicture.forEach((picture) => { %>
+      <% places.additionalPicture.forEach((picture) => { %>
       <div class="item">
         <img src="<%= picture.picPath %>" alt="" draggable="false"> 
       </div>
-    <% }) %>
-  </div>
-</div>
-
-    <div class="detail-info">
-      <h3 class="detail-name"><%= places.name %></h3>
-      
-      <div class ="img-<%= places.type %>"></div>
-
-      <p class="detail-address">
-          Address: <%= places.address %><br>
-      </p>
+      <% }) %> 
     </div>
 
-
-        
-        <% if (user._id == places.createdBy) { %>
-        <form action="/places/<%= places.id %>/delete" method='post'>
-          <input type="submit" value="DELETE">
-        <% } %>
-        </form>
-
-        <div id="map"></div>
-
-      <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
-        <h2 class="photo-upload-header">Upload your photo</h2>
-        <input id="photo-upload-input" type="file" name="file">
+    <div class="slider slider-nav">
+      <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
+      <% places.additionalPicture.forEach((picture) => { %>
+      <div class="item">
+        <img src="<%= picture.picPath %>" alt="" draggable="false"> 
+      </div>
+      <% }) %>
+    </div>
+  </div>
     
-        <button>Submit</button>
-    
-    </form>
-      
+  <div class="detail-info">
+    <h3 class="detail-name"><%= places.name %></h3>
+    <div class ="img-<%= places.type %>"></div>
+    <p class="detail-address">Address: <%= places.address %></p>
   </div>
 
+  <div id="map"></div>
+    
+  <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
+    <h2 class="photo-upload-header">Upload your photo</h2>
+    <input id="photo-upload-input" type="file" name="file">
+    <button>Submit</button>
+  </form>
+
+
+  <% if (user._id == places.createdBy) { %>
+  <form action="/places/<%= places.id %>/delete" method='post'>
+    <input type="submit" value="DELETE">
+  </form>
+  <% } %>
+      
+  </div>
 </div>
