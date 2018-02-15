@@ -416,6 +416,11 @@ body {
 
 }
 
+#map {
+  height: 200px;
+  width: 200px;
+}
+
 /* div, nav{
   border: 1px solid red;
 } */

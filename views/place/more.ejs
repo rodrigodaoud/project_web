@@ -39,16 +39,19 @@
         <% } %>
         </form>
 
-        <div id="map"></div>
 
       <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
         <h2 class="photo-upload-header">Upload your photo</h2>
         <input id="photo-upload-input" type="file" name="file">
     
         <button>Submit</button>
-    
     </form>
       
   </div>
+  <div class="map-stuff">
+    <!-- <input type="text" id="inputTextAddress" style="width:200px" title="address to geocode">
+    <input type="button" onclick="codeAddress()" id="inputButtonGeocode" style="width:150px" title="Click to Geocode" value="Click to Geocode"> -->
+    <div id="map"></div>
+  </div>
+  </div>
 
-</div>
