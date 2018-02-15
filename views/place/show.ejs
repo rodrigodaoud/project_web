@@ -1,12 +1,14 @@
 
 <div class="container show-all-places">
+    <div id="map"></div>
+
   <% places.forEach((place) => { %>
     <div class="place <%= place.type %>">
       <div class="place-content">
         <div class="place-info">
           <p>
             <span><%= place.name %></span><br>
-            <%= place.address %><br>
+            <%= place.address.name %><br>
             <div class ="img-<%= place.type %>"></div>
             Created by: @<%= place.createdBy.username %><br>
               <button class="place-view"><a href="/places/<%= place.id %>">View more</a></button>
@@ -26,6 +28,11 @@
         </div>
       </div>
   </div>
-    <%  }) %>
+  <%  }) %>
   
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF_NBAF_E7cJKqkXqxQmVt6Cskv-W7o_0&callback=initMap"
+></script>
+<script type="text/javascript"> var myPlaces = <%- JSON.stringify(places) %>; </script>
+<script type="text/javascript" src="/javascripts/maps.js"></script>

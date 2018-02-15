@@ -3,7 +3,8 @@
 // MAP INFO
 
 function main () {
-  const placeName = myPlaces.name;
+  // if (myPlaces = [])
+  const placeName = myPlaces;
 
   function initMap () {
     let myMarker;
@@ -58,41 +59,41 @@ function main () {
 
     // --- lop to create markers for the bars location and infoWindow
     // --- create infoWindow with the content
-    //     for (let i = 0; i < myPlaces.length; i++) {
-    //       let contentString = myPlaces[i].name;
-    //       const infoWindow = new google.maps.InfoWindow(
-    //         {content: contentString});
+    for (let i = 0; i < myPlaces.length; i++) {
+      let contentString = myPlaces[i].name;
+      const infoWindow = new google.maps.InfoWindow(
+        {content: contentString});
 
-    //         // --- create markers for each bar
-    //       const placesMarker = new google.maps.Marker({
-    //         position: {
-    //           lat: myPlaces[i].location.coordinates[0],
-    //           lng: myPlaces[i].location.coordinates[1]
-    //         },
-    //         // --- icon: icon, place to change icon
-    //         map: map,
-    //         label: myPlaces[i].type
-    //       });
+      // --- create markers for each bar
+      const placesMarker = new google.maps.Marker({
+        position: {
+          lat: myPlaces[i].address.coordinates[0],
+          lng: myPlaces[i].address.coordinates[1]
+        },
+        // --- icon: icon, place to change icon
+        map: map,
+        label: myPlaces[i].type
+      });
 
-    //       // --- bind each infowindow with each bar´s marker and add event listener to display and hide the infowindow
-    //       infoWindow.setPosition({
-    //         lat: myPlaces[i].location.coordinates[0],
-    //         lng: myPlaces[i].location.coordinates[1]
-    //       });
-    //       placesMarker.addListener('click', () => {
-    //         if (!placesMarker.open) {
-    //           infoWindow.open(map, placesMarker);
-    //           placesMarker.open = true;
-    //         } else {
-    //           infoWindow.close();
-    //           placesMarker.open = false;
-    //         }
-    //         google.maps.event.addListener(map, 'click', () => {
-    //           infoWindow.close();
-    //           placesMarker.open = false;
-    //         });
-    //       });
-    //     }
+      // --- bind each infowindow with each bar´s marker and add event listener to display and hide the infowindow
+      infoWindow.setPosition({
+        lat: myPlaces[i].address.coordinates[0],
+        lng: myPlaces[i].address.coordinates[1]
+      });
+      placesMarker.addListener('click', () => {
+        if (!placesMarker.open) {
+          infoWindow.open(map, placesMarker);
+          placesMarker.open = true;
+        } else {
+          infoWindow.close();
+          placesMarker.open = false;
+        }
+        google.maps.event.addListener(map, 'click', () => {
+          infoWindow.close();
+          placesMarker.open = false;
+        });
+      });
+    }
   }
   initMap();
 }

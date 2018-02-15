@@ -4,16 +4,6 @@ const multer = require('multer');
 const upload = multer({ dest: 'public/uploads/' });
 const NodeGeocoder = require('node-geocoder');
 
-const options = {
-  provider: 'google',
-
-  // Optional depending on the providers
-  // httpAdapter: 'https'
-  apiKey: 'YOUR_API_KEY'
-  // formatter: null
-};
-const geocoder = NodeGeocoder(options);
-
 const Place = require('../models/place');
 
 router.get('/', (req, res, next) => {
@@ -46,61 +36,73 @@ router.get('/create', (req, res, next) => {
 });
 
 router.post('/', upload.single('file'), (req, res, next) => {
-  geocoder.geocode(req.body.address, function (err, res) {
+  const addressName = req.body.address;
+  const options = {
+    apiKey: 'AIzaSyBD3CuwbeUvL9RvwXGZW7JVy8RH0-GdWy0'
+  };
+  // what happend if we dont have an address?
+  const geocoder = NodeGeocoder(options);
+  geocoder.geocode(addressName, function (err, result) {
     if (err) {
       return next(err);
     }
-    console.log(res);
-  });
-  const createdBy = req.session.currentUser._id;
-  const newName = req.body.name;
-  const type = req.body.type;
-  const address = req.body.address;
-  const description = req.body.description;
-  let displayPicture;
 
-  if (req.file) {
-    displayPicture = {
-      picPath: `/uploads/${req.file.filename}`,
-      picName: req.body.picName
+    const createdBy = req.session.currentUser._id;
+    const newName = req.body.name;
+    const type = req.body.type;
+    const address = {
+      coordinates: [result[0].latitude, result[0].longitude],
+      name: addressName
     };
-  }
-  if (newName === '' || type === '' || address === '') {
-    res.render('place/create', {
-      errorMessage: 'all fields are mandatory to create a new place'
-    });
-    return;
-  }
+    const description = req.body.description;
+    let displayPicture;
 
-  Place.findOne({ 'name': newName, 'active': true },
-    'name',
-    (err, name) => {
-      if (err) {
-        return next(err);
-      }
-      if (name !== null) {
-        res.render('place/create', {
-          errorMessage: 'The place already exists'
-        });
-        return;
-      }
+    if (req.file) {
+      displayPicture = {
+        picPath: `/uploads/${req.file.filename}`,
+        picName: req.body.picName
+      };
+    }
+    if (newName === '' || type === '' || address === '') {
+      const data = {
+        showPlaces: false,
+        errorMessage: 'The place already exists'
+      };
+      return res.render('place/create', data);
+    }
 
-      const newPlace = new Place({
-        createdBy,
-        name: newName,
-        type,
-        address,
-        displayPicture,
-        description
-      });
-
-      newPlace.save((err) => {
+    Place.findOne({ 'name': newName, 'active': true },
+      'name',
+      (err, name) => {
         if (err) {
           return next(err);
         }
-        res.redirect('/places');
+        if (name !== null) {
+          const data = {
+            showPlaces: false,
+            errorMessage: 'The place already exists'
+          };
+          return res.render('place/create', data);
+        }
+
+        const newPlace = new Place({
+          createdBy,
+          name: newName,
+          type,
+          address,
+          displayPicture,
+          description,
+          address
+        });
+
+        newPlace.save((err) => {
+          if (err) {
+            return next(err);
+          }
+          res.redirect('/places');
+        });
       });
-    });
+  });
 });
 
 router.post('/:id', upload.single('file'), (req, res, next) => {
