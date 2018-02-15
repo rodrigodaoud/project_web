@@ -9,6 +9,7 @@
             <%= place.address %><br>
             <div class ="img-<%= place.type %>"></div>
             Created by: @<%= place.createdBy.username %><br>
+            <%= place.description %>
               <button class="place-view"><a href="/places/<%= place.id %>">View more</a></button>
           </p>
         </div>

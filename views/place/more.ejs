@@ -29,6 +29,7 @@
       <p class="detail-address">
           Address: <%= places.address %><br>
       </p>
+      <p><%= places.description %></p>
     </div>
 
 
@@ -55,3 +56,7 @@
   </div>
   </div>
 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF_NBAF_E7cJKqkXqxQmVt6Cskv-W7o_0&callback=initMap"
+  ></script>
+  <script type="text/javascript"> var myPlaces = <%- JSON.stringify(places) %>; </script>
+  <script type="text/javascript" src="/javascripts/maps.js"></script>

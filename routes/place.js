@@ -2,6 +2,17 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({ dest: 'public/uploads/' });
+const NodeGeocoder = require('node-geocoder');
+
+const options = {
+  provider: 'google',
+
+  // Optional depending on the providers
+  // httpAdapter: 'https'
+  apiKey: 'YOUR_API_KEY'
+  // formatter: null
+};
+const geocoder = NodeGeocoder(options);
 
 const Place = require('../models/place');
 
@@ -35,10 +46,17 @@ router.get('/create', (req, res, next) => {
 });
 
 router.post('/', upload.single('file'), (req, res, next) => {
+  geocoder.geocode(req.body.address, function (err, res) {
+    if (err) {
+      return next(err);
+    }
+    console.log(res);
+  });
   const createdBy = req.session.currentUser._id;
   const newName = req.body.name;
   const type = req.body.type;
   const address = req.body.address;
+  const description = req.body.description;
   let displayPicture;
 
   if (req.file) {
@@ -72,7 +90,8 @@ router.post('/', upload.single('file'), (req, res, next) => {
         name: newName,
         type,
         address,
-        displayPicture
+        displayPicture,
+        description
       });
 
       newPlace.save((err) => {
@@ -88,16 +107,16 @@ router.post('/:id', upload.single('file'), (req, res, next) => {
   const placeId = req.params.id;
 
   if (!req.session.currentUser) {
-    res.redirect('/');
+    return res.redirect('/');
   } else if (!req.file) {
-    res.redirect('/places/' + placeId);
+    return res.redirect('/places/' + placeId);
   } else {
     Place.findById(placeId, (err, place) => {
       if (err) {
         return next(err);
       }
       if (!place) {
-        res.redirect('/');
+        return res.redirect('/');
       }
       const additionalPicture = {
         picPath: `/uploads/${req.file.filename}`
@@ -116,7 +135,7 @@ router.post('/:id', upload.single('file'), (req, res, next) => {
 
 router.post('/:id/delete/', (req, res, next) => {
   if (!req.session.currentUser) {
-    res.redirect('/');
+    return res.redirect('/');
   }
   const placeId = req.params.id;
   Place.findById(placeId, (err, place) => {
@@ -138,25 +157,6 @@ router.post('/:id/delete/', (req, res, next) => {
       res.redirect('/');
     }
   });
-});
-router.get('/:id/addPhoto', (req, res, next) => {
-  if (!req.session.currentUser) {
-    res.redirect('/');
-  } else {
-    const placeId = req.params.id;
-    Place.findById(placeId, (err, place) => {
-      if (err) {
-        return next(err);
-      }
-      if (!place) {
-        res.redirect('/');
-      }
-      const data = {
-        place: place
-      };
-      res.render('place/addPhoto', data);
-    });
-  }
 });
 
 router.get('/:id', (req, res, next) => {
