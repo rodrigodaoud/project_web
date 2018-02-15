@@ -1,18 +1,90 @@
-/* .img-skate {
-    height: 3em;
-    width: 3em;
+/* CREATE PAGE */
+.create-form-page input,
+.create-form-page option,
+.create-form-page select,
+.create-form-page label,
+.create-form-page button {
+    font-family: 'Cabin', sans-serif;
+    text-align: center;
+}
+.create-form-page input {
+    border: 1px solid gray;
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
+    text-align: center;
+}
+.create-form-page select,
+.create-form-page option {
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 30px;
+}
+.create-form-page select option {
+    text-align: center;
+}
+.create-form-page form,
+.create-form-page form .file-upload{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.create-form-page form .file-upload > input {
+    margin: 5px;
+}
+.create-form-page form > div {
+    padding: 10px;
+}
+.create-form-page h2,
+.create-form-page h3 {
+    font-family: 'Cabin', sans-serif;
+
+}
+.create-form-page form button,
+.create-form-page form #file-upload {
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+
+/* #picName {
+    color: gray;
+} */
+
+
+/* images for show page and more page */
+.img-skate {
+    height: 20px;
+    width: 20px;
     background-image: url('/images/skateboard-img.png');
     background-repeat: no-repeat;
-
+    overflow:hidden;
+    background-size: cover;
+    margin-top: -10px;
 }
 
 .img-surf {
-    height: 1em;
-    width: 1em;
+    height: 20px;
+    width: 20px;
     background-image: url('/images/surf-img.png');
     background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden;
+margin-top: -10px;
 }
-
+.img-snowboard {
+    height: 20px;
+    width: 20px;
+    overflow:hidden;
+    background-image: url('/images/snowboarding.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+margin-top: -10px;
+}
+/*
 .detail-image {
     width: 100%;
 }
@@ -85,8 +157,17 @@
 .slider-nav .slick-track{
 	height: 85px;
 }
-
+/* 
 div{
     border: 1px solid red;
-}
+} */
 
+@media only screen and (min-width : 640px) {
+    .img-surf,
+    .img-skate,
+    .img-snowboard {
+        width: 40px;
+        height: 40px;
+      }
+
+}
