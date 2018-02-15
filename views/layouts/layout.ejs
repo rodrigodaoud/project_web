@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Anton|Cabin|Dosis|Nanum+Brush+Script|Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="/stylesheets/danielle.css">
     <link rel="stylesheet" type="text/css" href="/slick/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="/slick/slick/slick-theme.css"/>
   </head>
@@ -46,7 +45,8 @@
         </div>
       </div>
       <% if (showPlaces) { %>
-          <div class="filter-bar">
+        <div class="background-filter">
+          <div class="container filter-bar">
             <ul>
               <li>
                 <button class="btn-filter active" onclick="filterSelection('all')">Show All</button>
@@ -62,6 +62,7 @@
               </li>
             </ul>
           </div>
+        </div>
       <% } %>
       <% } %>
 
@@ -89,7 +90,7 @@
                 <div class="signup-login-nav">
                 <p>Don't have an account? <a href="/auth/signup">Signup</a></p>
                 </div>
-                </form>
+              </form>
             </div>
         </div>
       <% } %>

@@ -5,8 +5,8 @@
       <div class="place-content">
         <div class="place-info">
           <p>
-            <span><%= place.address %></span><br>
-            <%= place.name %><br>
+            <span><%= place.name %></span><br>
+            <%= place.address %><br>
             <div class ="img-<%= place.type %>"></div>
             Created by: @<%= place.createdBy.username %><br>
               <button class="place-view"><a href="/places/<%= place.id %>">View more</a></button>
