@@ -37,7 +37,6 @@ function main () {
       }
     }
 
-
     // Create a new marker for the user location
     function createMyMarker () {
       if (navigator.geolocation) {
@@ -78,7 +77,7 @@ function main () {
           lng: myPlaces[i].address.coordinates[1]
         },
         icon: {
-          url: '../images/' + myPlaces[i].type + '-img.png',
+          url: '../images/' + myPlaces[i].type + '-map-img.png',
           scaledSize: new google.maps.Size(20, 20),
           origin: new google.maps.Point(0, 0),
           anchor: new google.maps.Point(0, 32)

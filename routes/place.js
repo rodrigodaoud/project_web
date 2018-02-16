@@ -59,7 +59,7 @@ router.post('/', upload.single('file'), (req, res, next) => {
 
     if (req.file) {
       displayPicture = {
-        picPath: `/uploads/${req.file.filename}`,
+        picPath: `/images/${req.file.filename}`,
         picName: req.body.picName
       };
     }
@@ -121,7 +121,7 @@ router.post('/:id', upload.single('file'), (req, res, next) => {
         return res.redirect('/');
       }
       const additionalPicture = {
-        picPath: `/uploads/${req.file.filename}`
+        picPath: `/images/${req.file.filename}`
       };
 
       place.additionalPicture.push(additionalPicture);

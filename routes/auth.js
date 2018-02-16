@@ -64,7 +64,7 @@ router.post('/signup', upload.single('file'), (req, res, next) => {
 
   if (req.file) {
     displayPicture = {
-      picPath: `/uploads/${req.file.filename}`,
+      picPath: `/images/${req.file.filename}`,
       picName: req.body.picName
     };
   }
