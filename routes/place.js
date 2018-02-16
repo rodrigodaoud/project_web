@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const upload = multer({ dest: 'public/uploads/' });
+const upload = multer({ dest: 'public/images/' });
 const NodeGeocoder = require('node-geocoder');
 
 const Place = require('../models/place');
