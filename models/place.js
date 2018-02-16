@@ -4,8 +4,19 @@ const Schema = mongoose.Schema;
 const placeSchema = new Schema({
   createdBy: {type: Schema.Types.ObjectId, ref: 'User'},
   name: String,
-  address: String,
+  address: {
+    type: {
+      type: String,
+      default: 'Point'
+    },
+    coordinates: [Number],
+    name: String
+  },
   type: String,
+  description: {
+    type: String,
+    default: 'Know about this spot? Add a description.'
+  },
   active: {
     type: Boolean,
     default: true

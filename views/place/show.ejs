@@ -1,13 +1,15 @@
 
-<div class="container">
+<div class="container show-all-places">
+    <div id="map"></div>
+
   <% places.forEach((place) => { %>
     <div class="place <%= place.type %>">
       <div class="place-content">
         <div class="place-info">
           <p>
-            <span><%= place.address %></span><br>
-            <%= place.name %><br>
-            <%= place.type %><br>
+            <span><%= place.name %></span><br>
+            <%= place.address.name %><br>
+            <div class ="img-<%= place.type %>"></div>
             Created by: @<%= place.createdBy.username %><br>
               <button class="place-view"><a href="/places/<%= place.id %>">View more</a></button>
           </p>
@@ -17,15 +19,24 @@
           <% if (user._id == place.createdBy) { %>
           <form action="/places/<%= place.id %>/delete" method='post'>
             <input type="submit" value="DELETE">
-          <% } %>
           </form>
+          <% } %>
       </div>
 
-        <div class="place-image">
-          <img src="<%= place.displayPicture.picPath %>" alt="">
-        </div>
+      <div class="place-image">
+        <img src="<%= place.displayPicture.picPath %>" alt="">
       </div>
+    </div>
   </div>
-    <%  }) %>
+  <%  }) %>
+<<<<<<< HEAD
   
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF_NBAF_E7cJKqkXqxQmVt6Cskv-W7o_0&callback=initMap"
+></script>
+<script type="text/javascript"> var myPlaces = <%- JSON.stringify(places) %>; </script>
+<script type="text/javascript" src="/javascripts/maps.js"></script>
+=======
+</div>
+>>>>>>> 007b6a5adb83fae49a009ea481b256ea8c253b93

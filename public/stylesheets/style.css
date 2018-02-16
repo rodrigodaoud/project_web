@@ -1,39 +1,34 @@
-
-
 /* ---- Reset ---- */
 
 html {
   box-sizing: border-box;
-  height: 100%;
-  overflow: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 body {
-  margin: 160px 0 0 0;
-  background-color: #EEF0F2;
+  margin: 140px 0 0 0;
+  background-color: #353B3C;
 }
 
 /* ---- Typography ---- */
 .nav-logo h2{
   font-size: 1.2em;
+  font-family: 'Cabin', sans-serif;
   color: white;
 }
 .nav-logo a{
   text-decoration: none;
   color: #2C303F;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
 }
 .text-welcome h1{
-  font-size: 2em;
-  color: #353B3C;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: bold;
-}
-.text-welcome p{
-  font-size: 1.2em;
-  font-family: Courier New, Courier, monospace;
+  font-size: 3em;
+  color: white;
+  margin: 0;
+  text-align: center;
+  font-family: 'Cabin', sans-serif;
+  font-weight: bolder;
 }
 /* ---- Layout ---- */
 .container{
@@ -54,19 +49,18 @@ body {
 
 /* -------     Components    ------- */
 .text-welcome{
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 .main-welcome{
   margin-top: -50px;
 }
 
-/* -- Nav Bar -- */
+/* -- NAV BAR-- */
 .nav-border{
   position: fixed;
   width: 100%;
   background-color: white;
   top: 0;
-  border-bottom: 1px solid rgb(231, 226, 226);
 }
 .nav-logo{
   margin: 0 20px;
@@ -75,13 +69,13 @@ body {
   padding: 20px;
 }
 
-/* -- User Menu -- */
+/* -- USER MENU -- */
 .user-name{
   border-bottom: 1px solid white;
   margin-bottom: 10px;
 }
 .user-name span{
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
 }
 .user-name p{
   font-size: 1em;
@@ -136,7 +130,16 @@ body {
   border-radius: 3px;
 }
 
-/* -- Login Form -- */
+/* -- LOGIN FORM -- */
+.mobile-login{
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -10;
+}
 .login-container{
   display: flex;
   justify-content: center;
@@ -144,19 +147,21 @@ body {
 }
 .user-login{
   font-size: 1.2em;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
+  color: white;
   text-align: center;
   margin-bottom: 30px;
 }
 .user-login input{
   font-size: 1em;
   padding: 5px;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
   width: 100%;
 }
 .pass-login{
   font-size: 1.2em;
-  font-family: Courier New, Courier, monospace;
+  color: white;
+  font-family: 'Cabin', sans-serif;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -169,7 +174,7 @@ body {
   width: 100%;
   padding: 10px;
   font-size: 1em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Cabin', sans-serif;
   color: white;
   margin-bottom: 30px;
   border: 1px solid #566993;
@@ -178,7 +183,8 @@ body {
 }
 .signup-login{
   font-size: 1em;
-  font-family: Courier New, Courier, monospace;
+  color: white;
+  font-family: 'Cabin', sans-serif;
 }
 .signup-login a{
   text-decoration: none;
@@ -190,19 +196,16 @@ body {
   margin-bottom: 40px;
   color: red;
 }
-.text-welcome img{
-  display: none;
-}
 
-/* -- Sign Up Form -- */
+/* -- SIGN UP FORM -- */
 .signup-ctn input{
   width: 100%;
   padding: 5px;
   font-size: 1em;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
 }
 .sign-text{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-size: 1.5em;
   color: #353B3C;
   text-align: center;
@@ -211,7 +214,7 @@ body {
 .sign-input{
   text-align: center;
   font-size: 1.2em;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
   margin-bottom: 20px;
 }
 .sign-photo{
@@ -222,7 +225,7 @@ body {
 }
 .sign-photo label{
   font-size: 1.2em;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
 }
 .sign-photo{
   margin-bottom: 10px;
@@ -236,21 +239,17 @@ body {
   padding: 10px;
   font-size: 1em;
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Cabin', sans-serif;
   margin-bottom: 40px;
   background-color: #28a745;
   border: 1px solid #566993;
   border-radius: 5px;
 }
 
-/* -- Welcome Page -- */
-.img-welcome img{
-  width: 100%;
+/* -- FILTER BAR -- */
+.background-filter{
+  background-color: #353B3C;
 }
-
-
-
-/* -- Filter Bar -- */
 .filter-bar{
   background-color: #353B3C;
 }
@@ -259,32 +258,38 @@ body {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  padding: 10px;
+  padding: 0px 10px;
   margin-top: 0;
   margin-bottom: 0;
 }
 .filter-bar button{
-  font-size: 0.8em;
+  font-size: 1em;
   padding: 10px;
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background-color: transparent;
   outline: none;
   border: none;
 }
+.filter-bar button:focus{
+  background-color: #222725;
+}
 
 
-/* --  Places   -- */
+/* --  PLACES   -- */
 .place {
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   display: none;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #A2999E;
+  margin-top: -20px;
+  margin-bottom: 25px;
+  background-color: #222725;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 3px;
 }
 .place-content{
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   flex-flow: row-reverse;
 }
@@ -292,30 +297,37 @@ body {
   font-size: 0.7em;
   margin-left: 10px;
   text-align: left;
-  line-height: 200%;
+  line-height: 150%;
+  color: white;
 }
 .place-info p{
   margin-top: 0;
-  font-family: Courier New, Courier, monospace;
+  font-family: 'Cabin', sans-serif;
 }
 .place-info span{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-weight: bolder;
-  font-size: 1em;
+  font-size: 1.2em;
+}
+.place-info button{
+  margin-top: 5px;
 }
 .place-view{
-  font-size: 0.8em;
+  font-size: 1em;
+  border: none;
+  border-radius: 2px;
   background-color: #28a745;
   float: left;
-  margin-bottom: 10px;
   padding: 5px;
 }
 .place-view a{
   text-decoration: none;
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Cabin', sans-serif;
 }
 .place-image img{
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px black;
   width: 120px;
   height: 120px;
 }
@@ -323,34 +335,290 @@ body {
   display: block;
 }
 
+/*-- ICONS IMAGES --*/
+.img-skate {
+  height: 20px;
+  width: 20px;
+  background-image: url('/images/skate-img.png');
+  background-repeat: no-repeat;
+  overflow:hidden;
+  background-size: cover;
+  margin-top: -10px;
+}
+
+.img-surf {
+  height: 20px;
+  width: 20px;
+  background-image: url('/images/surf-img.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow:hidden;
+margin-top: -10px;
+}
+.img-snowboard {
+  height: 20px;
+  width: 20px;
+  overflow:hidden;
+  background-image: url('/images/snowboard-img.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+margin-top: -10px;
+}
+
+/* -- VIEW MORE PAGE -- */
+.detail-info h3{
+  font-family: 'Cabin', sans-serif;
+}
+
+/* -- THUMBNAIL SLIDER -- */
+.slider-ctn{
+  margin-top: -40px;
+}
+.slider-single{
+  width: 375px;
+  height: 250px;
+  margin: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.item img{
+  width: 100%;
+  min-height: 100%;
+}
+.slider-nav{
+  width: 100%;
+  height: 85px;
+} 
+.slick-slider{
+  width: 100%;
+}
+.slick-initialized{
+  margin: auto;
+  margin-bottom: 10px;
+}
+.slider-nav .slick-track{
+  height: 85px;
+}
+
+/* CREATE PAGE */
+.create-ctn{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: -20px;
+}
+.create-ctn h2{
+  font-family: 'Cabin', sans-serif;
+  font-size: 2em;
+  color: #353B3C;
+  text-align: center;
+}
+.create-ctn input{
+  width: 100%;
+  padding: 5px;
+  font-size: 1em;
+  font-family: 'Cabin', sans-serif;
+}
+.create-input{
+  text-align: center;
+  font-size: 1.2em;
+  font-family: 'Cabin', sans-serif;
+  margin-bottom: 10px;
+}
+.create-input select{
+  float: left;
+  margin-bottom: 20px;
+  font-family: 'Cabin', sans-serif;
+  width: 60%;
+  font-size: 1em;
+}
+.file-upload h3{
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.2em;
+  color: #353B3C;
+  text-align: left;
+}
+#picName{
+  text-align: center;
+  font-size: 1.2em;
+  font-family: 'Cabin', sans-serif;
+  margin-bottom: 20px;
+}
+#file-upload{
+  margin-bottom: 20px;
+}
+#create-btn{
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  color: white;
+  font-family: 'Cabin', sans-serif;
+  margin-bottom: 40px;
+  background-color: #28a745;
+  border: 1px solid #566993;
+  border-radius: 5px;
+}
 
 /* -- Media Query -- */
-@media only screen and (max-width : 640px){
+@media only screen and (min-width : 640px){
+
+  .nav-container{
+    border: none;
+  }
+  /* -- LOGIN PAGE -- */
+  .text-welcome{
+    margin-bottom: 120px;
+  }
+  .text-welcome h1{
+    font-size: 5em;
+  }
+  .user-login{
+    font-size: 2em;
+  }
+  .pass-login{
+    font-size: 2em;
+    margin-bottom: 50px;
+  }
+  #login-btn{
+    font-size: 2em;
+  }
+  .signup-login{
+    font-size: 2em;
+  }
+  .filter-bar button{
+    font-size: 1.5em;
+  }
+
+  /*-- PLACES PAGE --*/
+
+  .place-image img{
+    height: 200px;
+    width: 200px;
+    margin: 8px;
+  }
+  .place-info {
+    font-size: 1.2em;
+    font-family: 'Cabin', sans-serif;
+    line-height: 210%;
+  }
+  .place-info button{
+    font-family: 'Cabin', sans-serif;
+    font-size: 1em;
+  }
+  .show-all-places{
+    margin-top: 160px;
+  }
+  .img-surf,
+  .img-skate,
+  .img-snowboard {
+    width: 40px;
+    height: 40px;
+  }
+  .create-ctn{
+    margin-top: 40px;
+  }
+
+/* -- THUMBNAIL SLIDER -- */
+  .slider-ctn{
+    margin-top: -20px;
+  }
+  .slider-single{
+    height: 375px;
+    margin: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .item img{
+    width: 100%;
+    min-height: 100%;
+  }
+  .slider-nav{
+    width: 100%;
+    height: 100%;
+  }
+  .slick-slider{
+    width: 95%;
+  }
+  .slick-initialized{
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .slider-nav .slick-track{
+    height: 120px;
+  }
+
+}
+
+@media only screen and (max-width : 1025px){
   .login-container-nav{
     display: none;
   }
-  .mySlides{
+  .slideshow{
     display: none;
   }
 
 }
-@media only screen and (min-width : 640px){
-
-/* -- Login Page -- */
-  .main-welcome{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media only screen and (min-width : 1025px){
+  
+  /* -- NAV BAR -- */
+  .nav-container{
+    height: 90px;
   }
+  .nav-border{
+    border: none;
+  }
+  .nav-bar{
+    margin-right: 40px;
+  }
+  .nav-logo h2{
+    font-size: 2em;
+  }
+  .user-photo {
+    width: 40px;
+    height: 40px;
+  }
+  .filter-bar{
+    position: fixed;
+    width: 240px;
+    background-color: #222725;
+  }
+  .filter-bar ul{
+    display: block;
+    height: 100vh;
+    text-align: left;
+  }
+  li button:hover{
+    background-color: rgb(28, 71, 29);
+    color: white;
+  }
+  .filter-bar button{
+    font-size: 1.5em;
+    color: white;
+  }
+  .filter-bar button:focus{
+    background-color: #4CAF50;
+  }
+
+  /* -- SIGN UP PAGE -- */
+  .main-welcome{
+    margin-top: 40px;
+  }
+
+  /* -- LOGIN PAGE -- */
   .container{
     margin: 0 20px;
   }
   .text-welcome{
-    text-align: center;
+    display: none;
   }
-  .text-welcome h1{
-    font-size: 5em;
+  .slides h2{
+    font-size: 10em;
+    font-family: 'Dosis', sans-serif;
     color: white;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 50%);
   }
   .login-container{
     display: none;
@@ -361,6 +629,7 @@ body {
     flex-direction: row;
     align-items: center;
     color: white;
+    font-family: 'Cabin', sans-serif;
   }
   .login-container-nav div, #login-btn-nav{
     margin-left: 20px;
@@ -373,17 +642,60 @@ body {
     background-color: #28a745;
     border-radius: 3px;
   }
+  .error-message{
+    margin-top: 40px;
+  }
+  .signup-login-nav{
+    color: white;
+    font-family: 'Cabin', sans-serif;
+  }
   .signup-login-nav a{
     color: rgb(0, 195, 255);
   }
-  .mySlides{
+  .index-slides{
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
+    height: 100vh;
+    position: fixed;
+    top: 90px;
     left: 0;
     z-index: -10;
+  } 
+
+/*-- PLACES PAGE --*/
+  .place-image img{
+    height: 200px;
+    width: 200px;
+    margin: 8px;
   }
+  .place-info {
+    font-size: 1.2em;
+    font-family: 'Cabin', sans-serif;
+    line-height: 210%;
+  }
+  .place-info button{
+    font-family: 'Cabin', sans-serif;
+    font-size: 1em;
+  }
+  .show-all-places{
+    margin-left: 200px;
+    padding: 0 40px;
+  }
+  .img-surf,
+  .img-skate,
+  .img-snowboard {
+    width: 40px;
+    height: 40px;
+  }
+  .create-ctn{
+    margin-top: 40px;
+  }
+}
+
+
+
+#map {
+  height: 300px;
+  width: 300px;
 }
 
 /* div, nav{

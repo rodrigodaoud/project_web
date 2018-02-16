@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({ dest: 'public/uploads/' });
+const NodeGeocoder = require('node-geocoder');
 
 const Place = require('../models/place');
 
@@ -13,7 +14,8 @@ router.get('/', (req, res, next) => {
         return next(err);
       }
       let data = {
-        places: places
+        places: places,
+        showPlaces: true
       };
       res.render('place/show', data);
     });
@@ -24,100 +26,118 @@ router.get('/', (req, res, next) => {
 
 router.get('/create', (req, res, next) => {
   if (req.session.currentUser) {
-    res.render('place/create');
+    const data = {
+      showPlaces: false
+    };
+    res.render('place/create', data);
   } else {
     res.redirect('/');
   }
 });
 
 router.post('/', upload.single('file'), (req, res, next) => {
-  const createdBy = req.session.currentUser._id;
-  const newName = req.body.name;
-  const type = req.body.type;
-  const address = req.body.address;
-  let displayPicture;
-
-  if (req.file) {
-    displayPicture = {
-      picPath: `/uploads/${req.file.filename}`,
-      picName: req.body.picName
-    };
-  }
-  if (newName === '' || type === '' || address === '') {
-    res.render('place/create', {
-      errorMessage: 'all fields are mandatory to create a new place'
-    });
-    return;
-  }
-
-  Place.findOne({ 'name': newName, 'active': true },
-    'name',
-    (err, name) => {
-      if (err) {
-        return next(err);
-      }
-      if (name !== null) {
-        res.render('place/create', {
-          errorMessage: 'The place already exists'
-        });
-        return;
-      }
-
-      const newPlace = new Place({
-        createdBy,
-        name: newName,
-        type,
-        address,
-        displayPicture
-      });
-
-      newPlace.save((err) => {
-        if (err) {
-          return next(err);
-        }
-        res.redirect('/places');
-      });
-    });
-});
-
-router.post('/:id', upload.single('file'), (req, res, next) => {
-  if (!req.session.currentUser) {
-    res.redirect('/');
-  }
-
-  const placeId = req.params.id;
-  Place.findById(placeId, (err, place) => {
+  const addressName = req.body.address;
+  const options = {
+    apiKey: 'AIzaSyBD3CuwbeUvL9RvwXGZW7JVy8RH0-GdWy0'
+  };
+  // what happend if we dont have an address?
+  const geocoder = NodeGeocoder(options);
+  geocoder.geocode(addressName, function (err, result) {
     if (err) {
       return next(err);
     }
-    if (!place) {
-      res.redirect('/');
-    }
-    const additionalPicture = {
-      picPath: `/uploads/${req.file.filename}`,
-      picName: req.body.picName
+
+    const createdBy = req.session.currentUser._id;
+    const newName = req.body.name;
+    const type = req.body.type;
+    const address = {
+      coordinates: [result[0].latitude, result[0].longitude],
+      name: addressName
     };
-    place.additionalPicture.push(additionalPicture);
-    place.save((err, result) => {
-      if (err) {
-        return next(err);
-      }
-      res.redirect('/places/' + placeId);
-    });
+    const description = req.body.description;
+    let displayPicture;
+
+    if (req.file) {
+      displayPicture = {
+        picPath: `/uploads/${req.file.filename}`,
+        picName: req.body.picName
+      };
+    }
+    if (newName === '' || type === '' || address === '') {
+      const data = {
+        showPlaces: false,
+        errorMessage: 'The place already exists'
+      };
+      return res.render('place/create', data);
+    }
+
+    Place.findOne({ 'name': newName, 'active': true },
+      'name',
+      (err, name) => {
+        if (err) {
+          return next(err);
+        }
+        if (name !== null) {
+          const data = {
+            showPlaces: false,
+            errorMessage: 'The place already exists'
+          };
+          return res.render('place/create', data);
+        }
+
+        const newPlace = new Place({
+          createdBy,
+          name: newName,
+          type,
+          address,
+          displayPicture,
+          description,
+          address
+        });
+
+        newPlace.save((err) => {
+          if (err) {
+            return next(err);
+          }
+          res.redirect('/places');
+        });
+      });
   });
 });
 
-// router.post('/:additionalPicture/delete', (req, res, next) => {
-//   if (!req.session.currentUser) {
-//     res.redirect('/');
-//   }
-//   const picToBeDeleted = req.params.additionalPicture;
+router.post('/:id', upload.single('file'), (req, res, next) => {
+  const placeId = req.params.id;
 
-// });
+  if (!req.session.currentUser) {
+    return res.redirect('/');
+  } else if (!req.file) {
+    return res.redirect('/places/' + placeId);
+  } else {
+    Place.findById(placeId, (err, place) => {
+      if (err) {
+        return next(err);
+      }
+      if (!place) {
+        return res.redirect('/');
+      }
+      const additionalPicture = {
+        picPath: `/uploads/${req.file.filename}`
+      };
+
+      place.additionalPicture.push(additionalPicture);
+      place.save((err, result) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect('/places/' + placeId);
+      });
+    });
+  }
+});
 
 router.post('/:id/delete/', (req, res, next) => {
   if (!req.session.currentUser) {
-    res.redirect('/');
+    return res.redirect('/');
   }
   const placeId = req.params.id;
   Place.findById(placeId, (err, place) => {
@@ -140,37 +160,19 @@ router.post('/:id/delete/', (req, res, next) => {
     }
   });
 });
-router.get('/:id/addPhoto', (req, res, next) => {
-  if (!req.session.currentUser) {
-    res.redirect('/');
-  } else {
-    const placeId = req.params.id;
-    Place.findById(placeId, (err, place) => {
-      if (err) {
-        return next(err);
-      }
-      if (!place) {
-        res.redirect('/');
-      }
-      const data = {
-        place: place
-      };
-      res.render('place/addPhoto', data);
-    });
-  }
-});
 
 router.get('/:id', (req, res, next) => {
   if (!req.session.currentUser) {
     return res.redirect('/');
   }
   const placeId = req.params.id;
-  Place.findById(placeId, (err, places) => {
+  Place.findById(placeId, (err, place) => {
     if (err) {
       return next(err);
     }
     let data = {
-      places: places
+      places: place,
+      showPlaces: false
     };
     res.render('place/more', data);
   });

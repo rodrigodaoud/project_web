@@ -8,18 +8,9 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 
-// GET AND POST LOGIN PAGE
-// router.get('/index', function (req, res, next) {
-//   if (req.session.currentUser) {
-//     res.redirect('/places');
-//   } else {
-//     res.render('index');
-//   }
-// });
-
 router.post('/login', (req, res, next) => {
   if (req.session.currentUser) {
-    res.redirect('/places');
+    return res.redirect('/places');
   }
   const username = req.body.username;
   let password = req.body.password;
@@ -51,15 +42,18 @@ router.post('/login', (req, res, next) => {
 // GET AND POST SIGNUP PAGE
 router.get('/signup', (req, res, next) => {
   if (req.session.currentUser) {
-    res.redirect('/');
+    return res.redirect('/');
   } else {
-    res.render('auth/signup');
+    const data = {
+      showPlaces: false
+    };
+    res.render('auth/signup', data);
   }
 });
 
 router.post('/signup', upload.single('file'), (req, res, next) => {
   if (req.session.currentUser) {
-    res.redirect('/places');
+    return res.redirect('/places');
   }
 
   const username = req.body.username;
