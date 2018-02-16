@@ -45,22 +45,23 @@
         </div>
       </div>
       <% if (showPlaces) { %>
-          <div class="filter-bar">
-            <ul>
-              <li>
-                <button class="btn-filter active" onclick="filterSelection('all')">Show All</button>
-              </li>
-              <li>
-                <button class="btn-filter" onclick="filterSelection('skate')">Skate</button>
-              </li>
-              <li>
-                <button class="btn-filter" onclick="filterSelection('snowboard')">Snowboard</button>
-              </li>
-              <li>
-                <button class="btn-filter no-border" onclick="filterSelection('surf')">Surf</button>
-              </li>
-            </ul>
-          </div>
+        <div class="filter-bar">
+            <div id="map"></div>
+          <ul>
+            <li>
+              <button class="btn-filter active" onclick="filterSelection('all')">Show All</button>
+            </li>
+            <li>
+              <button class="btn-filter" onclick="filterSelection('skate')">Skate</button>
+            </li>
+            <li>
+              <button class="btn-filter" onclick="filterSelection('snowboard')">Snowboard</button>
+            </li>
+            <li>
+              <button class="btn-filter no-border" onclick="filterSelection('surf')">Surf</button>
+            </li>
+          </ul>
+        </div>
       <% } %>
       <% } %>
 
