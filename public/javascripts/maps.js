@@ -62,7 +62,8 @@ function main () {
     // --- lop to create markers for the bars location and infoWindow
     // --- create infoWindow with the content
     for (let i = 0; i < myPlaces.length; i++) {
-      let contentString = myPlaces[i].name;
+      let contentString = 'Name: ' + myPlaces[i].name + ' Address: ' + myPlaces[i].address.name;
+      // let placeAddress = myPlaces[i].address.name;
       const infoWindow = new google.maps.InfoWindow(
         {content: contentString});
 
@@ -72,7 +73,7 @@ function main () {
           lat: myPlaces[i].address.coordinates[0],
           lng: myPlaces[i].address.coordinates[1]
         },
-        icon: '../images/surf-img.png',
+        icon: '../images/' + myPlaces[i].type + '-img.png',
         map: map,
         label: myPlaces[i].type
       });
