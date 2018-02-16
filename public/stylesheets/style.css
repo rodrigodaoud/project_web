@@ -378,16 +378,30 @@ margin-top: -10px;
 }
 #delete-btn{
   border: none;
+  padding: 2px;
   border-radius: 2px;
   color: white;
   font-family: 'Cabin', sans-serif;
   font-size: 0.8em;
   background-color: rgb(241, 63, 63);
+  margin-bottom: 10px;
 }
 .photo-upload-header{
   color: white;
   font-family: 'Cabin', sans-serif;
   font-size: 1em;
+}
+#addPhoto{
+  margin-bottom: 20px;
+}
+#addPhoto button{
+  font-size: 0.8em;
+  border: none;
+  font-family: 'Cabin', sans-serif;
+  color: white;
+  border-radius: 2px;
+  background-color: #28a745;
+  padding: 2px;
 }
 
 /* -- THUMBNAIL SLIDER -- */
@@ -566,6 +580,38 @@ margin-top: -10px;
   }
   .slider-nav .slick-track{
     height: 120px;
+  }
+
+  /* -- VIEW MORE PAGE -- */
+  .detail-info{
+    font-size: 1.2em;
+  }
+  #delete-btn{
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  .photo-upload-header{
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.5em;
+  }
+  #addPhoto{
+    margin-bottom: 20px;
+  }
+  #addPhoto input{
+    font-size: 1.2em;
+    color: white;
+  }
+  #addPhoto button{
+    font-size: 1em;
+    border: none;
+    font-family: 'Cabin', sans-serif;
+    color: white;
+    border-radius: 2px;
+    background-color: #28a745;
+    padding: 5px;
   }
 
 }
