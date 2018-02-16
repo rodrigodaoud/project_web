@@ -16,16 +16,27 @@ function main () {
         lat: 41.3977381,
         lng: 2.190471916}
     };
-    // --- center the map on the current location of user (if doesnt fail)
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        mapOptions.center = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude};
-        map.setCenter(mapOptions.center);
-      });
-    }
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    if (myPlaces.length === 1) {
+      mapOptions.center = {
+        lat: myPlaces[0].address.coordinates[0],
+        lng: myPlaces[0].address.coordinates[1]
+      };
+      map.setCenter(mapOptions.center);
+    } else if (myPlaces.length > 2) {
+      // --- center the map on the current location of user (if doesnt fail)
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          mapOptions.center = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          map.setCenter(mapOptions.center);
+        });
+      }
+    }
+
 
     // Create a new marker for the user location
     function createMyMarker () {
@@ -53,19 +64,12 @@ function main () {
 
     createMyMarker();
 
-    // --- pending, update current location :) <<-----------------------------------------------------------------------------------
-    // setInterval(() => {
-    //   createMyMarker();
-    //   // destroy myMarker;
-    // }, 5000);
-
-    // --- lop to create markers for the bars location and infoWindow
     // --- create infoWindow with the content
     for (let i = 0; i < myPlaces.length; i++) {
-      let contentString = 'Name: ' + myPlaces[i].name + ' Address: ' + myPlaces[i].address.name;
-      // let placeAddress = myPlaces[i].address.name;
+      let contentString = '<h3 class="map-info-box">Name: ' + myPlaces[i].name + '</h3>';
+      let placeAddress = '<h3 class="map-info-box">Address: ' + myPlaces[i].address.name + '</h3>';
       const infoWindow = new google.maps.InfoWindow(
-        {content: contentString});
+        {content: contentString + placeAddress});
 
       // --- create markers for each bar
       const placesMarker = new google.maps.Marker({
@@ -73,9 +77,13 @@ function main () {
           lat: myPlaces[i].address.coordinates[0],
           lng: myPlaces[i].address.coordinates[1]
         },
-        icon: '../images/' + myPlaces[i].type + '-img.png',
-        map: map,
-        label: myPlaces[i].type
+        icon: {
+          url: '../images/' + myPlaces[i].type + '-img.png',
+          scaledSize: new google.maps.Size(20, 20),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(0, 32)
+        },
+        map: map
       });
 
       // --- bind each infowindow with each bar´s marker and add event listener to display and hide the infowindow
