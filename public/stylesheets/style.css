@@ -410,7 +410,7 @@ margin-top: -10px;
 .create-ctn h2{
   font-family: 'Cabin', sans-serif;
   font-size: 2em;
-  color: #353B3C;
+  color: white;
   text-align: center;
 }
 .create-ctn input{
@@ -435,7 +435,7 @@ margin-top: -10px;
 .file-upload h3{
   font-family: 'Cabin', sans-serif;
   font-size: 1.2em;
-  color: #353B3C;
+  color: white;
   text-align: left;
 }
 #picName{
@@ -446,6 +446,7 @@ margin-top: -10px;
 }
 #file-upload{
   margin-bottom: 20px;
+  color: white;
 }
 #create-btn{
   width: 100%;
@@ -560,12 +561,15 @@ margin-top: -10px;
 }
 @media only screen and (min-width : 1025px){
   
+  body{
+    background-color: #222725;
+  }
   /* -- NAV BAR -- */
   .nav-container{
     height: 90px;
   }
   .nav-border{
-    border: none;
+    border-bottom: 1px solid grey;
   }
   .nav-bar{
     margin-right: 40px;
@@ -581,11 +585,12 @@ margin-top: -10px;
     position: fixed;
     width: 240px;
     background-color: #222725;
+    border-top: 1px solid grey;
   }
   .filter-bar ul{
     display: block;
     height: 100vh;
-    text-align: left;
+    margin-top: 60px;
   }
   li button:hover{
     background-color: rgb(28, 71, 29);
@@ -594,6 +599,10 @@ margin-top: -10px;
   .filter-bar button{
     font-size: 1.5em;
     color: white;
+    margin-bottom: 40px;
+    width: 200px;
+    text-align: left;
+    border-bottom: 1px solid grey;  
   }
   .filter-bar button:focus{
     background-color: #4CAF50;
