@@ -4,7 +4,14 @@ const Schema = mongoose.Schema;
 const placeSchema = new Schema({
   createdBy: {type: Schema.Types.ObjectId, ref: 'User'},
   name: String,
-  address: String,
+  address: {
+    type: {
+      type: String,
+      default: 'Point'
+    },
+    coordinates: [Number],
+    name: String
+  },
   type: String,
   description: {
     type: String,
@@ -13,13 +20,6 @@ const placeSchema = new Schema({
   active: {
     type: Boolean,
     default: true
-  },
-  location: {
-    type: {
-      type: String,
-      default: 'Point'
-    },
-    coordinates: [Number]
   },
   displayPicture: {
     picPath: {

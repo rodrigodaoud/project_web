@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -16,7 +17,7 @@ const app = express();
 
 // Mongoose connection
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/spot-finder-database', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE
 });
@@ -61,7 +62,7 @@ app.use('/places', place);
 // NOTE: requires a views/not-found.ejs template
 app.use((req, res, next) => {
   res.status(404);
-  res.render('not-found');
+  res.render('not-found', {showPlaces: false});
 });
 
 // NOTE: requires a views/error.ejs template
@@ -72,7 +73,7 @@ app.use((err, req, res, next) => {
   // only render if the error ocurred before sending the response
   if (!res.headersSent) {
     res.status(500);
-    res.render('error');
+    res.render('error', {showPlaces: false});
   }
 });
 
