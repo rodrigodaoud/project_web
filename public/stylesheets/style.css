@@ -8,7 +8,7 @@ html {
 }
 body {
   margin: 140px 0 0 0;
-  background-color: #353B3C;
+  background-color: #222725;
 }
 
 /* ---- Typography ---- */
@@ -49,6 +49,9 @@ body {
 #map{
   display: none;
 }
+.map-info-box{
+  width: 100%;
+}
 
 /* -------     Components    ------- */
 .text-welcome{
@@ -64,6 +67,7 @@ body {
   width: 100%;
   background-color: white;
   top: 0;
+  z-index: 100;
 }
 .nav-logo{
   margin: 0 20px;
@@ -554,11 +558,8 @@ margin-top: -10px;
   }
 
 /* -- THUMBNAIL SLIDER -- */
-  .slider-ctn{
-    margin-top: -20px;
-  }
   .slider-single{
-    height: 375px;
+    height: 500px;
     margin: 0;
     overflow: hidden;
     z-index: -1;
@@ -570,9 +571,6 @@ margin-top: -10px;
   .slider-nav{
     width: 100%;
     height: 100%;
-  }
-  .slick-slider{
-    width: 95%;
   }
   .slick-initialized{
     margin: auto;
@@ -637,6 +635,11 @@ margin-top: -10px;
     width: 90%;
     height: 200px;
     outline: 3px solid white;
+  }
+  .map-stuff #map{
+    width: 50%;
+    height: 400px;
+    margin-bottom: 20px;
   }
   /* -- NAV BAR -- */
   .nav-container{
@@ -725,7 +728,7 @@ margin-top: -10px;
   }
   #login-btn-nav{
     padding: 3px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Cabin', sans-serif;
     color: white;
     border: 1px solid #566993;
     background-color: #28a745;
@@ -778,6 +781,70 @@ margin-top: -10px;
   .create-ctn{
     margin-top: 40px;
   }
+
+  /* -- THUMBNAIL SLIDER -- */
+  .slider-ctn{
+    margin-top: -40px;
+  }
+  .slider-single{
+    height: 600px;
+    margin: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .item img{
+    width: 100%;
+    min-height: 100%;
+  }
+  .slider-nav{
+    width: 100%;
+    height: 85px;
+  } 
+  .slick-slider{
+    width: 100%;
+  }
+  .slick-initialized{
+    margin: auto;
+    margin-top: 10px;
+  }
+  .slider-nav .slick-track{
+    height: 160px;
+  }
+  .slider-nav{
+    margin-bottom: 100px;
+  }
+
+    /* -- VIEW MORE PAGE -- */
+    .detail-info{
+      font-size: 1.5em;
+    }
+    #delete-btn{
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+    .photo-upload-header{
+      color: white;
+      font-family: 'Cabin', sans-serif;
+      font-size: 1.5em;
+    }
+    #addPhoto{
+      margin-bottom: 20px;
+    }
+    #addPhoto input{
+      font-size: 1.2em;
+      color: white;
+    }
+    #addPhoto button{
+      font-size: 1em;
+      border: none;
+      font-family: 'Cabin', sans-serif;
+      color: white;
+      border-radius: 5px;
+      background-color: #28a745;
+      padding: 5px;
+    }
 }
 
 /* div, nav{
