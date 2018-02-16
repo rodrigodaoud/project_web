@@ -19,16 +19,17 @@
           <% if (user._id == place.createdBy) { %>
           <form action="/places/<%= place.id %>/delete" method='post'>
             <input type="submit" value="DELETE">
-          <% } %>
           </form>
+          <% } %>
       </div>
 
-        <div class="place-image">
-          <img src="<%= place.displayPicture.picPath %>" alt="">
-        </div>
+      <div class="place-image">
+        <img src="<%= place.displayPicture.picPath %>" alt="">
       </div>
+    </div>
   </div>
   <%  }) %>
+<<<<<<< HEAD
   
 </div>
 
@@ -36,3 +37,6 @@
 ></script>
 <script type="text/javascript"> var myPlaces = <%- JSON.stringify(places) %>; </script>
 <script type="text/javascript" src="/javascripts/maps.js"></script>
+=======
+</div>
+>>>>>>> 007b6a5adb83fae49a009ea481b256ea8c253b93

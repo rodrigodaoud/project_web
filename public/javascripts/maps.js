@@ -3,13 +3,15 @@
 // MAP INFO
 
 function main () {
-  // if (myPlaces = [])
+  if (!Array.isArray(myPlaces)) {
+    myPlaces = [myPlaces];
+  }
   const placeName = myPlaces;
 
   function initMap () {
     let myMarker;
     const mapOptions = {
-      zoom: 16,
+      zoom: 12,
       center: {
         lat: 41.3977381,
         lng: 2.190471916}
@@ -70,7 +72,7 @@ function main () {
           lat: myPlaces[i].address.coordinates[0],
           lng: myPlaces[i].address.coordinates[1]
         },
-        // --- icon: icon, place to change icon
+        icon: '../images/surf-img.png',
         map: map,
         label: myPlaces[i].type
       });

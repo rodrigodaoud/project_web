@@ -166,12 +166,12 @@ router.get('/:id', (req, res, next) => {
     return res.redirect('/');
   }
   const placeId = req.params.id;
-  Place.findById(placeId, (err, places) => {
+  Place.findById(placeId, (err, place) => {
     if (err) {
       return next(err);
     }
     let data = {
-      places: places,
+      places: place,
       showPlaces: false
     };
     res.render('place/more', data);

@@ -1,5 +1,3 @@
-
-
 /* ---- Reset ---- */
 
 html {
@@ -10,7 +8,7 @@ html {
 }
 body {
   margin: 140px 0 0 0;
-  background-color: #EEF0F2;
+  background-color: #353B3C;
 }
 
 /* ---- Typography ---- */
@@ -252,12 +250,15 @@ body {
 .background-filter{
   background-color: #353B3C;
 }
+.filter-bar{
+  background-color: #353B3C;
+}
 .filter-bar ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  padding: 10px;
+  padding: 0px 10px;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -265,10 +266,13 @@ body {
   font-size: 1em;
   padding: 10px;
   color: white;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background-color: transparent;
   outline: none;
   border: none;
+}
+.filter-bar button:focus{
+  background-color: #222725;
 }
 
 
@@ -277,12 +281,15 @@ body {
   padding: 5px;
   text-align: center;
   display: none;
-  margin-bottom: 5px;
-  border-bottom: 1px solid #A2999E;
+  margin-top: -20px;
+  margin-bottom: 25px;
+  background-color: #222725;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 3px;
 }
 .place-content{
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   flex-flow: row-reverse;
 }
@@ -291,6 +298,7 @@ body {
   margin-left: 10px;
   text-align: left;
   line-height: 150%;
+  color: white;
 }
 .place-info p{
   margin-top: 0;
@@ -305,7 +313,9 @@ body {
   margin-top: 5px;
 }
 .place-view{
-  font-size: 0.8em;
+  font-size: 1em;
+  border: none;
+  border-radius: 2px;
   background-color: #28a745;
   float: left;
   padding: 5px;
@@ -317,8 +327,9 @@ body {
 }
 .place-image img{
   border-radius: 3px;
-  width: 100px;
-  height: 100px;
+  box-shadow: 1px 1px 3px black;
+  width: 120px;
+  height: 120px;
 }
 .show{
   display: block;
@@ -354,33 +365,39 @@ margin-top: -10px;
 margin-top: -10px;
 }
 
+/* -- VIEW MORE PAGE -- */
+.detail-info h3{
+  font-family: 'Cabin', sans-serif;
+}
+
 /* -- THUMBNAIL SLIDER -- */
 .slider-ctn{
   margin-top: -40px;
 }
 .slider-single{
-width: 375px;
+  width: 375px;
   height: 250px;
   margin: 0;
   overflow: hidden;
   z-index: -1;
 }
 .item img{
-width: 100%;
-min-height: 100%;
+  width: 100%;
+  min-height: 100%;
 }
 .slider-nav{
-width: 100%;
+  width: 100%;
   height: 85px;
-}
+} 
 .slick-slider{
-  width: 90%;
+  width: 100%;
 }
 .slick-initialized{
   margin: auto;
+  margin-bottom: 10px;
 }
 .slider-nav .slick-track{
-height: 85px;
+  height: 85px;
 }
 
 /* CREATE PAGE */
@@ -443,7 +460,92 @@ height: 85px;
 }
 
 /* -- Media Query -- */
-@media only screen and (min-width : 769px){
+@media only screen and (min-width : 640px){
+
+  .nav-container{
+    border: none;
+  }
+  /* -- LOGIN PAGE -- */
+  .text-welcome{
+    margin-bottom: 120px;
+  }
+  .text-welcome h1{
+    font-size: 5em;
+  }
+  .user-login{
+    font-size: 2em;
+  }
+  .pass-login{
+    font-size: 2em;
+    margin-bottom: 50px;
+  }
+  #login-btn{
+    font-size: 2em;
+  }
+  .signup-login{
+    font-size: 2em;
+  }
+  .filter-bar button{
+    font-size: 1.5em;
+  }
+
+  /*-- PLACES PAGE --*/
+
+  .place-image img{
+    height: 200px;
+    width: 200px;
+    margin: 8px;
+  }
+  .place-info {
+    font-size: 1.2em;
+    font-family: 'Cabin', sans-serif;
+    line-height: 210%;
+  }
+  .place-info button{
+    font-family: 'Cabin', sans-serif;
+    font-size: 1em;
+  }
+  .show-all-places{
+    margin-top: 160px;
+  }
+  .img-surf,
+  .img-skate,
+  .img-snowboard {
+    width: 40px;
+    height: 40px;
+  }
+  .create-ctn{
+    margin-top: 40px;
+  }
+
+/* -- THUMBNAIL SLIDER -- */
+  .slider-ctn{
+    margin-top: -20px;
+  }
+  .slider-single{
+    height: 375px;
+    margin: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .item img{
+    width: 100%;
+    min-height: 100%;
+  }
+  .slider-nav{
+    width: 100%;
+    height: 100%;
+  }
+  .slick-slider{
+    width: 95%;
+  }
+  .slick-initialized{
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .slider-nav .slick-track{
+    height: 120px;
+  }
 
 }
 
@@ -465,6 +567,9 @@ height: 85px;
   .nav-border{
     border: none;
   }
+  .nav-bar{
+    margin-right: 40px;
+  }
   .nav-logo h2{
     font-size: 2em;
   }
@@ -472,8 +577,26 @@ height: 85px;
     width: 40px;
     height: 40px;
   }
+  .filter-bar{
+    position: fixed;
+    width: 240px;
+    background-color: #222725;
+  }
+  .filter-bar ul{
+    display: block;
+    height: 100vh;
+    text-align: left;
+  }
+  li button:hover{
+    background-color: rgb(28, 71, 29);
+    color: white;
+  }
   .filter-bar button{
     font-size: 1.5em;
+    color: white;
+  }
+  .filter-bar button:focus{
+    background-color: #4CAF50;
   }
 
   /* -- SIGN UP PAGE -- */
@@ -539,7 +662,6 @@ height: 85px;
   } 
 
 /*-- PLACES PAGE --*/
-
   .place-image img{
     height: 200px;
     width: 200px;
@@ -555,7 +677,8 @@ height: 85px;
     font-size: 1em;
   }
   .show-all-places{
-    margin-top: 180px;
+    margin-left: 200px;
+    padding: 0 40px;
   }
   .img-surf,
   .img-skate,
@@ -571,8 +694,8 @@ height: 85px;
 
 
 #map {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
 }
 
 /* div, nav{

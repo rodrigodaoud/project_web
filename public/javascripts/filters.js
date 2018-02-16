@@ -96,7 +96,10 @@ $('.slider-nav')
     }]
   });
 
-$('.slider-single').on('afterChange', function (event, slick, currentSlide) {
+  $('.slick-next').hide();
+  $('.slick-prev').hide();
+
+$('.slider-single').on('afterChange', function(event, slick, currentSlide) {
   $('.slider-nav').slick('slickGoTo', currentSlide);
   var currrentNavSlideElem = '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
   $('.slider-nav .slick-slide.is-active').removeClass('is-active');

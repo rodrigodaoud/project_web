@@ -1,19 +1,18 @@
-
 <div class="container">
 
-<div class="column small-11 small-centered slider-ctn">
-  <div class="slider slider-single">
-    <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
-  <% places.additionalPicture.forEach((picture) => { %>
-    <div class="item">
-      <img src="<%= picture.picPath %>" alt="" draggable="false"> 
-    </div>
-  <% }) %> 
-  </div>   
-
-  <div class="slider slider-nav">
+  <div class="column small-11 small-centered slider-ctn">
+    <div class="slider slider-single">
       <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
-    <% places.additionalPicture.forEach((picture) => { %>
+      <% places.additionalPicture.forEach((picture) => { %>
+      <div class="item">
+        <img src="<%= picture.picPath %>" alt="" draggable="false"> 
+      </div>
+      <% }) %> 
+    </div>
+
+    <div class="slider slider-nav">
+      <img class="detail-image" src="<%= places.displayPicture.picPath %>" alt="">
+      <% places.additionalPicture.forEach((picture) => { %>
       <div class="item">
         <img src="<%= picture.picPath %>" alt="" draggable="false"> 
       </div>
@@ -50,8 +49,6 @@
       
   </div>
   <div class="map-stuff">
-    <!-- <input type="text" id="inputTextAddress" style="width:200px" title="address to geocode">
-    <input type="button" onclick="codeAddress()" id="inputButtonGeocode" style="width:150px" title="Click to Geocode" value="Click to Geocode"> -->
     <div id="map"></div>
   </div>
   </div>
