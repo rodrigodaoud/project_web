@@ -35,13 +35,13 @@
         
         <% if (user._id == places.createdBy) { %>
         <form action="/places/<%= places.id %>/delete" method='post'>
-          <input type="submit" value="DELETE">
+          <input id="delete-btn" type="submit" value="DELETE">
         </form>
         <% } %>
 
 
       <form id="addPhoto" action="/places/<%= places.id %>" method="POST" enctype="multipart/form-data">
-        <h2 class="photo-upload-header">Upload your photo</h2>
+        <h2 class="photo-upload-header">Upload a new picture</h2>
         <input id="photo-upload-input" type="file" name="file">
     
         <button>Submit</button>

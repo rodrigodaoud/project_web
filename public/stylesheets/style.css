@@ -372,8 +372,22 @@ margin-top: -10px;
 }
 
 /* -- VIEW MORE PAGE -- */
-.detail-info h3{
+.detail-info{
+  color: white;
   font-family: 'Cabin', sans-serif;
+}
+#delete-btn{
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-family: 'Cabin', sans-serif;
+  font-size: 0.8em;
+  background-color: rgb(241, 63, 63);
+}
+.photo-upload-header{
+  color: white;
+  font-family: 'Cabin', sans-serif;
+  font-size: 1em;
 }
 
 /* -- THUMBNAIL SLIDER -- */
@@ -594,6 +608,12 @@ margin-top: -10px;
   .user-photo {
     width: 40px;
     height: 40px;
+  }
+  .user-menu{
+    width: 20%;
+    padding: 10px;
+    padding-top: 15px;
+    right: 65px;
   }
   .filter-bar{
     position: fixed;
